@@ -1,0 +1,27 @@
+<p>login works!</p>
+<div class="container-lg my-3">
+    <div class="row">
+        <div class="col">
+            <form class="row m-3 g-3 needs-validation" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="col-md-4 is-valid">
+                    <label for="validationCustom01" class="form-label" [ngClass]="{
+              'text-success':submitted && email?.valid,
+              'text-danger':submitted && email?.invalid
+              }">Email</label>
+                    <input type="text" class="form-control" id="validationCustom01" [ngClass]="{
+                'is-valid':submitted && email?.valid,
+                'is-invalid':submitted && email?.invalid
+                }" formControlName="email">
+                    <div class="invalid-feedback" *ngIf="submitted && email?.invalid">
+                        <div *ngIf="email?.getError('required')">Email is required</div>
+                        <div *ngIf="email?.getError('email')">Email must be a valid Email Address</div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-altdark" type="submit">Submit form</button>
+                    <!-- [disabled]="!accountForm.valid"  -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
