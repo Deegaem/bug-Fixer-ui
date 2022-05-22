@@ -3,6 +3,8 @@ import { BugsComponent } from './bugs/bugs.component';
 import { BugComponent } from './bug/bug.component';
 import { BugFormComponent } from './bug-form/bug-form.component';
 import { SharedModule } from '../shared/shared.module';
+import { BugsRoutingModule } from './bugs-routing.module';
+import { BugsRoutingComponent } from './bugs-routing.component';
 
 
 
@@ -10,11 +12,13 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     BugsComponent,
     BugComponent,
-    BugFormComponent
+    BugFormComponent,
+    BugsRoutingComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    BugsRoutingModule
   ],
-  exports: [BugsComponent]
+  exports: [BugsRoutingComponent]
 })
 export class BugsModule { }
