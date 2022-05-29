@@ -12,8 +12,6 @@
 $primary: #c29938;
 $light: #fbf5e5;
 
-// Create your own map
-
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -54,4 +52,18 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 body {
     background-color: yellowgreen;
+}
+
+.wrap {
+    border-radius: 10px;
+    width: 70%;
+    margin: 40px auto;
+    background-color: #fbf5e5;
+    padding: 12px 20px;
+    box-shadow: 5px 5px 10px 10px #9e977f;
+}
+@media (max-width: map-get($grid-breakpoints, md)) {
+    .wrap {
+        width: 90%;
+    }
 }

@@ -1,1 +1,15 @@
-<p>comment-form works!</p>
+<div class="container">
+    <div class="text-center mt-5">
+        <h2>Get in Touch</h2>
+        <p class="lead">Comment form</p>
+    </div>
+    <form class="row g-3 needs-validation" [formGroup]="commentForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="col-12">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

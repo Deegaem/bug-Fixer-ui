@@ -1,1 +1,97 @@
-<p>bug-form works!</p>
+<div class="container">
+    <div class="text-center mt-5">
+        <h2>Get in Touch</h2>
+        <p class="lead">Bug form</p>
+    </div>
+    <form class="row g-3 needs-validation" [formGroup]="bugForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="col-12 is-valid">
+            <label for="bugTitle" class="form-label" [ngClass]="{
+              'text-success':submitted && bugTitle?.valid,
+              'text-danger':submitted && bugTitle?.invalid
+              }">Bug Title</label>
+            <input type="text" class="form-control" id="bugTitle" [ngClass]="{
+                'is-valid':submitted && bugTitle?.valid,
+                'is-invalid':submitted && bugTitle?.invalid
+                }" formControlName="bugTitle">
+            <div class="invalid-feedback" *ngIf="submitted && bugTitle?.invalid">
+                <div *ngIf="bugTitle?.getError('required')">Bug Title is required</div>
+            </div>
+        </div>
+        <div class="col-12 is-valid">
+            <label for="description" class="form-label" [ngClass]="{
+                        'text-success':submitted && description?.valid,
+                        'text-danger':submitted && description?.invalid
+                        }">Description</label>
+            <textarea class="form-control" id="description" rows="3" [ngClass]="{
+                        'is-valid':submitted && description?.valid,
+                        'is-invalid':submitted && description?.invalid
+                        }" formControlName="description">></textarea>
+            <div class="invalid-feedback" *ngIf="submitted && description?.invalid">
+                <div *ngIf="description?.getError('required')">Description is required</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">State</label>
+            <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Priority</label>
+            <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="inputState" class="form-label">Severity</label>
+            <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-12 is-valid">
+            <label for="stepsToReproduce" class="form-label" [ngClass]="{
+                        'text-success':submitted && stepsToReproduce?.valid,
+                        'text-danger':submitted && stepsToReproduce?.invalid
+                        }">Steps To Reproduce</label>
+            <textarea class="form-control" id="stepsToReproduce" rows="3" [ngClass]="{
+                        'is-valid':submitted && stepsToReproduce?.valid,
+                        'is-invalid':submitted && stepsToReproduce?.invalid
+                        }" formControlName="stepsToReproduce">></textarea>
+            <div class="invalid-feedback" *ngIf="submitted && stepsToReproduce?.invalid">
+                <div *ngIf="stepsToReproduce?.getError('required')">Steps To Reproduce is required</div>
+            </div>
+        </div>
+        <div class="col-12 is-valid">
+            <label for="expectedAndActualResult" class="form-label" [ngClass]="{
+                        'text-success':submitted && expectedAndActualResult?.valid,
+                        'text-danger':submitted && expectedAndActualResult?.invalid
+                        }">Expected And Actual Result</label>
+            <textarea class="form-control" id="expectedAndActualResult" rows="3" [ngClass]="{
+                        'is-valid':submitted && expectedAndActualResult?.valid,
+                        'is-invalid':submitted && expectedAndActualResult?.invalid
+                        }" formControlName="expectedAndActualResult">></textarea>
+            <div class="invalid-feedback" *ngIf="submitted && expectedAndActualResult?.invalid">
+                <div *ngIf="expectedAndActualResult?.getError('required')">Expected And Actual Result is required</div>
+            </div>
+        </div>
+        <div class="col-12 is-valid">
+            <label for="screenShotUrl" class="form-label" [ngClass]="{
+              'text-success':submitted && screenShotUrl?.valid,
+              'text-danger':submitted && screenShotUrl?.invalid
+              }">Screen Shot Url</label>
+            <input type="text" class="form-control" id="screenShotUrl" [ngClass]="{
+                'is-valid':submitted && screenShotUrl?.valid,
+                'is-invalid':submitted && screenShotUrl?.invalid
+                }" formControlName="screenShotUrl">
+            <div class="invalid-feedback" *ngIf="submitted && screenShotUrl?.invalid">
+                <div *ngIf="screenShotUrl?.getError('required')">Screen Shot Url is required</div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

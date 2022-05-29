@@ -7,10 +7,12 @@ import { AccountsModule } from './accounts/accounts.module';
 import { BugsModule } from './bugs/bugs.module';
 import { CommentsModule } from './comments/comments.module';
 import { HomeModule } from './home/home.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
