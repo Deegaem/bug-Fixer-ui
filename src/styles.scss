@@ -51,14 +51,14 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"; // 6. Add additional custom code here
 
 body {
-    background-color: yellowgreen;
+    background-color: rgba(191, 192, 185, 0.877);
 }
 
 .wrap {
     border-radius: 10px;
     width: 70%;
-    margin: 40px auto;
-    background-color: #fbf5e5;
+    margin-top: 20px;
+    background-color: #eeeae0;
     padding: 12px 20px;
     box-shadow: 5px 5px 10px 10px #9e977f;
 }
