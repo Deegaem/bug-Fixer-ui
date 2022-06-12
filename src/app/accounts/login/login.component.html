@@ -4,7 +4,7 @@
         <p class="lead">login form</p>
     </div>
     <form class="row g-3 needs-validation" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
-        <div class="col-md-6 is-valid">
+        <div class="col-8 is-valid">
             <label for="username" class="form-label" [ngClass]="{
               'text-success':submitted && username?.valid,
               'text-danger':submitted && username?.invalid
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 is-valid">
+        <div class="col-8 is-valid">
             <label for="password" class="form-label" [ngClass]="{
               'text-success':submitted && password?.valid,
               'text-danger':submitted && password?.invalid

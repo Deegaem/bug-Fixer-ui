@@ -14,7 +14,11 @@ export class AccountsService {
             .pipe(map((resp: Account[]) => { return resp })
             );
     }
-
+    public getAccount(account_id: number): Observable<Account> {
+        return this.http.get<Account>(`http://localhost:8080/accounts/${account_id}`)
+            .pipe(map((resp: Account) => { return resp })
+            );
+    }
     public addAccount(account_id: number, account: Account): Observable<Account> {
         return this.http.post<Account>(`http://localhost:8080/accounts/${account_id}`, account)
             .pipe(map((resp: Account) => { return resp })
