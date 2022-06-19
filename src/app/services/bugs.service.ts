@@ -15,8 +15,8 @@ export class BugsService {
             );
     }
 
-    public addBug(bug_id: number, bug: Bug): Observable<Bug> {
-        return this.http.post<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug)
+    public addBug(bug: Bug): Observable<Bug> {
+        return this.http.post<Bug>(`http://localhost:8080/bugs`, bug)
             .pipe(map((resp: Bug) => { return resp })
             );
     }

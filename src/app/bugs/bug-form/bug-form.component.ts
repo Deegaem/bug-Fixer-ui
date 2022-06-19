@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BugsService } from 'src/app/services/bugs.service';
 
 @Component({
   selector: 'app-bug-form',
@@ -11,7 +13,7 @@ export class BugFormComponent implements OnInit {
   public bugForm!: FormGroup;
   public submitted = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private bugsService: BugsService, private router: Router) { }
 
   ngOnInit(): void {
     this.bugForm = this.fb.group({
@@ -36,11 +38,13 @@ export class BugFormComponent implements OnInit {
   get stepsToReproduce() { return this.bugForm.get('stepsToReproduce'); }
   get expectedAndActualResult() { return this.bugForm.get('expectedAndActualResult'); }
   get screenShotUrl() { return this.bugForm.get('screenShotUrl'); }
+
   onSubmit() {
     this.submitted = true;
-    if (this.bugForm.invalid) {
-      return
+    if (!this.bugForm.invalid) {
+      this.bugsService.addBug(this.bugForm.value).subscribe(res => {
+        this.router.navigate(['bugs']);
+      });
     }
-
   }
 }

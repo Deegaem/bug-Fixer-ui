@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AccountsService } from 'src/app/services/accounts.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,7 @@ export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
   public submitted = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -31,10 +33,13 @@ export class RegisterComponent implements OnInit {
   get email() { return this.registerForm.get('email'); }
   get password() { return this.registerForm.get('password'); }
   get confirmpassword() { return this.registerForm.get('confirmpassword'); }
+
   onSubmit() {
     this.submitted = true;
-    if (this.registerForm.invalid) {
-      return
+    if (!this.registerForm.invalid) {
+      this.accountsService.addAccount(this.registerForm.value).subscribe(res => {
+        this.router.navigate(['login']);
+      });
     }
   }
 

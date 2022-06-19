@@ -17,13 +17,13 @@ export class CommentsService {
       );
   }
 
-  public addComment(comment_id: number, bug_id: number, comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`http://localhost:8080/comments/${bug_id}/${comment_id}`, comment)
+  public addComment(bug_id: number, comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`http://localhost:8080/comments/${bug_id}`, comment)
       .pipe(map((resp: Comment) => { return resp })
       );
   }
 
-  public updateComment(comment_id: number, bug_id: number, comment: Comment): Observable<Comment> {
+  public updateComment(bug_id: number, comment_id: number, comment: Comment): Observable<Comment> {
     return this.http.put<Comment>(`http://localhost:8080/comments/${bug_id}/${comment_id}`, comment)
       .pipe(map((resp: Comment) => { return resp })
       );

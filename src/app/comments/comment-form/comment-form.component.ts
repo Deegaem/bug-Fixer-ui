@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -11,7 +13,7 @@ export class CommentFormComponent implements OnInit {
   public commentForm!: FormGroup;
   public submitted = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit(): void {
     this.commentForm = this.fb.group({
@@ -24,12 +26,13 @@ export class CommentFormComponent implements OnInit {
   get text() { return this.commentForm.get('text'); }
   get byaccount() { return this.commentForm.get('byaccount'); }
   get forbug() { return this.commentForm.get('forbug'); }
-  
-  onSubmit() {
+
+  onSubmit(bug_id: number) {
     this.submitted = true;
-    if (this.commentForm.invalid) {
-      return
-    }
+    if (!this.commentForm.invalid) {
+      this.commentsService.addComment(bug_id, this.commentForm.value).subscribe(res => {
+        this.router.navigate(['bugs']);
+      }
   }
 
-}
+  }
