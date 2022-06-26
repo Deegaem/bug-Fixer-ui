@@ -27,12 +27,15 @@ export class CommentFormComponent implements OnInit {
   get byaccount() { return this.commentForm.get('byaccount'); }
   get forbug() { return this.commentForm.get('forbug'); }
 
-  onSubmit(bug_id: number) {
+  onSubmit(account_id: number, bug_id: number) {
+    // toDo account_id bug_id
     this.submitted = true;
     if (!this.commentForm.invalid) {
       this.commentsService.addComment(bug_id, this.commentForm.value).subscribe(res => {
-        this.router.navigate(['bugs']);
+        this.router.navigate(['comments/account_id/bugs_id']);
       }
-  }
+      )
+    }
 
   }
+}
