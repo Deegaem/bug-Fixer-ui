@@ -21,7 +21,8 @@ export class BugsComponent implements OnInit {
     this.bugsService.getBugs().subscribe((bugs: Bug[]) => {
       this.bugs = bugs;
       console.log("bugs: ", bugs)
-    });
+    }
+    );
   }
   createbug() {
     this.router.navigate(['bugs/bug-form']);
