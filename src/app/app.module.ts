@@ -8,6 +8,7 @@ import { BugsModule } from './bugs/bugs.module';
 import { CommentsModule } from './comments/comments.module';
 import { HomeModule } from './home/home.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AlertifyService } from './services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CommentsModule,
     HomeModule
   ],
-  providers: [],
+  providers: [AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
