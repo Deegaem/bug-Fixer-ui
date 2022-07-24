@@ -5,7 +5,9 @@ import { Observable, of } from 'rxjs';
 import { map } from "rxjs/operators";
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AccountsService {
 
     constructor(private http: HttpClient) { }

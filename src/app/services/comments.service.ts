@@ -6,7 +6,9 @@ import { map } from "rxjs/operators";
 import { catchError } from 'rxjs/operators';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CommentsService {
 
   constructor(private http: HttpClient) { }

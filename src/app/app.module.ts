@@ -24,7 +24,7 @@ import { AlertifyService } from './services/alertify.service';
     CommentsModule,
     HomeModule
   ],
-  providers: [AlertifyService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

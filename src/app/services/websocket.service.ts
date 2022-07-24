@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class WebsocketService {
 
     constructor() { }

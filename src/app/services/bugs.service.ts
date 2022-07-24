@@ -4,7 +4,9 @@ import { Bug } from '../Domain-Models/bug';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class BugsService {
 
     constructor(private http: HttpClient) { }
