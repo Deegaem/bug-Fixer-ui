@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Account } from '../Domain-Models/account';
 import { Observable, of } from 'rxjs';
 import { map } from "rxjs/operators";
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,7 @@ export class AccountsService {
     constructor(private http: HttpClient) { }
     public getAccounts(): Observable<Account[]> {
         return this.http.get<Account[]>(`http://localhost:8080/accounts`)
-            .pipe(catchError((error) => this.handleError(error))
+            .pipe(map((resp: Account[]) => { return resp })
             );
     }
     public getAccount(account_id: number): Observable<Account> {

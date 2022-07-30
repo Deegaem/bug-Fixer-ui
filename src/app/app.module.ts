@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,9 @@ import { CommentsModule } from './comments/comments.module';
 import { HomeModule } from './home/home.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AlertifyService } from './services/alertify.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttperorInterceptor } from './services/httperor.interceptor';
+//import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,12 @@ import { AlertifyService } from './services/alertify.service';
     CommentsModule,
     HomeModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttperorInterceptor,
+    multi: true
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

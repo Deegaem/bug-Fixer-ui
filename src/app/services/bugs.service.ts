@@ -11,32 +11,19 @@ export class BugsService {
 
     constructor(private http: HttpClient) { }
     public getBugs(): Observable<Bug[]> {
-        return this.http.get<Bug[]>(`http://localhost:8080/bugs`)
-            .pipe(catchError((error) => this.handleError(error))
-            );
+        return this.http.get<Bug[]>(`http://localhost:8080/bugs`);
     }
 
     public addBug(bug: Bug): Observable<Bug> {
-        return this.http.post<Bug>(`http://localhost:8080/bugs`, bug)
-            .pipe(catchError((error) => this.handleError(error))
-            );
+        return this.http.post<Bug>(`http://localhost:8080/bugs`, bug);
     }
 
     public updateBug(bug_id: number, bug: Bug): Observable<Bug> {
-        return this.http.put<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug)
-            .pipe(catchError((error) => this.handleError(error))
-            );
+        return this.http.put<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug);
     }
 
     public removeBug(bug_id: number): Observable<{}> {
-        return this.http.delete(`http://localhost:8080/bugs/${bug_id}`)
-            .pipe(catchError((error) => this.handleError(error))
-            );
-    }
-    private handleError(error: Response): Observable<any> {
-        console.error('AccountsService::handleError', error);
-        return of();
-
+        return this.http.delete(`http://localhost:8080/bugs/${bug_id}`);
     }
 
 }
