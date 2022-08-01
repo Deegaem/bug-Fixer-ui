@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperorInterceptor } from './services/httperor.interceptor';
+import { GlobalErrorHandler } from './services/GlobalErrorHandler';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
@@ -27,7 +28,7 @@ import { HttperorInterceptor } from './services/httperor.interceptor';
     CommentsModule,
     HomeModule
   ],
-  providers: [{
+  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,
     useClass: HttperorInterceptor,
     multi: true

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bug-fixer-ui';
+
+  normalError(): never {
+    throw new Error('Something went wrong');
+  }
 }

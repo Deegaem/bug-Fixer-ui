@@ -16,23 +16,18 @@ export class HttperorInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(
-    request: HttpRequest<any>,
+    req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(request)
+    return next.handle(req)
       .pipe(
         retry(1),
         catchError((error: HttpErrorResponse) => {
-          let errorMessage = '';
-          if (error.error instanceof ErrorEvent) {
-            // client-side error
-            errorMessage = `Error: ${error.error.message}`;
-          } else {
-            // server-side error
-            errorMessage = `Error Status: ${error.status}\nMessage: ${error.message}`;
+          if (error.status === 401) {
+            //client-side error
           }
-          console.log(errorMessage);
-          return throwError(() => new Error(errorMessage));
+          console.log("Interceptor error: ", error);
+          return throwError(() => error);
         })
       )
   }

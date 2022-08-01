@@ -33,11 +33,6 @@ export class AccountsService {
     }
 
     public removeAccount(account_id: number): Observable<{}> {
-        return this.http.delete(`http://localhost:8080/accounts/${account_id}`)
-    }
-    private handleError(error: Response | any) {
-        console.error('AccountsService::handleError', error);
-        return of([]);
-
+        return this.http.delete(`http://localhost:8080/accounts/${account_id}`);
     }
 }
