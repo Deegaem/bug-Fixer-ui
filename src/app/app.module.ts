@@ -7,7 +7,6 @@ import { AccountsModule } from './accounts/accounts.module';
 import { BugsModule } from './bugs/bugs.module';
 import { CommentsModule } from './comments/comments.module';
 import { HomeModule } from './home/home.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperorInterceptor } from './services/httperor.interceptor';
@@ -17,7 +16,6 @@ import { GlobalErrorHandler } from './services/GlobalErrorHandler';
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
