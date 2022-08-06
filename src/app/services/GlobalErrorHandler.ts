@@ -20,7 +20,8 @@ export class GlobalErrorHandler implements ErrorHandler {
       }
 
     } else {
-      errorMessage = `An Unexpected error has occurred: ${error}`;
+      // errorMessage = `An Unexpected error has occurred: ${error}`;
+      errorMessage = `An Unexpected error has occurred `;
       alertifyjs.error(errorMessage);
     }
 

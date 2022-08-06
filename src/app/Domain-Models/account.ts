@@ -1,8 +1,8 @@
-export interface Account {
+export class Account {
     account_id?: Number;
-    fname: String;
-    lname: String;
-    email: String;
-    username: String;
-    password: String;
+    fname?: String;
+    lname?: String;
+    email?: String;
+    username?: String;
+    password?: String;
 }
