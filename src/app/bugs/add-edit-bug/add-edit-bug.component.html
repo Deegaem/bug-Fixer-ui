@@ -3,7 +3,7 @@
         <h2>Get in Touch</h2>
         <p class="lead">Bug form</p>
     </div>
-    <form class="row g-3 needs-validation" [formGroup]="bugForm" novalidate (ngSubmit)="onSubmit()">
+    <form class="row g-3 needs-validation" [formGroup]="addEditBugForm" novalidate (ngSubmit)="onSubmit()">
         <div class="col-12 is-valid">
             <label for="bugTitle" class="form-label" [ngClass]="{
               'text-success':submitted && bugTitle?.valid,

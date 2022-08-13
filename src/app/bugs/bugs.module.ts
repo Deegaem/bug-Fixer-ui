@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BugsComponent } from './bugs/bugs.component';
 import { BugComponent } from './bug/bug.component';
-import { BugFormComponent } from './bug-form/bug-form.component';
 import { SharedModule } from '../shared/shared.module';
 import { BugsRoutingModule } from './bugs-routing.module';
 import { BugsRoutingComponent } from './bugs-routing.component';
+import { AddEditBugComponent } from './add-edit-bug/add-edit-bug.component';
 
 
 
@@ -12,8 +12,8 @@ import { BugsRoutingComponent } from './bugs-routing.component';
   declarations: [
     BugsComponent,
     BugComponent,
-    BugFormComponent,
-    BugsRoutingComponent
+    BugsRoutingComponent,
+    AddEditBugComponent
   ],
   imports: [
     SharedModule,
