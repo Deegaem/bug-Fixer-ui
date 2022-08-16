@@ -27,15 +27,13 @@ export class AddEditCommentComponent implements OnInit {
     this.isAddMode = !this.comment_id;
 
     this.addEditCommentForm = this.fb.group({
-      text: ['', [Validators.required]],
+      comment: ['', [Validators.required]],
       byaccount: ['', [Validators.required]],
       forbug: ['', [Validators.required]]
     });
 
   }
-  get text() { return this.addEditCommentForm.get('text'); }
-  get byaccount() { return this.addEditCommentForm.get('byaccount'); }
-  get forbug() { return this.addEditCommentForm.get('forbug'); }
+  get comment() { return this.addEditCommentForm.get('comment'); }
 
   onSubmit() {
     this.submitted = true;
