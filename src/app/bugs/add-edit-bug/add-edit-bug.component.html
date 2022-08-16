@@ -1,7 +1,7 @@
 <div class="container">
     <div class="text-center mt-5">
-        <h2>Get in Touch</h2>
-        <p class="lead">Bug form</p>
+        <h1 *ngIf="isAddMode">Add Bug</h1>
+        <h1 *ngIf="!isAddMode">Edit Bug</h1>
     </div>
     <form class="row g-3 needs-validation" [formGroup]="addEditBugForm" novalidate (ngSubmit)="onSubmit()">
         <div class="col-12 is-valid">

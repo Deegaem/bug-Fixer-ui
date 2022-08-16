@@ -25,15 +25,15 @@ export class LoginComponent implements OnInit {
   get password() { return this.loginForm.get('password'); }
 
 
-  /*   onSubmit() {
-      this.submitted = true;
-      if (this.loginForm.invalid) {
-        this.authService.login(
-          new Credential(this.loginForm.value.username, this.loginForm.value.password)
-          //ToDo have to check why Credential couldn't be an interface
-        );
-      }
-      //alert("Success");
-    } */
+  onSubmit() {
+    /*  this.submitted = true;
+     if (this.loginForm.invalid) {
+       this.authService.login(
+         new Credential(this.loginForm.value.username, this.loginForm.value.password)
+         //ToDo have to check why Credential couldn't be an interface
+       );
+     }
+     //alert("Success"); */
+  }
 
 }

@@ -60,5 +60,9 @@ export class AddEditBugComponent implements OnInit {
       this.router.navigate(['bugs']);
     });
   }
-  private updateBug() { }
+  private updateBug() {
+    this.bugsService.updateBug(this.id, this.addEditBugForm.value).subscribe(res => {
+      this.router.navigate(['bugs']);
+    });
+  }
 }

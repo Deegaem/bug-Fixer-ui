@@ -11,7 +11,8 @@ import { CommentsService } from 'src/app/services/comments.service';
 export class AddEditCommentComponent implements OnInit {
 
   addEditCommentForm!: FormGroup;
-  id!: number;
+  bug_id!: number;
+  comment_id!: number;
   isAddMode!: boolean;
   submitted = false;
 
@@ -20,9 +21,10 @@ export class AddEditCommentComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe((params: Params) => {
-      this.id = + params['id'];
+      this.bug_id = + params['bug_id'];
+      this.comment_id = + params['comment_id'];
     });
-    this.isAddMode = !this.id;
+    this.isAddMode = !this.comment_id;
 
     this.addEditCommentForm = this.fb.group({
       text: ['', [Validators.required]],
@@ -46,9 +48,13 @@ export class AddEditCommentComponent implements OnInit {
     }
   }
   private addComment() {
-    this.commentsService.addComment(this.id, this.addEditCommentForm.value).subscribe(res => {
+    this.commentsService.addComment(this.bug_id, this.addEditCommentForm.value).subscribe(res => {
       this.router.navigate(['comments']);
     });
   }
-  private updateComment() { }
+  private updateComment() {
+    this.commentsService.updateComment(this.bug_id, this.comment_id, this.addEditCommentForm.value).subscribe(res => {
+      this.router.navigate(['comments']);
+    });
+  }
 }
