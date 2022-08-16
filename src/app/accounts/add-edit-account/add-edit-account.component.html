@@ -1,9 +1,9 @@
 <div class="container mt-20">
-    <div class="text-center mt-3">
-        <h2>Get in Touch</h2>
-        <p class="lead">Register form</p>
+    <div class="text-center mt-5">
+        <h1 *ngIf="isAddMode">Add Account</h1>
+        <h1 *ngIf="!isAddMode">Edit Account</h1>
     </div>
-    <form class="row g-3 needs-validation" [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+    <form class="row g-3 needs-validation" [formGroup]="addEditAccountform" novalidate (ngSubmit)="onSubmit()">
         <div class="col-md-6 mb-3 is-valid">
             <label for="fname" class="form-label" [ngClass]="{
               'text-success':submitted && fname?.valid,
