@@ -8,6 +8,7 @@ import { AccountsService } from 'src/app/services/accounts.service';
   templateUrl: './add-edit-account.component.html',
   styleUrls: ['./add-edit-account.component.scss']
 })
+
 export class AddEditAccountComponent implements OnInit {
 
 

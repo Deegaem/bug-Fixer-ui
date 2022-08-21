@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountsRoutingComponent } from './accounts-routing.component';
+import { AddEditAccountComponent } from './add-edit-account/add-edit-account.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
     path: 'accounts-routing', component: AccountsRoutingComponent,
     children: [
+      { path: '', redirectTo: 'AccountsRoutingComponent', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
+      { path: 'add', component: AddEditAccountComponent },
+      { path: 'edit/:id', component: AddEditAccountComponent },
+      { path: '**', redirectTo: 'AccountsRoutingComponent', pathMatch: 'full' }
     ]
   }]
 @NgModule({
