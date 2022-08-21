@@ -10,8 +10,8 @@ import { CommentsModule } from './comments/comments.module';
 import { HomeModule } from './home/home.module';
 import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttperorInterceptor } from './services/httperor.interceptor';
-import { GlobalErrorHandler } from './services/GlobalErrorHandler';
+import { HttperrorInterceptor } from './services/Global Error Handling/httperror interceptor/httperror.interceptor';
+import { GlobalErrorHandler } from './services/Global Error Handling/GlobalErrorHandler';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
@@ -30,7 +30,7 @@ import { GlobalErrorHandler } from './services/GlobalErrorHandler';
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,
-    useClass: HttperorInterceptor,
+    useClass: HttperrorInterceptor,
     multi: true
   },
   ],

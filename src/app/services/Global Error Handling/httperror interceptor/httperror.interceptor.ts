@@ -11,7 +11,7 @@ import { catchError, Observable, throwError, retry } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class HttperorInterceptor implements HttpInterceptor {
+export class HttperrorInterceptor implements HttpInterceptor {
 
   constructor() { }
 
