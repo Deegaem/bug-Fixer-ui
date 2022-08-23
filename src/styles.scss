@@ -9,8 +9,8 @@
 // 2. Include any default variable overrides here
 
 //custom variables
-$primary: #4e4531e7;
-$light: #fbf5e5;
+/* $primary: #4e4531e7;
+$light: #fbf5e5; */
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -53,16 +53,16 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
 
 body {
-    background-color: rgba(191, 192, 185, 0.877);
+    background-color: rgba(252, 253, 245, 0.973);
 }
 
 .wrap {
-    border-radius: 10px;
-    width: 70%;
+    //border-radius: 10px;
+    width: 90%;
     margin-top: 20px;
-    background-color: #fffb0062;
+    background-color: #e9e8cbf5;
     padding: 12px 20px;
-    box-shadow: 5px 5px 10px 10px #9e977f;
+    // box-shadow: 5px 5px 10px 10px #9e977f;
 }
 @media (max-width: map-get($grid-breakpoints, md)) {
     .wrap {

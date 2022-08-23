@@ -14,27 +14,37 @@ import { Observable } from 'rxjs';
 })
 export class BugsComponent implements OnInit {
   bugs: Bug[] = [];
+  test: any[] = [{ "name": "John", "age": 30 },
+  { "name": "John", "age": 30 },
+  { "name": "John", "age": 30 },
+  { "name": "John", "age": 30 },
+  { "name": "John", "age": 30 }
+  ]
   account!: Account;
   constructor(private bugsService: BugsService, private accountsService: AccountsService, private router: Router,) { }
 
   ngOnInit(): void {
-    this.bugsService.getBugs().subscribe((bugs: Bug[]) => {
-      this.bugs = bugs;
-      console.log("bugs: ", bugs)
-    }
-    );
+    /*   this.bugsService.getBugs().subscribe((bugs: Bug[]) => {
+        this.bugs = bugs;
+        console.log("bugs: ", bugs)
+      }
+      ); */
   }
   createbug() {
-    this.router.navigate(['bugs/bug-form']);
+    this.router.navigate(['bugs-routing/add']);
   }
 
   editBug(bug: Bug) {
-    this.router.navigate(['bus/bug-form', bug.bug_id]);
+    this.router.navigate(['bugs-routing/edit', bug.bug_id]);
   }
 
   removeBug(bug_id: number) {
     this.bugsService.removeBug(bug_id).subscribe(() => {
     });
+  }
+
+  bugDetails() {
+    this.router.navigate(['bugs/bug-form']);
   }
 
   showAccountInfo(account_id: number) {
