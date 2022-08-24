@@ -34,19 +34,6 @@ export class BugsComponent implements OnInit {
     this.router.navigate(['bugs-routing/add']);
   }
 
-  editBug(bug: Bug) {
-    this.router.navigate(['bugs-routing/edit', bug.bug_id]);
-  }
-
-  removeBug(bug_id: number) {
-    this.bugsService.removeBug(bug_id).subscribe(() => {
-    });
-  }
-
-  bugDetails() {
-    this.router.navigate(['bugs/bug-form']);
-  }
-
   showAccountInfo(account_id: number) {
     this.accountsService.getAccount(account_id).subscribe((account: Account) => {
       this.account = account;

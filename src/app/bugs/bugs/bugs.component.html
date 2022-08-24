@@ -5,17 +5,7 @@
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 g-4">
         <div *ngFor="let issue of test">
-            <div class="card border-0">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{issue.name}}</li>
-                    <li class="list-group-item">{{issue.age}}</li>
-                </ul>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-outline-success" (click)="bugDetails()">Details</button>
-                    <button type="button" class="btn btn-outline-primary">Edit</button>
-                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                </div>
-            </div>
+            <app-bug [data]="issue"></app-bug>
         </div>
     </div>
 </div>
