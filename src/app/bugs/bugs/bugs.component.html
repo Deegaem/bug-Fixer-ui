@@ -1,11 +1,13 @@
-<div class="container">
-    <div class="text-center mt-5">
-        <h2>Bugs List</h2>
-        <p class="lead"></p>
-    </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 g-4">
-        <div *ngFor="let issue of test">
-            <app-bug [data]="issue"></app-bug>
+<section class="bg-light mt-5">
+    <div class="container-lg">
+        <div class="text-center mt-5">
+            <h2>Bugs List</h2>
+            <p class="lead"></p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4 g-4">
+            <div *ngFor="let issue of test">
+                <app-bug [data]="issue"></app-bug>
+            </div>
         </div>
     </div>
-</div>
+</section>
