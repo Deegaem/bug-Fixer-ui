@@ -25,7 +25,7 @@ export class BugComponent implements OnInit {
   }
 
   bugDetails() {
-    this.router.navigate(['bugs/bug-form']);
+    this.router.navigate(['bugs-routing/details']);
   }
 
 }
