@@ -9,6 +9,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class BugsService {
 
+    private _bug!: Bug;
+
     constructor(private http: HttpClient) { }
     public getBugs(): Observable<Bug[]> {
         return this.http.get<Bug[]>(`http://localhost:8080/bugs`);
@@ -25,5 +27,10 @@ export class BugsService {
     public removeBug(bug_id: number): Observable<{}> {
         return this.http.delete(`http://localhost:8080/bugs/${bug_id}`);
     }
-
+    public _getbug(): Bug {
+        return this._bug;
+    }
+    public _setbug(value: Bug) {
+        this._bug = value;
+    }
 }

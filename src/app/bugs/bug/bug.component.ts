@@ -9,7 +9,7 @@ import { Bug } from '../../Domain-Models/bug';
   styleUrls: ['./bug.component.scss']
 })
 export class BugComponent implements OnInit {
-  @Input() data: any;
+  @Input() bug: any;
   constructor(private bugsService: BugsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +25,7 @@ export class BugComponent implements OnInit {
   }
 
   bugDetails() {
+    this.bugsService._setbug(this.bug);
     this.router.navigate(['bugs-routing/details']);
   }
 
