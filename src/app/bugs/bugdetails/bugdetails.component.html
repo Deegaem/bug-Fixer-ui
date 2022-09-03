@@ -1,11 +1,11 @@
 <section class="bg-light mt-5">
     <div class="container-lg">
         <div class="text-center mt-5">
-            <h2>bugTitle Details</h2>
+            <h2 class="text-muted">bugTitle Details</h2>
             <p class="lead"></p>
         </div>
-        <div class="row">
-            <div class="accordion" id="accordionSection">
+        <div class="row justify-content-center">
+            <div class="accordion col-sm-10" id="accordionSection">
                 <div class="accordion-item mb-3">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -45,21 +45,21 @@
                             <code>.accordion-body</code>, though the transition does limit overflow.
                             <br>
                             <br>
-                            <strong>StepsToReproduce.</strong> It is hidden by default, until
-                            the collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
-                            <br>
-                            <br>
                             <strong>ExpectedAndActualResult.</strong> It is hidden by default, until
                             the collapse plugin adds the appropriate classes that we use to style each element. These
                             classes control the overall appearance, as well as the showing and hiding via CSS
                             transitions. You can modify any of this with custom CSS or overriding our default variables.
                             It's also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
-
+                            <br>
+                            <br>
+                            <strong>StepsToReproduce.</strong>
+                            <ol class="list-group list-group">
+                                <li class="list-group-item text-muted">Bug Life Cycle: </li>
+                                <li class="list-group-item text-muted">Priority: </li>
+                                <li class="list-group-item text-muted">Severity: </li>
+                                <li class="list-group-item text-muted">AssignTo: </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
