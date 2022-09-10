@@ -6,6 +6,7 @@ import { BugsRoutingModule } from './bugs-routing.module';
 import { BugsRoutingComponent } from './bugs-routing.component';
 import { AddEditBugComponent } from './add-edit-bug/add-edit-bug.component';
 import { BugdetailsComponent } from './bugdetails/bugdetails.component';
+import { BugScreenShotComponent } from './bug-screen-shot/bug-screen-shot.component';
 
 
 
@@ -15,7 +16,8 @@ import { BugdetailsComponent } from './bugdetails/bugdetails.component';
     BugComponent,
     BugsRoutingComponent,
     AddEditBugComponent,
-    BugdetailsComponent
+    BugdetailsComponent,
+    BugScreenShotComponent
   ],
   imports: [
     SharedModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BugsService } from 'src/app/services/bugs.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { BugsService } from 'src/app/services/bugs.service';
 export class BugdetailsComponent implements OnInit {
 
   bug: any;
-  constructor(private bugsService: BugsService) { }
+  constructor(private bugsService: BugsService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.bugsService._getbug()) {
       this.bug = this.bugsService._getbug();
     }
+  }
+  bugScreenShot() {
+    this.router.navigate(['bugs-routing/bug-screen-shot']);
   }
 
 }

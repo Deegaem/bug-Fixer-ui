@@ -84,21 +84,6 @@
                 <div class="accordion-item mb-3">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
-                            ScreenShot
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingThree">
-                        <div class="accordion-body">
-                            <img src="..." class="img-fluid" alt="...">
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item mb-3">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseThree">
                             Comments
@@ -114,6 +99,18 @@
                                 <li class="list-group-item text-muted">AssignTo: </li>
                             </ol>
                         </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree" (click)="bugScreenShot()">
+                            Go to Bug Screen Shot
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree">
                     </div>
                 </div>
             </div>

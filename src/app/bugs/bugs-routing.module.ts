@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEditBugComponent } from './add-edit-bug/add-edit-bug.component';
+import { BugScreenShotComponent } from './bug-screen-shot/bug-screen-shot.component';
 import { BugComponent } from './bug/bug.component';
 import { BugdetailsComponent } from './bugdetails/bugdetails.component';
 import { BugsRoutingComponent } from './bugs-routing.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'details', component: BugdetailsComponent },
       { path: 'add', component: AddEditBugComponent },
       { path: 'edit/:id', component: AddEditBugComponent },
+      { path: 'bug-screen-shot', component: BugScreenShotComponent },
       { path: '**', redirectTo: 'BugsComponent', pathMatch: 'full' }
     ]
   }]
