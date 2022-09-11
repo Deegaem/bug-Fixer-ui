@@ -17,6 +17,7 @@ import { AddEditCommentComponent } from './add-edit-comment/add-edit-comment.com
   imports: [
     SharedModule,
     CommentsRoutingModule
-  ], exports: [CommentsRoutingComponent]
+  ], exports: [CommentsRoutingComponent, CommentsComponent,
+    CommentComponent]
 })
 export class CommentsModule { }

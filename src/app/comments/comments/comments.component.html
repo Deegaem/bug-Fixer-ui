@@ -1,1 +1,5 @@
-<p>comments works!</p>
+<ol class="list-group list-group">
+    <li class="list-group-item text-muted mb-3 " *ngFor="let comment of commentstest">
+        <app-comment [comment]="comment"></app-comment>
+    </li>
+</ol>
