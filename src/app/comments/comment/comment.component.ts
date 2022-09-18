@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +8,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
   @Input() comment: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  edit() {
+    this.router.navigate(['bugs-routing/edit']);
+  }
+
+  remove() {
+
+  }
+
+  reply() {
+
+    this.router.navigate(['bugs-routing/details']);
   }
 
 }
