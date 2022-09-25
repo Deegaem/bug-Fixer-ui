@@ -1,7 +1,11 @@
 <ol class="list-group list-group">
-    <li><button type="button" class="btn btn-secondary mb-3 float-end">add
-            Comment</button></li>
+    <app-add-edit-comment></app-add-edit-comment>
     <li class="list-group-item text-muted mb-3 " *ngFor="let comment of commentstest">
-        <app-comment [comment]="comment"></app-comment>
+        test<app-comment [comment]="comment"></app-comment>
+        <ul *ngIf="filteredIComments">
+            <li class="list-group-item text-muted mb-3 " *ngFor="let comment of filteredIComments">test2
+                <app-comment [comment]="comment"></app-comment>
+            </li>
+        </ul>
     </li>
 </ol>

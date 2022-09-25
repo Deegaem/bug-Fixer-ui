@@ -14,17 +14,19 @@ import { Observable } from 'rxjs';
 export class CommentsComponent implements OnInit {
 
   comments: Comment[] = [];
+  filteredIComments: any[] = [];
   commentstest: any[] = [{ "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
-  { "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
-  { "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
-  { "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
-  { "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" }
+  { "comment_id": 1, "parent_id": 1, "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
+  { "comment_id": 2, "parent_id": 2, "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
+  { "comment_id": 2, "parent_id": 2, "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" },
+  { "comment_id": 1, "parent_id": 1, "account": "John", "comment_text": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et" }
   ]
   account!: Account;
   bug_id!: number;
   constructor(private commentsService: CommentsService, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.filterComments(1);
     // todo join observables
     /*  this.route.params.subscribe((params: Params) => {
        this.bug_id = + params['id'];
@@ -45,6 +47,11 @@ export class CommentsComponent implements OnInit {
   removeComment(bug_id: number, comment_id: number) {
     this.commentsService.removeComment(bug_id, comment_id).subscribe(() => {
     });
+  }
+  filterComments(comment_id: number) {
+    this.filteredIComments = this.commentstest.filter((item) => {
+      return item.parent_id == comment_id;
+    })
   }
 
   showAccountInfo(account_id: number) {
