@@ -1,11 +1,11 @@
 <ol class="list-group list-group">
     <app-add-edit-comment></app-add-edit-comment>
-    <li class="list-group-item text-muted mb-3 " *ngFor="let comment of commentstest">
+    <li class="list-group-item text-muted mb-3 " *ngFor="let comment of comments">
         test<app-comment [comment]="comment"></app-comment>
-        <ul *ngIf="filteredIComments">
+        <!-- <ul *ngIf="filteredIComments">
             <li class="list-group-item text-muted mb-3 " *ngFor="let comment of filteredIComments">test2
                 <app-comment [comment]="comment"></app-comment>
             </li>
-        </ul>
+        </ul> -->
     </li>
 </ol>

@@ -3,5 +3,6 @@ export interface Comment {
     comment_text: string;
     account_id: number;
     bug_id: number;
-    created: Date;
+    parent_id: number;
+    //created: Date;
 }
