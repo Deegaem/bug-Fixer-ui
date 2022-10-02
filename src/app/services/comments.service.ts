@@ -15,8 +15,17 @@ export class CommentsService {
 
   public getComments(bug_id: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`http://localhost:8080/comments/${bug_id}`)
-      .pipe(map((resp: Comment[]) => { return resp })
+      .pipe(map((resp: any[]) => {
+        var group: any = {};
+        resp.forEach(function (comment) {
+          group[comment.parent_id] ||= [];
+          group[comment.parent_id].push(comment);
+        });
+        console.log("groups: ", group);
+        return group
+      })
       );
+
   }
 
   public addComment(bug_id: number, comment: Comment): Observable<Comment> {
