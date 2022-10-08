@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BugsService } from 'src/app/services/bugs.service';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-bugdetails',
@@ -8,14 +9,16 @@ import { BugsService } from 'src/app/services/bugs.service';
   styleUrls: ['./bugdetails.component.scss']
 })
 export class BugdetailsComponent implements OnInit {
-
   bug: any;
-  constructor(private bugsService: BugsService, private router: Router) { }
+  rootComments: any[] = [];
+  constructor(private bugsService: BugsService, private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.bugsService._getbug()) {
       this.bug = this.bugsService._getbug();
     }
+    this.rootComments = this.commentsService.filterComments(null);
+    console.log("rootcomments", this.rootComments);
   }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);

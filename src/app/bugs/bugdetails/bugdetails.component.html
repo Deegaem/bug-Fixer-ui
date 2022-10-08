@@ -55,17 +55,20 @@
         </div>
     </div>
     <div class="container-lg">
-        <div class="">
-            <h5>Comments</h5>
+        <div class="text-center mt-5">
+            <h2 class="text-muted">Comments</h2>
+            <p class="lead"><button data-bs-toggle="collapse" data-bs-target="#demo">Show/Hide Comments</button></p>
         </div>
-        <div class="row justify-content-center">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <app-comments></app-comments>
-                    </div>
-                </li>
-            </ul>
+        <div>
+            <div id="demo" class="collapse row justify-content-center">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="ms-2 me-auto">
+                            <app-comments [comments]="rootComments"></app-comments>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

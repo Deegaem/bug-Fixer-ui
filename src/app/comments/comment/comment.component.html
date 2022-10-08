@@ -1,9 +1,12 @@
 <div class="text-center mt-5">
-    <h2 class="text-muted">{{comment.account}}</h2>
+    <h2 class="text-muted">{{comment.account_id}}</h2>
     <p class="lead">{{comment.comment_text}}</p>
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-light" (click)="reply()">Reply</button>
         <button type="button" class="btn btn-light" (click)="edit()">Edit</button>
         <button type="button" class="btn btn-light" (click)="remove()">Delete</button>
     </div>
+</div>
+<div *ngIf="childComments.length">
+    <app-comments [comments]="childComments"></app-comments>
 </div>
