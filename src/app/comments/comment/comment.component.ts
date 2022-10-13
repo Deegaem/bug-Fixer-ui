@@ -17,13 +17,14 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (typeof (this.comment.parent_id) !== 'number') {
-      console.log("parent_id from comment:", this.comment.parent_id)
-      this.childComments = this.commentsService.filterComments(this.comment.comment_id);
-      console.log("child comments:", this.childComments)
-    } else {
-      console.log("parent_id from comment else:", this.comment.parent_id)
-    }
+    /*  if (typeof (this.comment.parent_id) !== 'number') {
+       console.log("parent_id from comment:", this.comment.parent_id)
+       this.childComments = this.commentsService.filterComments(this.comment.comment_id);
+       console.log("child comments:", this.childComments)
+     } else {
+       console.log("parent_id from comment else:", this.comment.parent_id)
+     } */
+    this.childComments = this.commentsService.filterComments(this.comment.comment_id);
 
   }
   edit() {

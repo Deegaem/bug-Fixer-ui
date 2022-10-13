@@ -13,7 +13,7 @@ export class CommentsService {
 
   comments: any[] = [{ "comment_id": 1, "comment_text": "root comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": null, },
   { "comment_id": 2, "comment_text": "root comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 3, "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 1, },
+  { "comment_id": 3, "comment_text": "child comment 1  comment_id 3 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 1, },
   { "comment_id": 4, "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 2, "parent_id": 1, },
   { "comment_id": 5, "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 1, },
   { "comment_id": 6, "comment_text": "child comment 1  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 1, },
@@ -23,7 +23,9 @@ export class CommentsService {
   { "comment_id": 10, "comment_text": "child comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 11, },
   { "comment_id": 11, "comment_text": "root comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 1, "parent_id": null, },
   { "comment_id": 12, "comment_text": "root comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 13, "comment_text": "child comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 12, },]
+  { "comment_id": 13, "comment_text": "child comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 11, },
+  { "comment_id": 14, "comment_text": "child child comment 3comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 3, }
+  ]
 
   constructor(private http: HttpClient) { }
 
@@ -67,7 +69,10 @@ export class CommentsService {
       group[comment.parent_id] ||= [];
       group[comment.parent_id].push(comment);
     });
-    return group[pid];
+    if (group[pid] === undefined) {
+      return [];
+    } else { return group[pid]; }
+
   }
 
 }
