@@ -15,6 +15,7 @@ import { group } from '@angular/animations';
 export class CommentsComponent implements OnInit {
   @Input() comments: Comment[] = [];
 
+
   account!: Account;
   bug_id!: number;
   constructor(private accountsService: AccountsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute,) { }
