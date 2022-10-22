@@ -74,13 +74,4 @@ export class CommentsService {
     } else { return group[pid]; }
 
   }
-  Commentsmeth(): any[] {
-    var group: any = {};
-    this.comments.forEach(function (comment) {
-      group[comment.parent_id] ||= [];
-      group[comment.parent_id].push(comment);
-    });
-    return group;
-  }
-
 }

@@ -1,70 +1,67 @@
-<section class="bg-light mt-5">
-    <div class="container-lg">
-        <div class="text-center mt-5">
-            <h2 class="text-muted">bugTitle Details</h2>
-            <p class="lead"></p>
-        </div>
-        <div class="row justify-content-center">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Priority:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Severity:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">AssignTo:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Description:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">StepsToReproduce:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">ExpectedAndActualResult:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Created at:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Last Modified at:</h5>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="ms-2 me-auto">
-                        <h5 class="mb-1">Go to Bug Screen Shot:</h5>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<div class="container-lg">
+    <div class="text-center mt-5">
+        <h2 class="text-muted">bugTitle Details</h2>
+        <p class="lead"></p>
     </div>
-    <div class="container-lg">
-        <div class="mt-5">
-            <h2 class="text-muted">Comments</h2>
-            <p class="lead"><button data-bs-toggle="collapse" data-bs-target="#demo">Show/Hide Comments</button></p>
-        </div>
-        <div>
-            <div id="demo" class="collapse">
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
                 <div class="ms-2 me-auto">
-                    <app-comments [comments]="rootComments"></app-comments>
+                    <h5 class="mb-1">Priority:</h5>
                 </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">Severity:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">AssignTo:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">Description:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">StepsToReproduce:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">ExpectedAndActualResult:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">Created at:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">Last Modified at:</h5>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="ms-2 me-auto">
+                    <h5 class="mb-1">Go to Bug Screen Shot:</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container-lg">
+    <div class="mt-5">
+        <p class="lead text-muted"><button data-bs-toggle="collapse" data-bs-target="#demo">Comments</button></p>
+    </div>
+    <div>
+        <div id="demo" class="collapse">
+            <div class="ms-2 me-auto">
+                <app-comments [comments]="rootComments"></app-comments>
             </div>
         </div>
     </div>
-</section>
+</div>
