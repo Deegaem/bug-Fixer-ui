@@ -48,6 +48,18 @@ export class CommentsService {
     return this.http.post<Comment>(`http://localhost:8080/comments/${bug_id}`, comment)
       .pipe(map((resp: Comment) => { return resp })
       );
+    /* toDo:
+    creating comment: 
+    - perentID is allways null
+    - userId from the cookies
+    - bugID from the params.id
+    use the spread operator to add the created comment to the bug comments Array in a createdlocalcomment function which will be invoked in the response
+    
+    replying comment: 
+    - perentID is comment_id
+    - userId from the cookies
+    - bugID from the params.id
+    use the spread operator to add the created comment to the bug comments Array in a createdlocalcomment function which will be invoked in the response */
   }
 
   public updateComment(bug_id: number, comment_id: number, comment: Comment): Observable<Comment> {

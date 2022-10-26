@@ -13,6 +13,8 @@ import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
   childComments: Comment[] = [];
+  replyflag: boolean = false;
+  editflag: boolean = false;
   constructor(private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -29,16 +31,15 @@ export class CommentComponent implements OnInit {
 
   }
   edit() {
-    this.router.navigate(['bugs-routing/edit']);
+    this.editflag = true;
   }
 
   remove() {
 
   }
 
-  reply() {
-
-    this.router.navigate(['bugs-routing/details']);
+  togglereply() {
+    this.replyflag = !this.replyflag;
   }
 
 }
