@@ -1,35 +1,39 @@
-<div class="row box p-4 mt-5" *ngIf="!editflag">
+<div class="row box p-4 my-3" *ngIf="!editflag">
     <div class="col-md-12">
-        <h2 class="text-muted">{{comment.account_id}}</h2>
-        <p class="lead">{{comment.comment_text}}</p>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
-                    class="bi bi-reply"></i></button>
-            <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
-                    class="bi bi-pencil-square"></i></button>
-            <button type="button" class="btn btn-outline-danger" (click)="remove()"><i class="bi bi-trash"></i></button>
-        </div>
-    </div>
-</div>
-<div class="box p-4 mt-5" *ngIf="editflag">
-    <app-add-edit-comment></app-add-edit-comment>
-</div>
-<div class="box ms-5 p-4 mt-5" *ngIf="replyflag">
-    <app-add-edit-comment></app-add-edit-comment>
-</div>
-
-<div>
-
-    <div *ngIf="childComments.length">
-        <div class="mt-5">
-            <p class="lead text-muted"><button class="btn btn-light" data-bs-toggle="collapse"
-                    attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button></p>
-        </div>
-        <div id="demo1{{this.comment.comment_id}}" class="collapse">
-            <div class="vl">
-                <app-comments [comments]="childComments"></app-comments>
+        <div class="card border-success">
+            <div class="card-header bg-transparent"><i class="bi bi-person-workspace"
+                    style="font-size: 2rem; color: cornflowerblue;"></i>{{comment.account_id}}</div>
+            <div class="card-body text-success">
+                <p class="card-text">{{comment.comment_text}}</p>
+            </div>
+            <div class="card-footer bg-transparent">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
+                            class="bi bi-reply"></i></button>
+                    <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
+                            class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-outline-danger" (click)="remove()"><i
+                            class="bi bi-trash"></i></button>
+                </div>
             </div>
         </div>
-
     </div>
+</div>
+<div class="box p-4" *ngIf="editflag">
+    <app-add-edit-comment></app-add-edit-comment>
+</div>
+<div class="box ms-5 p-4" *ngIf="replyflag">
+    <app-add-edit-comment></app-add-edit-comment>
+</div>
+
+
+<div *ngIf="childComments.length">
+    <p class="lead text-muted"><button class="btn btn-light mt-3" data-bs-toggle="collapse"
+            attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button></p>
+    <div id="demo1{{this.comment.comment_id}}" class="collapse">
+        <div class="vl">
+            <app-comments [comments]="childComments"></app-comments>
+        </div>
+    </div>
+
 </div>
