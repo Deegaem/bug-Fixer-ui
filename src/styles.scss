@@ -53,6 +53,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
 
 body {
+    margin: 30px;
     background-color: rgba(252, 253, 245, 0.973);
 }
 
