@@ -57,23 +57,8 @@ body {
     background-color: rgba(252, 253, 245, 0.973);
 }
 
-.wrap {
-    //border-radius: 10px;
-    width: 90%;
-    margin-top: 20px;
-    // background-color: #e9e8cbf5;
-    padding: 12px 20px;
-    // box-shadow: 5px 5px 10px 10px #9e977f;
-}
 @media (max-width: map-get($grid-breakpoints, md)) {
-    .wrap {
-        width: 90%;
-    }
     .card {
         font-size: 1.1rem;
     }
-}
-.box {
-    border-radius: 5px;
-    background-color: white;
 }

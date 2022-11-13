@@ -1,12 +1,12 @@
-<div class="row box" *ngIf="!editflag">
-    <div class="col-md-12 mt-3">
-        <div class="card border-success">
-            <div class="card-header bg-transparent"><i class="bi bi-person-workspace"
+<div class="row">
+    <div class="col-lg-7" *ngIf="!editflag">
+        <div class="card myborder mt-3">
+            <div class="card-header"><i class="bi bi-person-workspace"
                     style="font-size: 2rem; color: cornflowerblue;"></i>{{comment.account_id}}</div>
-            <div class="card-body text-success">
+            <div class="card-body">
                 <p class="card-text">{{comment.comment_text}}</p>
             </div>
-            <div class="card-footer bg-transparent">
+            <div class="card-footer">
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
                             class="bi bi-reply"></i></button>
@@ -19,10 +19,10 @@
         </div>
     </div>
 </div>
-<div class="box p-4 my-3" *ngIf="editflag">
+<div *ngIf="editflag">
     <app-add-edit-comment></app-add-edit-comment>
 </div>
-<div class="box ms-5 p-4 my-3" *ngIf="replyflag">
+<div *ngIf="replyflag">
     <app-add-edit-comment></app-add-edit-comment>
 </div>
 
