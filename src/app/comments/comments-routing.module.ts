@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddEditCommentComponent } from './add-edit-comment/add-edit-comment.component';
-import { CommentComponent } from './comment/comment.component';
+import { AddEditCommentComponent } from './components/add-edit-comment/add-edit-comment.component';
+import { CommentComponent } from './components/comment/comment.component';
 import { CommentsRoutingComponent } from './comments-routing.component';
-import { CommentsComponent } from './comments/comments.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 const routes: Routes = [
   {

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountsRoutingComponent } from './accounts-routing.component';
-import { AddEditAccountComponent } from './add-edit-account/add-edit-account.component';
-import { LoginComponent } from './login/login.component';
+import { AddEditAccountComponent } from './components/add-edit-account/add-edit-account.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {

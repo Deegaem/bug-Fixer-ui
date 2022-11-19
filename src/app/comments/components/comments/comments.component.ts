@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Account } from '../../Domain-Models/account';
-import { AccountsService } from '../../services/accounts.service';
-import { Comment } from '../../Domain-Models/comment';
-import { CommentsService } from '../../services/comments.service';
+import { Account } from '../../../Domain-Models/account';
+import { AccountsService } from '../../../services/accounts.service';
+import { Comment } from '../../../Domain-Models/comment';
+import { CommentsService } from '../../../services/comments.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { group } from '@angular/animations';

@@ -57,7 +57,7 @@ body {
     background-color: rgba(252, 253, 245, 0.973);
 }
 
-@media (max-width: map-get($grid-breakpoints, md)) {
+@media (max-width: map-get($grid-breakpoints, sm)) {
     .card {
         font-size: 1.1rem;
     }

@@ -5,9 +5,8 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedModule } from './shared/shared.module';
 import { AccountsModule } from './accounts/accounts.module';
-import { BugsModule } from './bugs/bugs.module';
+import { BugsModule } from './_bugs/bugs.module';
 import { CommentsModule } from './comments/comments.module';
-import { HomeModule } from './home/home.module';
 import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperrorInterceptor } from './services/Global Error Handling/httperror interceptor/httperror.interceptor';
@@ -26,7 +25,6 @@ import { GlobalErrorHandler } from './services/Global Error Handling/GlobalError
     AccountsModule,
     BugsModule,
     CommentsModule,
-    HomeModule
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,

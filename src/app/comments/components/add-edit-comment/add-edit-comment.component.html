@@ -1,4 +1,4 @@
-<form class="row needs-validation border border-3" [formGroup]="addEditCommentForm" novalidate (ngSubmit)="onSubmit()">
+<form class="row needs-validation my-3" [formGroup]="addEditCommentForm" novalidate (ngSubmit)="onSubmit()">
     <div class="col-lg-6">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [ngClass]="{
                 'is-valid':submitted && comment?.valid,

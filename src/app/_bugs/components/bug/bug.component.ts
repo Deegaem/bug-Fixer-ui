@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { BugsService } from 'src/app/services/bugs.service';
-import { Bug } from '../../Domain-Models/bug';
+import { Bug } from '../../../Domain-Models/bug';
 
 @Component({
   selector: 'app-bug',

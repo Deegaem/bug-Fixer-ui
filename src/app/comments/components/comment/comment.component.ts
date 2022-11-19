@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Comment } from '../../Domain-Models/comment';
+import { Comment } from '../../../Domain-Models/comment';
 import { from } from 'rxjs';
 import { CommentsService } from 'src/app/services/comments.service';
 import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
