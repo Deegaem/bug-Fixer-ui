@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BugsService } from 'src/app/services/bugs.service';
-import { CommentsService } from 'src/app/services/comments.service';
+import { BugsService } from '../../data-access/bugs.service';
+import { CommentsService } from '../../data-access/comments.service';
+
 
 @Component({
   selector: 'app-bugdetails',

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Bug } from '../Domain-Models/bug';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Bug } from 'src/app/_bugs/data-access/bug';
 
 @Injectable({
     providedIn: 'root'

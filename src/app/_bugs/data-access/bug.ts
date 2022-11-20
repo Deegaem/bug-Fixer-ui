@@ -1,5 +1,5 @@
-import { Comment } from "./comment";
-import { Account } from "./account";
+import { Account } from "src/app/accounts/data-access/account"
+import { Comment } from "src/app/comments/data-access/comment"
 export interface Bug {
     bug_id?: number;
     bugTitle: string;

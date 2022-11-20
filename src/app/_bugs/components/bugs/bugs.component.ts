@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClient } from '@angular/common/http';
-import { Account } from '../../../Domain-Models/account';
-import { AccountsService } from '../../../services/accounts.service';
-import { Bug } from '../../../Domain-Models/bug';
-import { BugsService } from '../../../services/bugs.service';
+import { Account } from '../../../accounts/data-access/account';
+import { AccountsService } from '../../../shared/data-access/accounts.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { BugsService } from '../../data-access/bugs.service';
+import { Bug } from '../../data-access/bug';
 
 @Component({
   selector: 'app-bugs',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AccountsService } from 'src/app/services/accounts.service';
+import { AccountsService } from '../../data-access/accounts.service';
+
 
 @Component({
   selector: 'app-add-edit-account',

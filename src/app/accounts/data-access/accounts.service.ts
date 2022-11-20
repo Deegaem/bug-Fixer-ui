@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Account } from '../Domain-Models/account';
+import { Account } from './account';
 import { Observable, of } from 'rxjs';
 import { map } from "rxjs/operators";
 

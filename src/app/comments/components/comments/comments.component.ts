@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Account } from '../../../Domain-Models/account';
-import { AccountsService } from '../../../services/accounts.service';
-import { Comment } from '../../../Domain-Models/comment';
-import { CommentsService } from '../../../services/comments.service';
+import { Account } from '../../../accounts/data-access/account';
+import { AccountsService } from '../../../shared/data-access/accounts.service';
+import { Comment } from '../../data-access/comment';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { group } from '@angular/animations';
+import { CommentsService } from '../../data-access/comments.service';
 
 @Component({
   selector: 'app-comments',

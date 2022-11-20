@@ -1,15 +1,15 @@
 <div class="row col-lg-7 ms-3" *ngIf="!editflag">
     <div class="card myborder mt-3">
-        <div class="card-header"><i class="bi bi-person-workspace me-2"
-                style="font-size: 2rem; color: cornflowerblue;"></i>
-            <span style="color:cornflowerblue;">{{comment.name}}</span>
-            <div class="float-end mt-3" style="font-size: 1rem; color: cornflowerblue;">12-02-2013</div>
+        <div class="card-header">
+            <span class="fs-6 text-primary"><i
+                    class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.name}}</span>
+            <div class="float-end fs-6 text-primary">12-02-2013</div>
         </div>
         <div class="card-body">
             <p class="card-text">{{comment.comment_text}}</p>
         </div>
         <div class="card-footer">
-            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <div class="btn-group btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
                         class="bi bi-reply"></i></button>
                 <button type="button" class="btn btn-outline-primary" (click)="edit()"><i

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { CommentsService } from 'src/app/services/comments.service';
+import { CommentsService } from '../../data-access/comments.service';
+
 
 @Component({
   selector: 'app-add-edit-comment',
