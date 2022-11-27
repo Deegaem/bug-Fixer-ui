@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClient } from '@angular/common/http';
 import { Account } from '../../../accounts/data-access/account';
-import { AccountsService } from '../../../shared/data-access/accounts.service';
+import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BugsService } from '../../data-access/bugs.service';

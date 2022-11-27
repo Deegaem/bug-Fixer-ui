@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-//import { SharedModule } from './shared/shared.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { BugsModule } from './_bugs/bugs.module';
 import { CommentsModule } from './comments/comments.module';
@@ -13,7 +12,7 @@ import { HttperrorInterceptor } from './services/Global Error Handling/httperror
 import { GlobalErrorHandler } from './services/Global Error Handling/GlobalErrorHandler';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { UserModule } from './user/user.module';
-import { PublicModule } from './public/public.module';
+import { CoreModule } from './core/core.module';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
@@ -29,7 +28,7 @@ import { PublicModule } from './public/public.module';
     CommentsModule,
     AuthenticationModule,
     UserModule,
-    PublicModule
+    CoreModule
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,
