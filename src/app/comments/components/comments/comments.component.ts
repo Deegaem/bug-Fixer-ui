@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Account } from '../../../accounts/data-access/account';
+import { Account } from '../../../authentication/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Comment } from '../../data-access/comment';
 import { Router, ActivatedRoute, Params } from '@angular/router';

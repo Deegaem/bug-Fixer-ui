@@ -16,5 +16,6 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule,
     CoreRoutingModule
   ], providers: [BugsService, AccountsService, CommentsService],
+  exports: [HomeComponent]
 })
 export class CoreModule { }

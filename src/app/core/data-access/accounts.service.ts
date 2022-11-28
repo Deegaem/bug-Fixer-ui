@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Account } from '../../accounts/data-access/account';
+import { Account } from '../../authentication/data-access/account';
 import { Observable, of } from 'rxjs';
 import { map } from "rxjs/operators";
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddEditAccountComponent } from './components/add-edit-account/add-edit-account.component';
 
 @NgModule({
-  declarations: [LoginComponent,],
+  declarations: [LoginComponent, AddEditAccountComponent],
   imports: [
     SharedModule
   ]
