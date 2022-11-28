@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BugsModule } from './_bugs/bugs.module';
-import { CommentsModule } from './comments/comments.module';
 import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperrorInterceptor } from './services/Global Error Handling/httperror interceptor/httperror.interceptor';
@@ -21,8 +19,6 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BugsModule,
-    CommentsModule,
     AuthenticationModule,
     CoreModule
   ],
