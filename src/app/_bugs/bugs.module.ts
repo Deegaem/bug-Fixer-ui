@@ -23,7 +23,7 @@ import { CommentsModule } from '../comments/comments.module';
   imports: [
     SharedModule,
     BugsRoutingModule,
-    CommentsModule,
+    CommentsModule
   ],
   exports: [BugsRoutingComponent]
 })

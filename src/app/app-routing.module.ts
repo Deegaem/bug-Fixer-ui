@@ -5,7 +5,8 @@ import { HomeComponent } from './core/components/home/home.component'
 
 
 const routes: Routes = [{ path: '', component: HomeComponent },
-{ path: 'bugs-routing', loadChildren: () => import('./_bugs/bugs.module').then(m => m.BugsModule) }];
+{ path: 'bugs-routing', loadChildren: () => import('./_bugs/bugs.module').then(m => m.BugsModule) },
+{ path: 'auth', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

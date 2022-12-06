@@ -7,8 +7,8 @@ import { AlertifyService } from './services/alertify.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperrorInterceptor } from './services/Global Error Handling/httperror interceptor/httperror.interceptor';
 import { GlobalErrorHandler } from './services/Global Error Handling/GlobalErrorHandler';
-import { AuthenticationModule } from './authentication/authentication.module';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
@@ -19,8 +19,8 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule,
-    CoreModule
+    CoreModule,
+    SharedModule,
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,
