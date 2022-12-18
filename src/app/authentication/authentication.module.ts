@@ -9,6 +9,6 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
   imports: [
     SharedModule,
     AuthenticationRoutingModule
-  ]
+  ], providers: [],
 })
 export class AuthenticationModule { }
