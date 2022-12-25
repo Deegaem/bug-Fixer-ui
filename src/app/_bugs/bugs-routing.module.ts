@@ -9,7 +9,6 @@ import { BugsComponent } from './components/bugs/bugs.component';
 const routes: Routes = [
   { path: '', redirectTo: 'BugsComponent', pathMatch: 'full' },
   { path: 'bugs', component: BugsComponent },
-  { path: 'bug', component: BugComponent },
   { path: 'details', component: BugdetailsComponent },
   { path: 'add', component: AddEditBugComponent },
   { path: 'edit/:id', component: AddEditBugComponent },
