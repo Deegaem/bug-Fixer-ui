@@ -67,6 +67,13 @@ body {
         width: 100%;
     }
 }
+.wrapper {
+    width: 60%;
+    padding: 12px;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}
 
 /* @media screen and (max-width: 768px) {
     .btn-group {

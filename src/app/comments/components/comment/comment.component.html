@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-1">
     <div class="card-body">
         <span class="fs-6 text-primary"><i
                 class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.name}}</span>
@@ -22,8 +22,8 @@
 
 
 <div *ngIf="childComments.length">
-    <p class="lead text-muted ms-3"><button class="btn btn-light mt-3" data-bs-toggle="collapse"
-            attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button></p>
+    <button class="btn btn-light my-2" data-bs-toggle="collapse"
+        attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button>
     <div id="demo1{{this.comment.comment_id}}" class="collapse">
         <div class="vl">
             <div class="w-100">
