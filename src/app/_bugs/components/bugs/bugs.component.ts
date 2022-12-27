@@ -34,11 +34,18 @@ export class BugsComponent implements OnInit {
     this.router.navigate(['bugs-routing/add']);
   }
 
+  logout() {
+    this.router.navigate(['']);
+  }
+
   showAccountInfo(account_id: number) {
     this.accountsService.getAccount(account_id).subscribe((account: Account) => {
       this.account = account;
       console.log("Account: ", account)
     });
+  }
+  addBug() {
+    this.router.navigate(['bugs-routing/add']);
   }
 
 }

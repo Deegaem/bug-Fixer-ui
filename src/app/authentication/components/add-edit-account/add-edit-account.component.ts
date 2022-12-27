@@ -63,4 +63,7 @@ export class AddEditAccountComponent implements OnInit {
       this.router.navigate(['login']);
     });
   }
+  back() {
+    this.router.navigate(['']);
+  }
 }

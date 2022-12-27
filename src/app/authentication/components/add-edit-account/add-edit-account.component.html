@@ -87,8 +87,9 @@
                     <div *ngIf="confirmpassword?.getError('required')">Confirm password is required</div>
                 </div>
             </div>
-            <div class="d-grid d-md-block mb-3">
-                <button class="btn btn-primary " type="submit">Submit form</button>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-primary ms-2" type="submit">Submit form</button>
+                <button class="btn btn-primary " (click)="back()">Cancel</button>
             </div>
         </form>
     </div>

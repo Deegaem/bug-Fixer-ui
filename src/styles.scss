@@ -14,8 +14,11 @@ $light: #fbf5e5; */
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/utilities/api";
 
 $custom-colors: (
     "altlight": #f2ebfa,
@@ -50,12 +53,37 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"; // 6. Add additional custom code here
 @import "../node_modules/alertifyjs/build/css/alertify.min.css";
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
-@import "../node_modules/bootstrap/scss/utilities/api";
-
-@import "../node_modules/bootstrap/scss/helpers";
 
 body {
     background-color: rgba(252, 253, 245, 0.973);
+}
+.returnBottomClass {
+    width: 40px;
+    height: 40px;
+    background: #1f96e0;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 40%;
+    color: #ffffff;
+    font-size: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 5px;
+    bottom: 20px;
+    outline: rgb(245, 4, 4);
+    border: none;
+    cursor: pointer;
+    &:hover {
+        color: #ffffff;
+        background-color: #2b4afd;
+    }
+    &:active {
+        color: #ffffff;
+        background-color: rgb(68, 4, 245);
+    }
 }
 @media screen and (max-width: map-get($grid-breakpoints, sm)) {
     .card {

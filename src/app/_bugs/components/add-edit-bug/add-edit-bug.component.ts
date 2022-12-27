@@ -66,4 +66,7 @@ export class AddEditBugComponent implements OnInit {
       this.router.navigate(['bugs']);
     });
   }
+  back() {
+    this.router.navigate(['']);
+  }
 }

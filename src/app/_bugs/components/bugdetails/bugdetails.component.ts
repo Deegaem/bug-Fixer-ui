@@ -21,6 +21,9 @@ export class BugdetailsComponent implements OnInit {
     this.rootComments = this.commentsService.filterComments(null);
     console.log("rootcomments", this.rootComments);
   }
+  logout() {
+    this.router.navigate(['']);
+  }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);
   }
