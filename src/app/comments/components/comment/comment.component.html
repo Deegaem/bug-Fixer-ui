@@ -1,10 +1,10 @@
-<div class="card mb-1">
+<div class="card mb-2 shadow-sm bg-body-tertiary rounded">
     <div class="card-body">
         <span class="fs-6 text-primary"><i
                 class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.name}}</span>
         <div class="float-end fs-6 text-primary">12-02-2013</div>
         <p class="card-text">{{comment.comment_text}}</p>
-        <div class="btn-group btn-group" role="group" aria-label="Basic example">
+        <div class="d-flex flex-row-reverse">
             <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
                     class="bi bi-reply"></i></button>
             <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
@@ -22,14 +22,11 @@
 
 
 <div *ngIf="childComments.length">
-    <button class="btn btn-light my-2" data-bs-toggle="collapse"
+    <button class="btn btn-light mb-2" data-bs-toggle="collapse"
         attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button>
     <div id="demo1{{this.comment.comment_id}}" class="collapse">
         <div class="vl">
-            <div class="w-100">
-                <app-comments [comments]="childComments"></app-comments>
-            </div>
+            <app-comments [comments]="childComments"></app-comments>
         </div>
     </div>
-
 </div>

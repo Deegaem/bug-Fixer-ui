@@ -1,40 +1,42 @@
-<div class="container d-flex justify-content-center bg-light">
+<div class="container d-flex justify-content-center align-items-center bg-light">
     <div class="wrapper">
         <div class="text-center p-3">
             <h2>Login Form</h2>
         </div>
-        <form class="row g-3 needs-validation" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
-            <div class="col-md-6 is-valid">
-                <label for="username" class="form-label" [ngClass]="{
+        <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+            <form class="row g-3 needs-validation" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="col-md-6 is-valid">
+                    <label for="username" class="form-label" [ngClass]="{
               'text-success':submitted && username?.valid,
               'text-danger':submitted && username?.invalid
               }">Username</label>
-                <input type="text" class="form-control" id="username" [ngClass]="{
+                    <input type="text" class="form-control" id="username" [ngClass]="{
                 'is-valid':submitted && username?.valid,
                 'is-invalid':submitted && username?.invalid
                 }" formControlName="username">
-                <div class="invalid-feedback" *ngIf="submitted && username?.invalid">
-                    <div *ngIf="username?.getError('required')">Username is required</div>
+                    <div class="invalid-feedback" *ngIf="submitted && username?.invalid">
+                        <div *ngIf="username?.getError('required')">Username is required</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6 is-valid">
-                <label for="password" class="form-label" [ngClass]="{
+                <div class="col-md-6 is-valid">
+                    <label for="password" class="form-label" [ngClass]="{
               'text-success':submitted && password?.valid,
               'text-danger':submitted && password?.invalid
               }">Password</label>
-                <input type="password" class="form-control" id="password" [ngClass]="{
+                    <input type="password" class="form-control" id="password" [ngClass]="{
                 'is-valid':submitted && password?.valid,
                 'is-invalid':submitted && password?.invalid
                 }" formControlName="password">
-                <div class="invalid-feedback" *ngIf="submitted && password?.invalid">
-                    <div *ngIf="password?.getError('required')">Password is required</div>
+                    <div class="invalid-feedback" *ngIf="submitted && password?.invalid">
+                        <div *ngIf="password?.getError('required')">Password is required</div>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex flex-row-reverse">
-                <button class="btn btn-primary ms-2" type="submit">Submit form</button>
-                <button class="btn btn-primary " (click)="back()">Cancel</button>
-            </div>
-        </form>
+                <div class="d-flex flex-row-reverse">
+                    <button class="btn btn-primary ms-2" (click)="back()">Cancel</button>
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

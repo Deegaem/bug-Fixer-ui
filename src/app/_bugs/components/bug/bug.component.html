@@ -1,4 +1,4 @@
-<div class="card border-0">
+<div class="card border-0 shadow-sm bg-body-tertiary rounded">
     <div class="card-body">
         <h5 class="card-title text-muted"><i>bugTitle:</i></h5>
         <h6 class="card-subtitle mb-2 text-muted"><i>priority:</i></h6>
@@ -9,14 +9,14 @@
             and make up the bulk of the
             card's
             content.</p>
-        <h6 class="card-subtitle mb-3 text-muted"><i>LastModifiedDate:</i></h6>
-        <div class="btn-group btn-group btn-group-sm-lg" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-outline-success" (click)="bugDetails()"><i
-                    class="bi bi-three-dots"></i></button>
-            <button type="button" class="btn btn-outline-primary" (click)="editBug(bug)"><i
-                    class="bi bi-pencil-square"></i></button>
+        <h6 class="card-subtitle mb-2 text-muted"><i>LastModifiedDate:</i></h6>
+        <div class="d-flex flex-row-reverse">
             <button type="button" class="btn btn-outline-danger" (click)="removeBug(1)"><i
                     class="bi bi-trash"></i></button>
+            <button type="button" class="btn btn-outline-primary" (click)="editBug(bug)"><i
+                    class="bi bi-pencil-square"></i></button>
+            <button type="button" class="btn btn-outline-success" (click)="bugDetails()"><i
+                    class="bi bi-three-dots"></i></button>
         </div>
     </div>
 </div>
