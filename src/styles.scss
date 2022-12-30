@@ -47,6 +47,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap/scss/list-group";
 @import "../node_modules/bootstrap/scss/close";
 @import "../node_modules/bootstrap/scss/placeholders";
+@import "../node_modules/bootstrap/scss/tooltip";
 //
 
 // 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
@@ -88,21 +89,21 @@ body {
         display: none;
     }
 }
+.tooltip {
+    background-color: #1f96e0;
+}
 @media screen and (max-width: map-get($grid-breakpoints, sm)) {
     .card {
         font-size: 1.1rem;
     }
 }
-@media screen and (max-width: map-get($grid-breakpoints, md)) {
-    .container {
-        width: 100%;
-    }
-}
 .wrapper {
-    width: 65%;
+    width: 100%;
     padding: 12px;
-    @media screen and (max-width: 768px) {
-        width: 100%;
+    background-color: #2be4fd;
+    @media screen and (min-width: 960px) {
+        width: 60%;
+        background-color: #2b4afd;
     }
 }
 
