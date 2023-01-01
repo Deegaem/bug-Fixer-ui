@@ -3,7 +3,6 @@ import { BugsComponent } from './components/bugs/bugs.component';
 import { BugComponent } from './components/bug/bug.component';
 import { SharedModule } from '../shared/shared.module';
 import { BugsRoutingModule } from './bugs-routing.module';
-import { BugsRoutingComponent } from './bugs-routing.component';
 import { AddEditBugComponent } from './components/add-edit-bug/add-edit-bug.component';
 import { BugdetailsComponent } from './components/bugdetails/bugdetails.component';
 import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-shot.component';
@@ -15,7 +14,6 @@ import { CommentsModule } from '../comments/comments.module';
   declarations: [
     BugsComponent,
     BugComponent,
-    BugsRoutingComponent,
     AddEditBugComponent,
     BugdetailsComponent,
     BugScreenShotComponent
@@ -25,6 +23,6 @@ import { CommentsModule } from '../comments/comments.module';
     BugsRoutingModule,
     CommentsModule
   ],
-  exports: [BugsRoutingComponent]
+  exports: []
 })
 export class BugsModule { }
