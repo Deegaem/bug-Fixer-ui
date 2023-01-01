@@ -5,25 +5,22 @@
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
 
 // 2. Include any default variable overrides here
-
-//custom variables
-/* $primary: #4e4531e7;
-$light: #fbf5e5; */
+$custom-colors: (
+    "altlight": #dede17,
+    "altdark": #6c63f7,
+);
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "../node_modules/bootstrap/scss/variables";
+
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/utilities/api";
 
-$custom-colors: (
-    "altlight": #f2ebfa,
-    "altdark": #6c63f7,
-);
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
@@ -85,7 +82,7 @@ body {
         color: #ffffff;
         background-color: rgb(68, 4, 245);
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 720px) {
         display: none;
     }
 }
@@ -99,17 +96,10 @@ body {
 }
 .wrapper {
     width: 100%;
-    padding: 12px;
-    background-color: #2be4fd;
-    @media screen and (min-width: 960px) {
-        width: 60%;
-        background-color: #2b4afd;
+    padding: 5px;
+    background-color: #f2f60e6f;
+    @media screen and (min-width: 720px) {
+        width: 80%;
+        background-color: #94fd2b;
     }
 }
-
-/* @media screen and (max-width: 768px) {
-    .btn-group {
-        display: flex;
-        flex-direction: column;
-    }
-} */
