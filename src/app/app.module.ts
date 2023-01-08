@@ -7,7 +7,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttperrorInterceptor } from './services/Global Error Handling/httperror interceptor/httperror.interceptor';
 import { GlobalErrorHandler } from './services/Global Error Handling/GlobalErrorHandler';
 import { CoreModule } from './core/core.module';
-import { CommentsModule } from './comments/comments.module';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
@@ -17,10 +16,7 @@ import { CommentsModule } from './comments/comments.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    CommentsModule
-
-
+    CoreModule
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,

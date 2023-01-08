@@ -43,6 +43,9 @@ export class CommentsComponent implements OnInit {
     });
   }
 
+  removeCommentfun(comment: any) {
+    console.log("comment from comments component: ", comment);
+  }
   showAccountInfo(account_id: number) {
     this.accountsService.getAccount(account_id).subscribe((account: Account) => {
       this.account = account;

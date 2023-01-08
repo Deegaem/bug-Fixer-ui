@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comment } from '../../data-access/comment';
 import { from } from 'rxjs';
@@ -12,6 +12,7 @@ import { CommentsService } from '../../data-access/comments.service';
 })
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
+  @Output() removeCommentEvent = new EventEmitter<Comment>();
   childComments: Comment[] = [];
   replyflag: boolean = false;
   editflag: boolean = false;
@@ -35,7 +36,7 @@ export class CommentComponent implements OnInit {
   }
 
   remove() {
-
+    this.removeCommentEvent.emit(this.comment);
   }
 
   reply() {

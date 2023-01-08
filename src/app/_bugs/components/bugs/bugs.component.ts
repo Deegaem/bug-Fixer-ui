@@ -47,5 +47,8 @@ export class BugsComponent implements OnInit {
   addBug() {
     this.router.navigate(['bugs-routing/add']);
   }
+  public removeBugfun(bug: any) {
+    console.log("bug from bugs component: ", bug);
+  }
 
 }
