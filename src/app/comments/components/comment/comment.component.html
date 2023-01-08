@@ -1,8 +1,8 @@
 <div *ngIf="editflag; else elseBlock">
-    <app-add-edit-comment></app-add-edit-comment>
+    <app-add-edit-comment (cancelCommentEvent)="canceleditCommentfun($event)"></app-add-edit-comment>
 </div>
 <ng-template #elseBlock>
-    <div class="card mb-1 w-md-75 shadow-sm bg-body-tertiary rounded">
+    <div class="card border-0 mb-1 w-md-75 shadow-sm bg-body-tertiary rounded">
         <div class="card-body">
             <span class="fs-6 text-primary"><i
                     class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.name}}</span>
@@ -10,7 +10,7 @@
             <p class="card-text">{{comment.comment_text}}</p>
             <div class="d-flex flex-row-reverse">
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-success" (click)="togglereply()"><i
+                    <button type="button" class="btn btn-outline-success" (click)="reply()"><i
                             class="bi bi-reply"></i></button>
                     <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
                             class="bi bi-pencil-square"></i></button>
@@ -22,8 +22,9 @@
     </div>
 </ng-template>
 <div class="mt-3" *ngIf="replyflag">
-    <app-add-edit-comment></app-add-edit-comment>
+    <app-add-edit-comment (cancelCommentEvent)="cancelreplyCommentfun($event)"></app-add-edit-comment>
 </div>
+
 
 <div *ngIf="childComments.length">
     <button class="btn btn-light mb-1" data-bs-toggle="collapse"

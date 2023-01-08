@@ -34,7 +34,7 @@
         </ul>
         <button class="btn btn-light btn-lg my-1" data-bs-toggle="collapse" data-bs-target="#demo">Bug Comments</button>
         <div id="demo" class="collapse">
-            <app-add-edit-comment></app-add-edit-comment>
+            <app-add-edit-comment (cancelComment)="update($event)"></app-add-edit-comment>
             <app-comments [comments]="rootComments"></app-comments>
         </div>
     </div>

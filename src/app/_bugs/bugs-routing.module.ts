@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEditBugComponent } from './components/add-edit-bug/add-edit-bug.component';
 import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-shot.component';
-import { BugComponent } from './components/bug/bug.component';
 import { BugdetailsComponent } from './components/bugdetails/bugdetails.component';
 import { BugsComponent } from './components/bugs/bugs.component';
 

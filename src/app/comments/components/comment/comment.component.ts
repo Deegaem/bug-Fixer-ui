@@ -18,7 +18,7 @@ export class CommentComponent implements OnInit {
   constructor(private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit(): void {
-
+    console.log("replyflag:", this.replyflag);
 
     /*  if (typeof (this.comment.parent_id) !== 'number') {
        console.log("parent_id from comment:", this.comment.parent_id)
@@ -38,8 +38,15 @@ export class CommentComponent implements OnInit {
 
   }
 
-  togglereply() {
+  reply() {
     this.replyflag = !this.replyflag;
   }
-
+  public cancelreplyCommentfun(flag: any) {
+    this.replyflag = flag;
+    console.log("flag from comment component: ", flag);
+  }
+  public canceleditCommentfun(flag: any) {
+    this.editflag = flag;
+    console.log("flag from comment component: ", flag);
+  }
 }

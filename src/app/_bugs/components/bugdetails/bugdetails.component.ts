@@ -12,6 +12,7 @@ import { CommentsService } from '../../data-access/comments.service';
 export class BugdetailsComponent implements OnInit {
   bug: any;
   rootComments: any[] = [];
+  cancelComment!: boolean;
   constructor(private bugsService: BugsService, private commentsService: CommentsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -26,6 +27,9 @@ export class BugdetailsComponent implements OnInit {
   }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);
+  }
+  update($event: any) {
+    this.cancelComment = $event;
   }
 
 }
