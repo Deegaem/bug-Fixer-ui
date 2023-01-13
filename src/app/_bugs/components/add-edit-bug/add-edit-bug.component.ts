@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { BugsService } from '../../data-access/bugs.service';
+import { BugsService } from 'src/app/core/data-access/bugs.service';
+
 
 
 @Component({

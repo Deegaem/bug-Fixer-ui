@@ -27,14 +27,14 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    /*  this.submitted = true;
-     if (this.loginForm.invalid) {
-       this.authService.login(
-         new Credential(this.loginForm.value.username, this.loginForm.value.password)
-         //ToDo have to check why Credential couldn't be an interface
-       );
-     }
-     //alert("Success"); */
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      //  this.authService.login(
+      //    new Credential(this.loginForm.value.username, this.loginForm.value.password)
+      //ToDo have to check why Credential couldn't be an interface
+      // );
+    }
+    alert("Success");
   }
   back() {
     this.router.navigate(['']);

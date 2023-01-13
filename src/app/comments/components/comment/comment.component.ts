@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Comment } from '../../data-access/comment';
 import { from } from 'rxjs';
 import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
-import { CommentsService } from '../../data-access/comments.service';
+import { CommentsService } from 'src/app/core/data-access/comments.service';
 
 @Component({
   selector: 'app-comment',

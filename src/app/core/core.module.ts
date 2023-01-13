@@ -5,17 +5,17 @@ import { BugsService } from './data-access/bugs.service';
 import { CommentsService } from './data-access/comments.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router'
-
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [HomeComponent, FooterComponent,
     HeaderComponent],
   imports: [
-    SharedModule,
     RouterModule
   ], providers: [BugsService, AccountsService, CommentsService],
-  exports: [HomeComponent, SharedModule]
+  exports: [HomeComponent, CommonModule, ReactiveFormsModule, HttpClientModule]
 })
 export class CoreModule { }

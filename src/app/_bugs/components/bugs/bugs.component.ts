@@ -4,8 +4,8 @@ import { Account } from '../../../authentication/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { BugsService } from '../../data-access/bugs.service';
 import { Bug } from '../../data-access/bug';
+import { BugsService } from 'src/app/core/data-access/bugs.service';
 
 @Component({
   selector: 'app-bugs',

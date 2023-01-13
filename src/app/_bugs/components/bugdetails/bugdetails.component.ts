@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BugsService } from '../../data-access/bugs.service';
-import { CommentsService } from '../../data-access/comments.service';
+import { BugsService } from 'src/app/core/data-access/bugs.service';
+import { CommentsService } from 'src/app/core/data-access/comments.service';
 
 
 @Component({

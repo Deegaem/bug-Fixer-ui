@@ -5,7 +5,7 @@ import { Comment } from '../../data-access/comment';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { group } from '@angular/animations';
-import { CommentsService } from '../../data-access/comments.service';
+import { CommentsService } from 'src/app/core/data-access/comments.service';
 
 @Component({
   selector: 'app-comments',
