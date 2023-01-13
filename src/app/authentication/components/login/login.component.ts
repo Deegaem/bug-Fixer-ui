@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       // );
     }
     alert("Success");
+    this.loginForm.reset();
   }
   back() {
     this.router.navigate(['']);

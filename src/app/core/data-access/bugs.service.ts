@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Bug } from 'src/app/_bugs/data-access/bug';
 
 @Injectable({
@@ -13,15 +13,23 @@ export class BugsService {
 
     constructor(private http: HttpClient) { }
     public getBugs(): Observable<Bug[]> {
-        return this.http.get<Bug[]>(`http://localhost:8080/bugs`);
+        return this.http.get<Bug[]>(`http://localhost:8080/bugs`).pipe(map((resp: Bug[]) => { return resp })
+        );
+    }
+
+    public getBug(bug_id: number): Observable<Bug> {
+        return this.http.get<Bug>(`http://localhost:8080/bugs/${bug_id}`).pipe(map((resp: Bug) => { return resp })
+        );
     }
 
     public addBug(bug: Bug): Observable<Bug> {
-        return this.http.post<Bug>(`http://localhost:8080/bugs`, bug);
+        return this.http.post<Bug>(`http://localhost:8080/bugs`, bug).pipe(map((resp: Bug) => { return resp })
+        );
     }
 
     public updateBug(bug_id: number, bug: Bug): Observable<Bug> {
-        return this.http.put<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug);
+        return this.http.put<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug).pipe(map((resp: Bug) => { return resp })
+        );
     }
 
     public removeBug(bug_id: number): Observable<{}> {

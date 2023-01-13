@@ -61,6 +61,7 @@ export class AddEditCommentComponent implements OnInit {
   get comment() { return this.addEditCommentForm.get('comment'); }
   public cancelCommentfun() {
     this.addEditCommentForm.reset();
+    this.addEditCommentForm.get('comment')?.markAsUntouched;
     this.cancelComment = !this.cancelComment;
     this.cancelCommentEvent.emit(this.cancelComment);
     console.log("flag from add-edit-component: ", this.cancelComment);

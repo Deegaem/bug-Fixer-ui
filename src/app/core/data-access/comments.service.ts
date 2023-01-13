@@ -43,9 +43,15 @@ export class CommentsService {
       );
 
   }
+  public getComment(bug_id: number, comment_id: number): Observable<Comment> {
+    return this.http.get<Comment>(`http://localhost:8080/comments/${bug_id}/${comment_id}`)
+      .pipe(map((resp: Comment) => { return resp })
+      );
 
-  public addComment(bug_id: number, comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`http://localhost:8080/comments/${bug_id}`, comment)
+  }
+
+  public addComment(comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(`http://localhost:8080/comments/`, comment)
       .pipe(map((resp: Comment) => { return resp })
       );
     /* toDo:

@@ -59,11 +59,13 @@ export class AddEditBugComponent implements OnInit {
   }
   private addBug() {
     this.bugsService.addBug(this.addEditBugForm.value).subscribe(res => {
+      this.addEditBugForm.reset();
       this.router.navigate(['bugs']);
     });
   }
   private updateBug() {
     this.bugsService.updateBug(this.id, this.addEditBugForm.value).subscribe(res => {
+      this.addEditBugForm.reset();
       this.router.navigate(['bugs']);
     });
   }

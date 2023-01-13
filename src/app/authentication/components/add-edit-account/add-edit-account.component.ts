@@ -55,11 +55,13 @@ export class AddEditAccountComponent implements OnInit {
   }
   private addAccount() {
     this.accountsService.addAccount(this.addEditAccountform.value).subscribe(res => {
+      this.addEditAccountform.reset();
       this.router.navigate(['login']);
     });
   }
   private updateAccount() {
     this.accountsService.updateAccount(this.id, this.addEditAccountform.value).subscribe(res => {
+      this.addEditAccountform.reset();
       this.router.navigate(['login']);
     });
   }

@@ -22,8 +22,8 @@ export class BugComponent implements OnInit {
 
   removeBug(bug_id: number) {
     this.bugsService.removeBug(bug_id).subscribe(() => {
+      this.removeBugtEvent.emit(this.bug);
     });
-    this.removeBugtEvent.emit(this.bug);
   }
 
   bugDetails() {

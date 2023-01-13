@@ -30,7 +30,7 @@ export class BugsComponent implements OnInit {
       }
       ); */
   }
-  createbug() {
+  addBug() {
     this.router.navigate(['bugs-routing/add']);
   }
 
@@ -44,11 +44,10 @@ export class BugsComponent implements OnInit {
       console.log("Account: ", account)
     });
   }
-  addBug() {
-    this.router.navigate(['bugs-routing/add']);
-  }
-  public removeBugfun(bug: any) {
-    console.log("bug from bugs component: ", bug);
+
+  public removeBugfun(_bug: any) {
+    this.bugs.filter((bug) => { return bug.bug_id != _bug.bug_id })
+    console.log("bug from bugs component: ", _bug);
   }
 
 }

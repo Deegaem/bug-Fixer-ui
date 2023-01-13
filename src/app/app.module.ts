@@ -15,8 +15,7 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    CoreModule
+    AppRoutingModule
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
     provide: HTTP_INTERCEPTORS,
