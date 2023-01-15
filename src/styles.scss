@@ -39,6 +39,8 @@ $utilities: (
             25: 25%,
             50: 50%,
             75: 75%,
+            70: 70%,
+            90: 90%,
             100: 100%,
             auto: auto,
         ),
@@ -108,12 +110,5 @@ body {
 @media screen and (max-width: map-get($grid-breakpoints, sm)) {
     .card {
         font-size: 1.1rem;
-    }
-}
-.wrapper {
-    padding: 5px;
-    background-color: #f2f60e6f;
-    @media screen and (min-width: 720px) {
-        background-color: #94fd2b;
     }
 }

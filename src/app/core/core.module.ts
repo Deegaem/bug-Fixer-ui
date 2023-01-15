@@ -16,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     RouterModule
   ], providers: [BugsService, AccountsService, CommentsService],
-  exports: [CommonModule, ReactiveFormsModule, HttpClientModule]
+  exports: [HttpClientModule]
 })
 export class CoreModule { }
