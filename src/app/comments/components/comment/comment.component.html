@@ -1,11 +1,12 @@
 <div *ngIf="editflag; else elseBlock">
-    <app-add-edit-comment (cancelCommentEvent)="canceleditCommentfun($event)"></app-add-edit-comment>
+    <app-add-edit-comment [editValue]="editValue"
+        (cancelCommentEvent)="canceleditCommentfun($event)"></app-add-edit-comment>
 </div>
 <ng-template #elseBlock>
     <div class="card border-0 mb-1 w-md-90 w-lg-70 shadow-sm bg-body-tertiary rounded">
         <div class="card-body">
             <span class="fs-6 text-primary"><i
-                    class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.name}}</span>
+                    class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.account_id}}</span>
             <div class="float-end fs-6 text-primary">12-02-2013</div>
             <p class="card-text">{{comment.comment_text}}</p>
             <div class="d-flex flex-row-reverse">

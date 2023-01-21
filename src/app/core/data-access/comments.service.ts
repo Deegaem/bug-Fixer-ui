@@ -11,20 +11,20 @@ import { catchError } from 'rxjs/operators';
 })
 export class CommentsService {
 
-  comments: any[] = [{ "comment_id": 1, "name": "Mohamed", "comment_text": "root comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 2, "name": "John", "comment_text": "root comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 3, "name": "Mohamed", "comment_text": "child comment 1  comment_id 3 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 1, },
-  { "comment_id": 4, "name": "John", "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 2, "parent_id": 1, },
-  { "comment_id": 5, "name": "Mohamed", "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 1, },
-  { "comment_id": 6, "name": "John", "comment_text": "child comment 1  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 1, },
-  { "comment_id": 7, "name": "Mohamed", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 2, },
-  { "comment_id": 8, "name": "John", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 2, },
-  { "comment_id": 9, "name": "Mohamed", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 2, },
-  { "comment_id": 10, "name": "John", "comment_text": "child comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 3, "parent_id": 11, },
-  { "comment_id": 11, "name": "Mohamed", "comment_text": "root comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 12, "name": "John", "comment_text": "root comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 5, "bug_id": 1, "parent_id": null, },
-  { "comment_id": 13, "name": "Mohamed", "comment_text": "child comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 11, },
-  { "comment_id": 14, "name": "John", "comment_text": "child child comment 3comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "account_id": 4, "bug_id": 1, "parent_id": 3, }
+  comments: any[] = [{ "comment_id": 1, "account_id": "Mohamed", "comment_text": "root comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": null, },
+  { "comment_id": 2, "account_id": "John", "comment_text": "root comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": null, },
+  { "comment_id": 3, "account_id": "Mohamed", "comment_text": "child comment 1  comment_id 3 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": 1, },
+  { "comment_id": 4, "account_id": "John", "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 2, "parent_id": 1, },
+  { "comment_id": 5, "account_id": "Mohamed", "comment_text": "child comment 1 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 1, },
+  { "comment_id": 6, "account_id": "John", "comment_text": "child comment 1  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 1, },
+  { "comment_id": 7, "account_id": "Mohamed", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 2, },
+  { "comment_id": 8, "account_id": "John", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 2, },
+  { "comment_id": 9, "account_id": "Mohamed", "comment_text": "child comment 2 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 2, },
+  { "comment_id": 10, "account_id": "John", "comment_text": "child comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 3, "parent_id": 11, },
+  { "comment_id": 11, "account_id": "Mohamed", "comment_text": "root comment 11 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": null, },
+  { "comment_id": 12, "account_id": "John", "comment_text": "root comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": null, },
+  { "comment_id": 13, "account_id": "Mohamed", "comment_text": "child comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": 11, },
+  { "comment_id": 14, "account_id": "John", "comment_text": "child child comment 3comment 12 Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et", "bug_id": 1, "parent_id": 3, }
   ]
 
   constructor(private http: HttpClient) { }

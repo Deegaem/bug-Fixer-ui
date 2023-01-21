@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
-
+import { Comment } from '../../data-access/comment';
 
 @Component({
   selector: 'app-add-edit-comment',
@@ -10,6 +10,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
   styleUrls: ['./add-edit-comment.component.scss']
 })
 export class AddEditCommentComponent implements OnInit {
+  @Input() editValue!: Comment;
   @Output() cancelCommentEvent = new EventEmitter<boolean>();
   cancelComment = true;
   addEditCommentForm!: FormGroup;
@@ -66,5 +67,12 @@ export class AddEditCommentComponent implements OnInit {
     this.cancelCommentEvent.emit(this.cancelComment);
     console.log("flag from add-edit-component: ", this.cancelComment);
 
+  }
+  updateForm() {
+    this.addEditCommentForm.patchValue({
+      comment: this.editValue.comment_text,
+      byaccount: this.editValue.account_id,
+      forbug: this.editValue.bug_id
+    });
   }
 }

@@ -13,6 +13,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
   @Output() removeCommentEvent = new EventEmitter<Comment>();
+  editValue!: Comment;
   childComments: Comment[] = [];
   replyflag: boolean = false;
   editflag: boolean = false;
@@ -32,6 +33,7 @@ export class CommentComponent implements OnInit {
 
   }
   edit() {
+    this.editValue = this.comment;
     this.editflag = true;
   }
 
