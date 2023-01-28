@@ -21,33 +21,30 @@
 @import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/helpers";
 
+$utilities: map-merge(
+    $utilities,
+    (
+        "width": (
+            property: width,
+            class: w,
+            responsive: true,
+            values: (
+                25: 25%,
+                50: 50%,
+                75: 75%,
+                70: 70%,
+                90: 90%,
+                100: 100%,
+                auto: auto,
+            ),
+        ),
+    )
+);
+
 // 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../node_modules/bootstrap/scss/utilities/api";
 
-$custom-colors: (
-    "altlight": #dede17,
-    "altdark": #6c63f7,
-);
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
-$utilities: (
-    "width": (
-        property: width,
-        responsive: true,
-        class: w,
-        values: (
-            25: 25%,
-            50: 50%,
-            75: 75%,
-            70: 70%,
-            90: 90%,
-            100: 100%,
-            auto: auto,
-        ),
-    ),
-);
-// 4. Include any optional Bootstrap CSS as needed
-@import "../node_modules/bootstrap/scss/tables";
+// 6. Add additional custom code here
 @import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/buttons";
 @import "../node_modules/bootstrap/scss/transitions";
@@ -58,16 +55,9 @@ $utilities: (
 @import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/breadcrumb";
 @import "../node_modules/bootstrap/scss/list-group";
-@import "../node_modules/bootstrap/scss/close";
-@import "../node_modules/bootstrap/scss/placeholders";
 @import "../node_modules/bootstrap/scss/tooltip";
-//
-
-// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"; // 6. Add additional custom code here
 @import "../node_modules/alertifyjs/build/css/alertify.min.css";
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
-@import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 body {
@@ -94,11 +84,11 @@ body {
     cursor: pointer;
     &:hover {
         color: #ffffff;
-        background-color: #455ad4e1;
+        background-color: #6b82f4e1;
     }
     &:active {
         color: #ffffff;
-        background-color: rgb(68, 4, 245);
+        background-color: #455ad4e1;
     }
     @media screen and (max-width: 720px) {
         display: none;
