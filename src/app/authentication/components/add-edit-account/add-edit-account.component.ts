@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
+import { CustomValidators } from './CustomValidators';
 
 
 
@@ -19,29 +20,46 @@ export class AddEditAccountComponent implements OnInit {
   isAddMode!: boolean;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) {
+    /*   this.addEditAccountform = this.fb.group({
+        fname: ['', [Validators.required]],
+        lname: ['', [Validators.required]],
+        username: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required]],
+        confirmpassword: ['', [Validators.required]]
+      }); */
+    this.addEditAccountform = new FormGroup(
+      {
+        fname: new FormControl('', [Validators.required]),
+        lname: new FormControl('', [Validators.required]),
+        username: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required]),
+        confirmPassword: new FormControl('', [Validators.required]),
+      },
+      [CustomValidators.MatchValidator('password', 'confirmPassword')]
+    );
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = + params['id'];
     });
     this.isAddMode = !this.id;
-    this.addEditAccountform = this.fb.group({
-      fname: ['', [Validators.required]],
-      lname: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      confirmpassword: ['', [Validators.required]]
-    });
-
   }
   get fname() { return this.addEditAccountform.get('fname'); }
   get lname() { return this.addEditAccountform.get('lname'); }
   get username() { return this.addEditAccountform.get('username'); }
   get email() { return this.addEditAccountform.get('email'); }
   get password() { return this.addEditAccountform.get('password'); }
-  get confirmpassword() { return this.addEditAccountform.get('confirmpassword'); }
+  get confirmPassword() { return this.addEditAccountform.get('confirmPassword'); }
+  get passwordMatchError() {
+    return (
+      this.addEditAccountform.getError('mismatch') &&
+      this.addEditAccountform.get('confirmPassword')?.touched
+    );
+  }
 
   onSubmit() {
     this.submitted = true;

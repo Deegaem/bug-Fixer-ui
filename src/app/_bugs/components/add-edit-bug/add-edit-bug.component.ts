@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Account } from 'src/app/authentication/data-access/account';
+import { AccountsService } from 'src/app/core/data-access/accounts.service';
 import { BugsService } from 'src/app/core/data-access/bugs.service';
 
 
@@ -13,17 +15,12 @@ import { BugsService } from 'src/app/core/data-access/bugs.service';
 export class AddEditBugComponent implements OnInit {
 
   addEditBugForm!: FormGroup;
+  accounts: Account[] = [];
   id!: number;
   isAddMode!: boolean;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private bugsService: BugsService, private router: Router, private route: ActivatedRoute,) { }
-
-  ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.id = + params['id'];
-    });
-    this.isAddMode = !this.id;
+  constructor(private fb: FormBuilder, private accountsService: AccountsService, private bugsService: BugsService, private router: Router, private route: ActivatedRoute,) {
     this.addEditBugForm = this.fb.group({
       bugTitle: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -35,6 +32,14 @@ export class AddEditBugComponent implements OnInit {
       expectedAndActualResult: ['', [Validators.required]],
       screenShotUrl: ['', [Validators.required]]
     });
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = + params['id'];
+    });
+    this.isAddMode = !this.id;
+    this.getAccounts();
 
   }
   get bugTitle() { return this.addEditBugForm.get('bugTitle'); }
@@ -67,6 +72,11 @@ export class AddEditBugComponent implements OnInit {
     this.bugsService.updateBug(this.id, this.addEditBugForm.value).subscribe(res => {
       this.addEditBugForm.reset();
       this.router.navigate(['bugs']);
+    });
+  }
+  private getAccounts() {
+    this.accountsService.getAccounts().subscribe(res => {
+      this.accounts = res;
     });
   }
   back() {

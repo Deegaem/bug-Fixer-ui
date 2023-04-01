@@ -76,16 +76,19 @@
                 </div>
 
                 <div class="col-md-6 mb-3 is-valid">
-                    <label for="confirmpassword" class="form-label" [ngClass]="{
-              'text-success':submitted && confirmpassword?.valid,
-              'text-danger':submitted && confirmpassword?.invalid
+                    <label for="confirmPassword" class="form-label" [ngClass]="{
+              'text-success':submitted && confirmPassword?.valid,
+              'text-danger':submitted && confirmPassword?.invalid
               }">Confirm password</label>
-                    <input type="password" class="form-control" id="confirmpassword" [ngClass]="{
-                'is-valid':submitted && confirmpassword?.valid,
-                'is-invalid':submitted && confirmpassword?.invalid
-                }" formControlName="confirmpassword">
-                    <div class="invalid-feedback" *ngIf="submitted && confirmpassword?.invalid">
-                        <div *ngIf="confirmpassword?.getError('required')">Confirm password is required</div>
+                    <input type="password" class="form-control" id="confirmPassword" [ngClass]="{
+                'is-valid':submitted && confirmPassword?.valid,
+                'is-invalid':submitted && confirmPassword?.invalid
+                }" formControlName="confirmPassword">
+                    <div class="invalid-feedback" *ngIf="submitted && confirmPassword?.invalid">
+                        <div *ngIf="confirmPassword?.getError('required')">Confirm password is required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="passwordMatchError">
+                        Password does not match
                     </div>
                 </div>
                 <div class="d-flex flex-row-reverse">

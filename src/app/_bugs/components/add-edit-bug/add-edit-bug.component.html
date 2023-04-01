@@ -33,6 +33,13 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <label for="inputState" class="form-label">Assign to</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let account of accounts">{{account.username}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
                     <label for="inputState" class="form-label">State</label>
                     <select id="inputState" class="form-select">
                         <option selected>Choose...</option>
@@ -46,7 +53,7 @@
                         <option>...</option>
                     </select>
                 </div>
-                <div>
+                <div class="col-md-6">
                     <label for="inputState" class="form-label">Severity</label>
                     <select id="inputState" class="form-select">
                         <option selected>Choose...</option>
