@@ -21,21 +21,13 @@ export class AddEditAccountComponent implements OnInit {
   submitted = false;
 
   constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) {
-    /*   this.addEditAccountform = this.fb.group({
-        fname: ['', [Validators.required]],
-        lname: ['', [Validators.required]],
-        username: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
-        confirmpassword: ['', [Validators.required]]
-      }); */
     this.addEditAccountform = new FormGroup(
       {
         fname: new FormControl('', [Validators.required]),
         lname: new FormControl('', [Validators.required]),
         username: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         confirmPassword: new FormControl('', [Validators.required]),
       },
       [CustomValidators.MatchValidator('password', 'confirmPassword')]
@@ -72,13 +64,20 @@ export class AddEditAccountComponent implements OnInit {
     }
   }
   private addAccount() {
-    this.accountsService.addAccount(this.addEditAccountform.value).subscribe(res => {
+    console.log("this add edit account form ", this.addEditAccountform.value);
+    this.accountsService.addAccount({
+      fname: this.addEditAccountform.value.fname,
+      lname: this.addEditAccountform.value.lname,
+      username: this.addEditAccountform.value.username,
+      email: this.addEditAccountform.value.email,
+      password: this.addEditAccountform.value.password
+    }).subscribe(res => {
       this.addEditAccountform.reset();
-      this.router.navigate(['login']);
+      this.router.navigate(['auth/login']);
     });
   }
   private updateAccount() {
-    this.accountsService.updateAccount(this.id, this.addEditAccountform.value).subscribe(res => {
+    this.accountsService.updateAccount(this.id, {}).subscribe(res => {
       this.addEditAccountform.reset();
       this.router.navigate(['login']);
     });

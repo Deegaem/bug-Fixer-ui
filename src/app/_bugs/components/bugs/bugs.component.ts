@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClient } from '@angular/common/http';
-import { Account } from '../../../authentication/data-access/account';
+import { Account } from '../../../core/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Account } from 'src/app/authentication/data-access/account';
+import { Account } from 'src/app/core/data-access/account';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 import { BugsService } from 'src/app/core/data-access/bugs.service';
 
