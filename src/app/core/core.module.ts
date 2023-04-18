@@ -6,7 +6,6 @@ import { CommentsService } from './data-access/comments.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router'
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [HomeComponent, FooterComponent,
     HeaderComponent],
   imports: [
-    RouterModule
+    RouterModule,
   ], providers: [BugsService, AccountsService, CommentsService],
   exports: [HttpClientModule]
 })

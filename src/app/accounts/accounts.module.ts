@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AccountComponent } from './components/account/account.component';
 import { AccountListComponent } from './components/account-list/account-list.component';
+import { AccountsRoutingModule } from './accounts-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -11,7 +12,8 @@ import { AccountListComponent } from './components/account-list/account-list.com
     AccountListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AccountsRoutingModule
   ]
 })
 export class AccountsModule { }

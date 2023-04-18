@@ -1,14 +1,14 @@
 <div class="card border-0 shadow-sm bg-body-tertiary rounded">
     <div class="card-body">
-        <h5 class="card-title text-muted"><i>fname:</i></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><i>lname:</i></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><i>email:</i></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><i>username:</i></h6>
+        <h5 class="card-title text-muted"><i>fname:{{" "+account.fname}}</i></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><i>lname:{{" "+account.lname}}</i></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><i>username:{{" "+account.username}}</i></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><i>email:{{" "+account.email}}</i></h6>
         <div class="d-flex flex-row-reverse">
             <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-outline-danger" (click)="removeAccount()"><i
+                <button type="button" class="btn btn-outline-danger" (click)="removeAccount(account.account_id)"><i
                         class="bi bi-trash"></i></button>
-                <button type="button" class="btn btn-outline-primary" (click)="editAccount()"><i
+                <button type="button" class="btn btn-outline-primary" (click)="editAccount(account.account_id)"><i
                         class="bi bi-pencil-square"></i></button>
             </div>
         </div>

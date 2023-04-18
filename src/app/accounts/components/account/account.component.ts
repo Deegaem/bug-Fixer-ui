@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Account } from 'src/app/core/data-access/account';
+import { AccountsService } from 'src/app/core/data-access/accounts.service';
 
 @Component({
   selector: 'app-account',
@@ -11,13 +13,16 @@ export class AccountComponent implements OnInit {
   @Input() account: any;
   @Output() removeAccountEvent = new EventEmitter<Account>();
 
-  constructor() { }
+  constructor(private accountsService: AccountsService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  editAccount() {
+  editAccount(account_id: number) {
+    //this.router.navigate(['issues']);
   }
-  removeAccount() {
+  removeAccount(account_id: number) {
+    this.accountsService.removeAccount(account_id).subscribe(res => {
+      this.removeAccountEvent.emit(this.account);
+    });
   }
-
 }

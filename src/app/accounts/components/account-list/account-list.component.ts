@@ -16,9 +16,12 @@ export class AccountListComponent implements OnInit {
   ngOnInit(): void {
     this.getAccounts()
   }
-  addAccount() {
+
+  removeAccountfun(_account: Account) {
+    this.accounts = this.accounts.filter((account) => {
+      return account.account_id != _account.account_id;
+    });
   }
-  removeAccountfun(account: any) { }
   private getAccounts() {
     this.accountsService.getAccounts().subscribe(res => {
       this.accounts = res;
