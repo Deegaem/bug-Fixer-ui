@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
   }
   editAccount(account_id: number) {
-    //this.router.navigate(['issues']);
+    this.router.navigate(['auth/edit', account_id]);
   }
   removeAccount(account_id: number) {
     this.accountsService.removeAccount(account_id).subscribe(res => {

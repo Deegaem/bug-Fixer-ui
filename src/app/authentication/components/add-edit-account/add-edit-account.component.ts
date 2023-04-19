@@ -12,7 +12,7 @@ import { Account } from 'src/app/core/data-access/account';
 export class AddEditAccountComponent implements OnInit {
   addEditAccountform!: FormGroup;
   id!: number;
-  isAddMode!: boolean;
+  isAddMode = true;
   submitted = false;
   constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) {
     this.addEditAccountform = new FormGroup(
@@ -26,8 +26,6 @@ export class AddEditAccountComponent implements OnInit {
       },
       [CustomValidators.MatchValidator('password', 'confirmPassword')]
     );
-  }
-  ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = + params['id'];
       if (this.id) {
@@ -37,12 +35,14 @@ export class AddEditAccountComponent implements OnInit {
             lname: account.lname,
             email: account.email,
             username: account.username,
-            password: this.password
+            password: account.password
           });
         });
+        this.isAddMode = !this.id;
       }
     });
-    this.isAddMode = !this.id;
+  }
+  ngOnInit(): void {
   }
   onSubmit() {
     this.submitted = true;
@@ -68,8 +68,8 @@ export class AddEditAccountComponent implements OnInit {
     });
   }
   private updateAccount() {
-
-    this.accountsService.updateAccount(this.id, {
+    this.accountsService.updateAccount({
+      account_id: this.id,
       fname: this.addEditAccountform.value.fname,
       lname: this.addEditAccountform.value.lname,
       username: this.addEditAccountform.value.username,
@@ -77,7 +77,7 @@ export class AddEditAccountComponent implements OnInit {
       password: this.addEditAccountform.value.password
     }).subscribe(res => {
       this.addEditAccountform.reset();
-      this.router.navigate(['auth/login']);
+      this.router.navigate(['accounts/account-list']);
     });
   }
   back() {

@@ -26,8 +26,8 @@ export class AccountsService {
             );
     }
 
-    public updateAccount(account_id: number, account: Account): Observable<Account> {
-        return this.http.put<Account>(`http://localhost:8080/accounts/${account_id}`, account)
+    public updateAccount(account: Account): Observable<Account> {
+        return this.http.put<Account>(`http://localhost:8080/accounts`, account)
             .pipe(map((resp: Account) => { return resp })
             );
     }
