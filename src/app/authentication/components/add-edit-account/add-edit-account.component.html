@@ -60,7 +60,6 @@
                         <div *ngIf="email?.getError('email')">Email must be a valid Email Address</div>
                     </div>
                 </div>
-
                 <div class="col-md-6 mb-3 is-valid">
                     <label for="password" class="form-label" [ngClass]="{
               'text-success':submitted && password?.valid,
@@ -86,10 +85,9 @@
                 'is-invalid':submitted && confirmPassword?.invalid
                 }" formControlName="confirmPassword">
                     <div class="invalid-feedback" *ngIf="submitted && confirmPassword?.invalid">
-                        <div *ngIf="confirmPassword?.getError('required')">Confirm password is required</div>
-                        <div *ngIf="passwordMatchError">Password does not match</div>
+                        <div *ngIf="confirmPassword?.getError('required')">confirm Password is required</div>
+                        <div *ngIf="confirmPassword?.getError('mustMatch')">Password does not match</div>
                     </div>
-                    <div *ngIf="passwordMatchError">Password does not match</div>
                 </div>
                 <div class="d-flex flex-row-reverse">
                     <button class="btn btn-sm btn-primary ms-1" (click)="back()">Cancel</button>

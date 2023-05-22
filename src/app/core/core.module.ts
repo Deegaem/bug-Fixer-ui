@@ -6,7 +6,6 @@ import { CommentsService } from './data-access/comments.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router'
-import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

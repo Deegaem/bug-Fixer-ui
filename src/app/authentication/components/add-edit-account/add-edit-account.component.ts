@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
-import { CustomValidators } from './CustomValidators';
+import { MustMatch } from './CustomValidators';
 import { Account } from 'src/app/core/data-access/account';
 @Component({
   selector: 'app-add-edit-account',
@@ -22,28 +22,13 @@ export class AddEditAccountComponent implements OnInit {
         username: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-        confirmPassword: new FormControl('', [Validators.required]),
+        confirmPassword: new FormControl('', [Validators.required])
       },
-      [CustomValidators.MatchValidator('password', 'confirmPassword')]
-    );
-    this.route.params.subscribe((params: Params) => {
-      this.id = + params['id'];
-      if (this.id) {
-        this.accountsService.getAccount(this.id).subscribe((account: Account) => {
-          this.addEditAccountform.patchValue({
-            fname: account.fname,
-            lname: account.lname,
-            email: account.email,
-            username: account.username,
-            password: account.password
-          });
-        });
-        this.isAddMode = !this.id;
-      }
-    });
+      {
+        validators: MustMatch('password', 'confirmPassword')
+      });
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
   onSubmit() {
     this.submitted = true;
     if (!this.addEditAccountform.invalid) {
@@ -53,6 +38,7 @@ export class AddEditAccountComponent implements OnInit {
         this.updateAccount();
       }
     }
+    console.log("from onsubmit", this.addEditAccountform);
   }
   private addAccount() {
     console.log("this add edit account form ", this.addEditAccountform.value);
@@ -89,10 +75,4 @@ export class AddEditAccountComponent implements OnInit {
   get email() { return this.addEditAccountform.get('email'); }
   get password() { return this.addEditAccountform.get('password'); }
   get confirmPassword() { return this.addEditAccountform.get('confirmPassword'); }
-  get passwordMatchError() {
-    return (
-      this.addEditAccountform.getError('mismatch') &&
-      this.addEditAccountform.get('confirmPassword')?.touched
-    );
-  }
 }
