@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Bug } from 'src/app/_bugs/data-access/bug';
 
@@ -27,8 +27,8 @@ export class BugsService {
         );
     }
 
-    public updateBug(bug_id: number, bug: Bug): Observable<Bug> {
-        return this.http.put<Bug>(`http://localhost:8080/bugs/${bug_id}`, bug).pipe(map((resp: Bug) => { return resp })
+    public updateBug(bug: any): Observable<any> {
+        return this.http.put<any>(`http://localhost:8080/bugs`, bug).pipe(map((resp: Bug) => { return resp })
         );
     }
 

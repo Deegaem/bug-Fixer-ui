@@ -74,16 +74,31 @@
                     </div>
                 </div>
                 <div class="is-valid">
-                    <label for="expectedAndActualResult" class="form-label" [ngClass]="{
-                        'text-success':submitted && expectedAndActualResult?.valid,
-                        'text-danger':submitted && expectedAndActualResult?.invalid
-                        }">Expected And Actual Result</label>
-                    <textarea class="form-control" id="expectedAndActualResult" rows="3" [ngClass]="{
-                        'is-valid':submitted && expectedAndActualResult?.valid,
-                        'is-invalid':submitted && expectedAndActualResult?.invalid
-                        }" formControlName="expectedAndActualResult">></textarea>
-                    <div class="invalid-feedback" *ngIf="submitted && expectedAndActualResult?.invalid">
-                        <div *ngIf="expectedAndActualResult?.getError('required')">Expected And Actual Result is
+                    <label for="expectedResult" class="form-label" [ngClass]="{
+                        'text-success':submitted && expectedResult?.valid,
+                        'text-danger':submitted && expectedResult?.invalid
+                        }">Expected Result</label>
+                    <textarea class="form-control" id="expectedResult" rows="3" [ngClass]="{
+                        'is-valid':submitted && expectedResult?.valid,
+                        'is-invalid':submitted && expectedResult?.invalid
+                        }" formControlName="expectedResult">></textarea>
+                    <div class="invalid-feedback" *ngIf="submitted && expectedResult?.invalid">
+                        <div *ngIf="expectedResult?.getError('required')">Expected Result is
+                            required
+                        </div>
+                    </div>
+                </div>
+                <div class="is-valid">
+                    <label for="actualResult" class="form-label" [ngClass]="{
+                        'text-success':submitted && actualResult?.valid,
+                        'text-danger':submitted && actualResult?.invalid
+                        }">Actual Result</label>
+                    <textarea class="form-control" id="actualResult" rows="3" [ngClass]="{
+                        'is-valid':submitted && actualResult?.valid,
+                        'is-invalid':submitted && actualResult?.invalid
+                        }" formControlName="actualResult">></textarea>
+                    <div class="invalid-feedback" *ngIf="submitted && actualResult?.invalid">
+                        <div *ngIf="actualResult?.getError('required')">Actual Result is
                             required
                         </div>
                     </div>

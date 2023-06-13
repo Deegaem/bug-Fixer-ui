@@ -4,6 +4,7 @@ import { Comment } from '../../data-access/comment';
 import { from } from 'rxjs';
 import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
+import { Account } from 'src/app/core/data-access/account';
 
 @Component({
   selector: 'app-comment',
@@ -12,6 +13,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
 })
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
+  @Input() accountinfo!: Account;
   @Output() removeCommentEvent = new EventEmitter<Comment>();
   editValue!: Comment;
   childComments: Comment[] = [];

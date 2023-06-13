@@ -6,6 +6,8 @@ import { AddEditBugComponent } from './components/add-edit-bug/add-edit-bug.comp
 import { BugdetailsComponent } from './components/bugdetails/bugdetails.component';
 import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-shot.component';
 import { CommentsModule } from '../comments/comments.module';
+import { AuthService } from '../authentication/data-access/auth.service';
+import { AuthGuardService } from '../authentication/data-access/auth.guard.service';
 
 
 
@@ -21,6 +23,7 @@ import { CommentsModule } from '../comments/comments.module';
     BugsRoutingModule,
     CommentsModule
   ],
+  providers: [AuthService, AuthGuardService],
   exports: []
 })
 export class BugsModule { }

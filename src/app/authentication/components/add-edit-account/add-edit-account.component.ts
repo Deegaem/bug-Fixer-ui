@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 import { MustMatch } from './CustomValidators';
@@ -15,20 +15,37 @@ export class AddEditAccountComponent implements OnInit {
   isAddMode = true;
   submitted = false;
   constructor(private fb: FormBuilder, private accountsService: AccountsService, private router: Router, private route: ActivatedRoute) {
-    this.addEditAccountform = new FormGroup(
+    this.addEditAccountform = this.fb.group(
       {
-        fname: new FormControl('', [Validators.required]),
-        lname: new FormControl('', [Validators.required]),
-        username: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-        confirmPassword: new FormControl('', [Validators.required])
+        fname: ['', [Validators.required]],
+        lname: ['', [Validators.required]],
+        username: ['', [Validators.required]],
+        email: ['', [Validators.required]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.required]]
       },
       {
         validators: MustMatch('password', 'confirmPassword')
       });
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = + params['id'];
+    });
+    if (this.id) {
+      this.accountsService.getAccount(this.id).subscribe(res => {
+        this.addEditAccountform.patchValue({
+          fname: res.fname,
+          lname: res.lname,
+          username: res.username,
+          email: res.email,
+          password: res.password,
+          confirmPassword: res.password
+        })
+      });
+      this.isAddMode = false;
+    }
+  }
   onSubmit() {
     this.submitted = true;
     if (!this.addEditAccountform.invalid) {
@@ -38,17 +55,9 @@ export class AddEditAccountComponent implements OnInit {
         this.updateAccount();
       }
     }
-    console.log("from onsubmit", this.addEditAccountform);
   }
   private addAccount() {
-    console.log("this add edit account form ", this.addEditAccountform.value);
-    this.accountsService.addAccount({
-      fname: this.addEditAccountform.value.fname,
-      lname: this.addEditAccountform.value.lname,
-      username: this.addEditAccountform.value.username,
-      email: this.addEditAccountform.value.email,
-      password: this.addEditAccountform.value.password
-    }).subscribe(res => {
+    this.accountsService.addAccount(this.addEditAccountform.value).subscribe(res => {
       this.addEditAccountform.reset();
       this.router.navigate(['auth/login']);
     });
@@ -66,13 +75,13 @@ export class AddEditAccountComponent implements OnInit {
       this.router.navigate(['accounts/account-list']);
     });
   }
-  back() {
-    this.router.navigate(['']);
-  }
   get fname() { return this.addEditAccountform.get('fname'); }
   get lname() { return this.addEditAccountform.get('lname'); }
   get username() { return this.addEditAccountform.get('username'); }
   get email() { return this.addEditAccountform.get('email'); }
   get password() { return this.addEditAccountform.get('password'); }
   get confirmPassword() { return this.addEditAccountform.get('confirmPassword'); }
+  back() {
+    this.router.navigate(['']);
+  }
 }

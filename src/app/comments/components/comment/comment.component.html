@@ -3,20 +3,24 @@
         (cancelCommentEvent)="canceleditCommentfun($event)"></app-add-edit-comment>
 </div>
 <ng-template #elseBlock>
-    <div class="card border-0 mb-1 w-md-80 shadow-sm bg-body-tertiary rounded">
-        <div class="card-body">
-            <span class="fs-6 text-primary"><i
-                    class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.account_id}}</span>
-            <div class="float-end fs-6 text-primary">12-02-2013</div>
-            <p class="card-text">{{comment.comment_text}}</p>
-            <div class="d-flex flex-row-reverse">
-                <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-success" (click)="reply()"><i
-                            class="bi bi-reply"></i></button>
-                    <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
-                            class="bi bi-pencil-square"></i></button>
-                    <button type="button" class="btn btn-outline-danger" (click)="remove()"><i
-                            class="bi bi-trash"></i></button>
+    <div class="w-md-80 w-lg-60">
+        <div class="card border-0 mb-1 shadow-sm bg-body-tertiary rounded">
+            <div class="card-body">
+                <span class="fs-6 text-primary"><i
+                        class="bi bi-person-workspace fs-6 text-primary me-2"></i>{{comment.account_id}}</span>
+                <div class="float-end fs-6 text-primary">12-02-2013</div>
+                <p class="card-text">{{comment.comment_text}}</p>
+                <div class="d-flex flex-row-reverse">
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-outline-success" (click)="reply()"><i
+                                class="bi bi-reply"></i></button>
+                        <div *ngIf="false">
+                            <button type="button" class="btn btn-outline-primary" (click)="edit()"><i
+                                    class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-outline-danger" (click)="remove()"><i
+                                    class="bi bi-trash"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +32,7 @@
 
 
 <div *ngIf="childComments.length">
-    <button class="btn btn-light mb-1" data-bs-toggle="collapse"
+    <button class="btn btn-sm btn-outline-primary my-2" data-bs-toggle="collapse"
         attr.data-bs-target="#demo1{{this.comment.comment_id}}">Replies</button>
     <div id="demo1{{this.comment.comment_id}}" class="collapse">
         <div class="vl">

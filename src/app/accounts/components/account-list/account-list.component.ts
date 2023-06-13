@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Account } from 'src/app/core/data-access/account';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 
@@ -11,10 +12,10 @@ export class AccountListComponent implements OnInit {
 
   accounts: Account[] = [];
 
-  constructor(private accountsService: AccountsService) { }
+  constructor(private route: ActivatedRoute, private accountsService: AccountsService) { }
 
   ngOnInit(): void {
-    this.getAccounts()
+    this.accounts = this.route.snapshot.data['stuff']
   }
 
   removeAccountfun(_account: Account) {

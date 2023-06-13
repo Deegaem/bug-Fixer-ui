@@ -4,15 +4,14 @@ import { AddEditBugComponent } from './components/add-edit-bug/add-edit-bug.comp
 import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-shot.component';
 import { BugdetailsComponent } from './components/bugdetails/bugdetails.component';
 import { BugsComponent } from './components/bugs/bugs.component';
+import { AuthGuardService } from '../authentication/data-access/auth.guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'BugsComponent', pathMatch: 'full' },
-  { path: 'bugs', component: BugsComponent },
+  { path: 'bugs', component: BugsComponent, canActivate: [AuthGuardService] },
   { path: 'details', component: BugdetailsComponent },
   { path: 'add', component: AddEditBugComponent },
   { path: 'edit/:id', component: AddEditBugComponent },
-  { path: 'bug-screen-shot', component: BugScreenShotComponent },
-  { path: '**', redirectTo: 'BugsComponent', pathMatch: 'full' }
+  { path: 'bug-screen-shot', component: BugScreenShotComponent }
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

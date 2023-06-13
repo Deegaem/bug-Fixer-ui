@@ -14,9 +14,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
 })
 export class CommentsComponent implements OnInit {
   @Input() comments: Comment[] = [];
-
-
-  account!: Account;
+  accountinfo!: Account;
   bug_id!: number;
   constructor(private accountsService: AccountsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute,) { }
 
@@ -47,8 +45,9 @@ export class CommentsComponent implements OnInit {
     console.log("comment from comments component: ", comment);
   }
   showAccountInfo(account_id: number) {
+    // todo take it from the localstorge
     this.accountsService.getAccount(account_id).subscribe((account: Account) => {
-      this.account = account;
+      this.accountinfo = account;
       console.log("Account: ", account)
     });
   }

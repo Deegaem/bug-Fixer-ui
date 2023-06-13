@@ -1,47 +1,49 @@
-<div class="container-md bg-light">
-    <div class="w-md-80">
+<div class="container bg-light">
+    <div class="w-lg-80">
         <div class="p-1">
             <h2>bugTitle Details</h2>
         </div>
         <ul class="list-group">
             <li class="list-group-item">
-                <h5 class="mb-1">AssignTo:</h5>
+                <p><span>AssignTo :</span> Lorem ipsum dolor</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Priority:</h5>
+                <p><span>Priority :</span> Lorem ipsum dolor si</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Severity: </h5>
+                <p><span>Severity :</span> Lorem ipsum dolor si</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Created at:</h5>
+                <p><span>Created at :</span> 00.00.2023</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Last Modified at:</h5>
+                <p><span>Last Modified at :</span> 00.00.2023</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Description:</h5>
+                <p><span>Description :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">StepsToReproduce:</h5>
+                <p><span>StepsToReproduce :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod
+                </p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">ExpectedAndActualResult:</h5>
+                <p><span>Expected Result :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
             </li>
             <li class="list-group-item">
-                <h5 class="mb-1">Go to Bug Screen Shot:</h5>
+                <p><span>Actual Result :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
+            </li>
+            <li class="list-group-item">
+                <p><span>Go to Bug Screen Shot :</span> </p>
             </li>
         </ul>
     </div>
 </div>
-<div class="container-md bg-light">
-    <div class="w-md-80">
-        <button class="btn btn-light btn-lg my-1" data-bs-toggle="collapse" data-bs-target="#demo">Bug Comments</button>
+<div class="container bg-light">
+    <div>
+        <button class="btn btn-outline-primary my-2" data-bs-toggle="collapse" data-bs-target="#demo">Comments</button>
         <div id="demo" class="collapse">
             <app-add-edit-comment (cancelComment)="update($event)"></app-add-edit-comment>
             <app-comments [comments]="rootComments"></app-comments>
         </div>
     </div>
 </div>
-<button type="button" class="returnBottomClass btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"
-    (click)="logout()"><i class="bi bi-box-arrow-right"></i></button>

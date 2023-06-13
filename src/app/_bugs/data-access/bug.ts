@@ -8,7 +8,7 @@ export interface Bug {
     status: string;
     priority: string;
     severity: string;
-    assignTo: Account;
+    assignedtoaccount: Account;
     description: string;
     expectedResult: string;
     actualResult: string;
