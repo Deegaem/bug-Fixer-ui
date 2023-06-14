@@ -19,6 +19,35 @@
                         <div *ngIf="bugTitle?.getError('required')">Bug Title is required</div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Assign to</label>
+                    <select id="inputState" class="form-select" formControlName="assignedto">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let account of accounts" [value]="account.account_id">{{account.username}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Status</label>
+                    <select id="inputState" class="form-select" formControlName="status">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Priority</label>
+                    <select id="inputState" class="form-select" formControlName="priority">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Severity</label>
+                    <select id="inputState" class="form-select" formControlName="severity">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
                 <div class="is-valid">
                     <label for="description" class="form-label" [ngClass]="{
                         'text-success':submitted && description?.valid,
@@ -27,38 +56,10 @@
                     <textarea class="form-control" id="description" rows="3" [ngClass]="{
                         'is-valid':submitted && description?.valid,
                         'is-invalid':submitted && description?.invalid
-                        }" formControlName="description">></textarea>
+                        }" formControlName="description"></textarea>
                     <div class="invalid-feedback" *ngIf="submitted && description?.invalid">
                         <div *ngIf="description?.getError('required')">Description is required</div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Assign to</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option *ngFor="let account of accounts">{{account.username}}</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Priority</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Severity</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
                 </div>
                 <div class="is-valid">
                     <label for="stepsToReproduce" class="form-label" [ngClass]="{
@@ -96,7 +97,7 @@
                     <textarea class="form-control" id="actualResult" rows="3" [ngClass]="{
                         'is-valid':submitted && actualResult?.valid,
                         'is-invalid':submitted && actualResult?.invalid
-                        }" formControlName="actualResult">></textarea>
+                        }" formControlName="actualResult"></textarea>
                     <div class="invalid-feedback" *ngIf="submitted && actualResult?.invalid">
                         <div *ngIf="actualResult?.getError('required')">Actual Result is
                             required

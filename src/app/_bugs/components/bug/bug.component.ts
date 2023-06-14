@@ -9,15 +9,16 @@ import { Bug } from '../../data-access/bug';
   styleUrls: ['./bug.component.scss']
 })
 export class BugComponent implements OnInit {
-  @Input() bug: any;
+  @Input() bug!: Bug;
   @Output() removeBugtEvent = new EventEmitter<Bug>();
+
   constructor(private bugsService: BugsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  editBug(bug: Bug) {
-    this.router.navigate(['bugs-routing/edit', bug.bug_id]);
+  editBug() {
+    this.router.navigate(['bugs-routing/edit', this.bug.bug_id]);
   }
 
   removeBug(bug_id: number) {

@@ -1,4 +1,3 @@
-import { Account } from "src/app/core/data-access/account"
 import { Comment } from "src/app/comments/data-access/comment"
 export interface Bug {
     bug_id?: number;
@@ -8,11 +7,11 @@ export interface Bug {
     status: string;
     priority: string;
     severity: string;
-    assignedtoaccount: Account;
+    assignedto: String;
     description: string;
     expectedResult: string;
     actualResult: string;
-    screenShotUrl: string;
     stepsToReproduce: string;
+    screenShotUrl: string;
     comments: Comment[];
 }

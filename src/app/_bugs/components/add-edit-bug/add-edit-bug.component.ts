@@ -23,14 +23,14 @@ export class AddEditBugComponent implements OnInit {
   constructor(private fb: FormBuilder, private accountsService: AccountsService, private bugsService: BugsService, private router: Router, private route: ActivatedRoute,) {
     this.addEditBugForm = this.fb.group({
       bugTitle: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      assignedtoaccount: ['', [Validators.required]],
+      assignedto: ['', [Validators.required]],
       status: ['', [Validators.required]],
       priority: ['', [Validators.required]],
       severity: ['', [Validators.required]],
-      stepsToReproduce: ['', [Validators.required]],
+      description: ['', [Validators.required]],
       expectedResult: ['', [Validators.required]],
       actualResult: ['', [Validators.required]],
+      stepsToReproduce: ['', [Validators.required]],
       screenShotUrl: ['', [Validators.required]]
     });
   }
@@ -44,7 +44,7 @@ export class AddEditBugComponent implements OnInit {
         this.addEditBugForm.patchValue({
           bugTitle: res.bugTitle,
           description: res.description,
-          assignedtoaccount: res.assignedtoaccount,
+          assignedto: res.assignedto,
           status: res.status,
           priority: res.priority,
           severity: res.severity,
@@ -82,14 +82,14 @@ export class AddEditBugComponent implements OnInit {
     this.bugsService.updateBug({
       bug_id: this.id,
       bugTitle: this.addEditBugForm.value.bugTitle,
-      description: this.addEditBugForm.value.description,
-      assignedtoaccount: this.addEditBugForm.value.assignedtoaccount,
+      assignedto: this.addEditBugForm.value.assignedto,
       status: this.addEditBugForm.value.status,
       priority: this.addEditBugForm.value.priority,
       severity: this.addEditBugForm.value.severity,
-      stepsToReproduce: this.addEditBugForm.value.stepsToReproduce,
+      description: this.addEditBugForm.value.description,
       expectedResult: this.addEditBugForm.value.expectedResult,
       actualResult: this.addEditBugForm.value.actualResult,
+      stepsToReproduce: this.addEditBugForm.value.stepsToReproduce,
       screenShotUrl: this.addEditBugForm.value.screenShotUrl
     }).subscribe(res => {
       this.addEditBugForm.reset();
@@ -105,7 +105,7 @@ export class AddEditBugComponent implements OnInit {
 
   get bugTitle() { return this.addEditBugForm.get('bugTitle'); }
   get description() { return this.addEditBugForm.get('description'); }
-  get assignedtoaccount() { return this.addEditBugForm.get('assignedtoaccount'); }
+  get assignedto() { return this.addEditBugForm.get('assignedto'); }
   get status() { return this.addEditBugForm.get('status'); }
   get priority() { return this.addEditBugForm.get('priority'); }
   get severity() { return this.addEditBugForm.get('severity'); }
