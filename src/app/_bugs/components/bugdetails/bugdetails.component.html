@@ -5,32 +5,35 @@
         </div>
         <ul class="list-group">
             <li class="list-group-item">
-                <p><span>AssignTo :</span> Lorem ipsum dolor</p>
+                <p><span>bug Title :</span> {{" "+bug.bugtitle}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Priority :</span> Lorem ipsum dolor si</p>
+                <p><span>AssignTo :</span> {{" "+bug.account_id}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Severity :</span> Lorem ipsum dolor si</p>
+                <p><span>Priority :</span>{{" "+bug.priority}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Created at :</span> 00.00.2023</p>
+                <p><span>Severity :</span>{{" "+bug.severity}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Last Modified at :</span> 00.00.2023</p>
+                <p><span>Created at :</span>{{" "+bug.created}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Description :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
+                <p><span>Last Modified at :</span>{{" "+bug.modified}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>StepsToReproduce :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod
+                <p><span>Description :</span>{{" "+bug.description}}</p>
+            </li>
+            <li class="list-group-item">
+                <p><span>Steps To Reproduce :</span>{{" "+bug.stepstoreproduce}}
                 </p>
             </li>
             <li class="list-group-item">
-                <p><span>Expected Result :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
+                <p><span>Expected Result :</span>{{" "+bug.expectedresult}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Actual Result :</span> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod</p>
+                <p><span>Actual Result :</span>{{" "+bug.actualresult}}</p>
             </li>
             <li class="list-group-item">
                 <p><span>Go to Bug Screen Shot :</span> </p>

@@ -22,8 +22,8 @@ export class BugComponent implements OnInit {
     this.router.navigate(['bugs-routing/edit', this.bug.bug_id]);
   }
 
-  removeBug(bug_id: number) {
-    this.bugsService.removeBug(bug_id).subscribe(() => {
+  removeBug() {
+    this.bugsService.removeBug(this.bug.bug_id).subscribe(() => {
       this.removeBugEvent.emit(this.bug);
       console.log("from removebug subscribe");
     });

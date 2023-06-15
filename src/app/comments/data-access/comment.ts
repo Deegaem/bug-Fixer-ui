@@ -4,5 +4,5 @@ export interface Comment {
     parent_id: number | null;
     account_id: number;
     created: Date;
-    comment_text: string;
+    commenttext: string;
 }
