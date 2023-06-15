@@ -1,7 +1,7 @@
 import { Comment } from "src/app/comments/data-access/comment"
 export interface Bug {
     bug_id?: number;
-    bugTitle: string;
+    bugtitle: string;
     created: Date;
     modified: Date;
     status: string;
@@ -9,9 +9,9 @@ export interface Bug {
     severity: string;
     assignedto: String;
     description: string;
-    expectedResult: string;
-    actualResult: string;
-    stepsToReproduce: string;
-    screenShotUrl: string;
+    expectedresult: string;
+    actualresult: string;
+    stepstoreproduce: string;
+    screenshoturl: string;
     comments: Comment[];
 }

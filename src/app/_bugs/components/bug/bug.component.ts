@@ -9,12 +9,13 @@ import { Bug } from '../../data-access/bug';
   styleUrls: ['./bug.component.scss']
 })
 export class BugComponent implements OnInit {
-  @Input() bug!: Bug;
-  @Output() removeBugtEvent = new EventEmitter<Bug>();
+  @Input() bug!: any;
+  @Output() removeBugEvent = new EventEmitter<Bug>();
 
   constructor(private bugsService: BugsService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log("from ngoninit bugcomponent", this.bug);
   }
 
   editBug() {
@@ -23,7 +24,8 @@ export class BugComponent implements OnInit {
 
   removeBug(bug_id: number) {
     this.bugsService.removeBug(bug_id).subscribe(() => {
-      this.removeBugtEvent.emit(this.bug);
+      this.removeBugEvent.emit(this.bug);
+      console.log("from removebug subscribe");
     });
   }
 

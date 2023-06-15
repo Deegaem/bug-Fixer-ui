@@ -19,19 +19,23 @@ export class AddEditBugComponent implements OnInit {
   id!: number;
   isAddMode = true;
   submitted = false;
+  statusArray = ["test1", "test2", "test3"];
+  priorityArray = ["test1", "test2", "test3"];
+  severityArray = ["test1", "test2", "test3"];
+  assignedtoArray = [1, 2, 3];
 
   constructor(private fb: FormBuilder, private accountsService: AccountsService, private bugsService: BugsService, private router: Router, private route: ActivatedRoute,) {
     this.addEditBugForm = this.fb.group({
-      bugTitle: ['', [Validators.required]],
+      bugtitle: ['', [Validators.required]],
       assignedto: ['', [Validators.required]],
       status: ['', [Validators.required]],
       priority: ['', [Validators.required]],
       severity: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      expectedResult: ['', [Validators.required]],
-      actualResult: ['', [Validators.required]],
-      stepsToReproduce: ['', [Validators.required]],
-      screenShotUrl: ['', [Validators.required]]
+      expectedresult: ['', [Validators.required]],
+      actualresult: ['', [Validators.required]],
+      stepstoreproduce: ['', [Validators.required]],
+      screenshoturl: ['', [Validators.required]]
     });
   }
 
@@ -42,16 +46,16 @@ export class AddEditBugComponent implements OnInit {
     if (this.id) {
       this.bugsService.getBug(this.id).subscribe(res => {
         this.addEditBugForm.patchValue({
-          bugTitle: res.bugTitle,
+          bugtitle: res.bugtitle,
           description: res.description,
           assignedto: res.assignedto,
           status: res.status,
           priority: res.priority,
           severity: res.severity,
-          stepsToReproduce: res.stepsToReproduce,
-          expectedResult: res.expectedResult,
-          actualResult: res.actualResult,
-          screenShotUrl: res.screenShotUrl
+          stepstoreproduce: res.stepstoreproduce,
+          expectedresult: res.expectedresult,
+          actualresult: res.actualresult,
+          screenshoturl: res.screenshoturl
         })
       });
       this.isAddMode = false;
@@ -72,28 +76,39 @@ export class AddEditBugComponent implements OnInit {
   }
 
   private addBug() {
-    this.bugsService.addBug(this.addEditBugForm.value).subscribe(res => {
+    this.bugsService.addBug({
+      bugtitle: this.addEditBugForm.value.bugtitle,
+      account_id: this.addEditBugForm.value.assignedto,
+      status: this.addEditBugForm.value.status,
+      priority: this.addEditBugForm.value.priority,
+      severity: this.addEditBugForm.value.severity,
+      description: this.addEditBugForm.value.description,
+      expectedresult: this.addEditBugForm.value.expectedresult,
+      actualresult: this.addEditBugForm.value.actualresult,
+      stepstoreproduce: this.addEditBugForm.value.stepstoreproduce,
+      screenshoturl: this.addEditBugForm.value.screenshoturl
+    }).subscribe(res => {
       this.addEditBugForm.reset();
-      this.router.navigate(['bugs']);
+      this.router.navigate(['bugs-routing/bugs']);
     });
   }
 
   private updateBug() {
     this.bugsService.updateBug({
       bug_id: this.id,
-      bugTitle: this.addEditBugForm.value.bugTitle,
-      assignedto: this.addEditBugForm.value.assignedto,
+      bugtitle: this.addEditBugForm.value.bugtitle,
+      account_id: this.addEditBugForm.value.assignedto,
       status: this.addEditBugForm.value.status,
       priority: this.addEditBugForm.value.priority,
       severity: this.addEditBugForm.value.severity,
       description: this.addEditBugForm.value.description,
-      expectedResult: this.addEditBugForm.value.expectedResult,
-      actualResult: this.addEditBugForm.value.actualResult,
-      stepsToReproduce: this.addEditBugForm.value.stepsToReproduce,
-      screenShotUrl: this.addEditBugForm.value.screenShotUrl
+      expectedresult: this.addEditBugForm.value.expectedresult,
+      actualresult: this.addEditBugForm.value.actualresult,
+      stepstoreproduce: this.addEditBugForm.value.stepstoreproduce,
+      screenshoturl: this.addEditBugForm.value.screenshoturl
     }).subscribe(res => {
       this.addEditBugForm.reset();
-      this.router.navigate(['bugs']);
+      this.router.navigate(['bugs-routing/bugs']);
     });
   }
 
@@ -103,16 +118,16 @@ export class AddEditBugComponent implements OnInit {
     });
   }
 
-  get bugTitle() { return this.addEditBugForm.get('bugTitle'); }
+  get bugtitle() { return this.addEditBugForm.get('bugtitle'); }
   get description() { return this.addEditBugForm.get('description'); }
   get assignedto() { return this.addEditBugForm.get('assignedto'); }
   get status() { return this.addEditBugForm.get('status'); }
   get priority() { return this.addEditBugForm.get('priority'); }
   get severity() { return this.addEditBugForm.get('severity'); }
-  get stepsToReproduce() { return this.addEditBugForm.get('stepsToReproduce'); }
-  get expectedResult() { return this.addEditBugForm.get('expectedResult'); }
-  get actualResult() { return this.addEditBugForm.get('actualResult'); }
-  get screenShotUrl() { return this.addEditBugForm.get('screenShotUrl'); }
+  get stepstoreproduce() { return this.addEditBugForm.get('stepstoreproduce'); }
+  get expectedresult() { return this.addEditBugForm.get('expectedresult'); }
+  get actualresult() { return this.addEditBugForm.get('actualresult'); }
+  get screenshoturl() { return this.addEditBugForm.get('screenshoturl'); }
 
   back() {
     this.router.navigate(['']);

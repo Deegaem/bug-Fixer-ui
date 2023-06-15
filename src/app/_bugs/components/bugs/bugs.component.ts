@@ -32,7 +32,8 @@ export class BugsComponent implements OnInit {
   }
 
   public removeBugfun(_bug: any) {
-    this.bugs.filter((bug) => { return bug.bug_id != _bug.bug_id });
+    console.log("from removebugfun on bugs component");
+    this.bugs = this.bugs.filter((bug) => { return bug.bug_id != _bug.bug_id });
   }
 
 }
