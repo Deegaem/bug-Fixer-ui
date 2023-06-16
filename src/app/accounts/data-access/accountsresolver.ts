@@ -5,7 +5,7 @@ import { Account } from 'src/app/core/data-access/account';
 import { Observable } from "rxjs";
 
 @Injectable()
-export class Myresolver implements Resolve<Account[]>{
+export class Accountsresolver implements Resolve<Account[]>{
     constructor(private accountsService: AccountsService) { }
     resolve(): Observable<Account[]> {
         return this.accountsService.getAccounts();

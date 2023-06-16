@@ -70,7 +70,7 @@ export class AddEditCommentComponent implements OnInit {
   }
   updateForm() {
     this.addEditCommentForm.patchValue({
-      comment: this.editValue.comment_text,
+      comment: this.editValue.commenttext,
       byaccount: this.editValue.account_id,
       forbug: this.editValue.bug_id
     });

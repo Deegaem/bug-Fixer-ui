@@ -1,8 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { Comment } from '../../data-access/comment';
-import { from } from 'rxjs';
-import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
 import { Account } from 'src/app/core/data-access/account';
 
@@ -19,7 +16,7 @@ export class CommentComponent implements OnInit {
   childComments: Comment[] = [];
   replyflag: boolean = false;
   editflag: boolean = false;
-  constructor(private commentsService: CommentsService, private router: Router) { }
+  constructor(private commentsService: CommentsService) { }
 
   ngOnInit(): void {
     console.log("replyflag:", this.replyflag);

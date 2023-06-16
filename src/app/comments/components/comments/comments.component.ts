@@ -2,9 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Account } from '../../../core/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Comment } from '../../data-access/comment';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
-import { group } from '@angular/animations';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
 
 @Component({
