@@ -5,9 +5,10 @@ import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-
 import { BugdetailsComponent } from './components/bugdetails/bugdetails.component';
 import { BugsComponent } from './components/bugs/bugs.component';
 import { AuthGuardService } from '../authentication/data-access/auth.guard.service';
+import { Bugsresolver } from './data-access/bugsresolver';
 
 const routes: Routes = [
-  { path: 'bugs', component: BugsComponent, canActivate: [AuthGuardService] },
+  { path: 'bugs', component: BugsComponent, canActivate: [AuthGuardService], resolve: { stuff: Bugsresolver } },
   { path: 'details', component: BugdetailsComponent },
   { path: 'add', component: AddEditBugComponent },
   { path: 'edit/:id', component: AddEditBugComponent },

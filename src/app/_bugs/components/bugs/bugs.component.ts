@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Account } from '../../../core/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Bug } from '../../data-access/bug';
-import { BugsService } from 'src/app/core/data-access/bugs.service';
 
 @Component({
   selector: 'app-bugs',
@@ -13,13 +12,10 @@ import { BugsService } from 'src/app/core/data-access/bugs.service';
 export class BugsComponent implements OnInit {
   bugs: Bug[] = [];
   account!: Account;
-  constructor(private bugsService: BugsService, private accountsService: AccountsService, private router: Router,) { }
+  constructor(private route: ActivatedRoute, private accountsService: AccountsService, private router: Router,) { }
 
   ngOnInit(): void {
-    this.bugsService.getBugs().subscribe((bugs: Bug[]) => {
-      this.bugs = bugs;
-    }
-    );
+    this.bugs = this.route.snapshot.data['stuff'];
   }
   addBug() {
     this.router.navigate(['bugs-routing/add']);

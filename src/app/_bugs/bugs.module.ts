@@ -8,6 +8,7 @@ import { BugScreenShotComponent } from './components/bug-screen-shot/bug-screen-
 import { CommentsModule } from '../comments/comments.module';
 import { AuthService } from '../authentication/data-access/auth.service';
 import { AuthGuardService } from '../authentication/data-access/auth.guard.service';
+import { Bugsresolver } from './data-access/bugsresolver';
 
 
 
@@ -23,7 +24,7 @@ import { AuthGuardService } from '../authentication/data-access/auth.guard.servi
     BugsRoutingModule,
     CommentsModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, Bugsresolver],
   exports: []
 })
 export class BugsModule { }
