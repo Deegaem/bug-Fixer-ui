@@ -15,7 +15,7 @@ export class BugsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private accountsService: AccountsService, private router: Router,) { }
 
   ngOnInit(): void {
-    this.bugs = this.route.snapshot.data['stuff'];
+    this.bugs = this.route.snapshot.data['bugs'];
   }
   addBug() {
     this.router.navigate(['bugs-routing/add']);
