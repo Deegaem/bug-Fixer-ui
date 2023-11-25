@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Account } from '../../../core/data-access/account';
+import { Account } from '../../../accounts/data-access/account';
 import { AccountsService } from '../../../core/data-access/accounts.service';
 import { Comment } from '../../data-access/comment';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-  @Input() comments: Comment[] = [];
+  @Input() comments: any[] = [];
   accountinfo!: Account;
   bug_id!: number;
   constructor(private accountsService: AccountsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute,) { }
@@ -25,6 +25,7 @@ export class CommentsComponent implements OnInit {
          console.log("comments: ", comments)
        });
      }); */
+     console.log("comments from commentscomponent: ", this.comments)
   }
   createComment() {
     this.router.navigate(['comments/comment-form']);

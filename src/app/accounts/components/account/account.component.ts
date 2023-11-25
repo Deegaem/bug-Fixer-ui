@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Account } from 'src/app/core/data-access/account';
+import { Account } from 'src/app/accounts/data-access/account';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 
 @Component({

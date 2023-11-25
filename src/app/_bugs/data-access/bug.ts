@@ -1,6 +1,7 @@
 import { Comment } from "src/app/comments/data-access/comment"
 export interface Bug {
     bug_id?: number;
+    account_id:number;
     bugtitle: string;
     created: Date;
     modified: Date;

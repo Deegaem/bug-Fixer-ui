@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Account } from 'src/app/core/data-access/account';
+import { Account } from 'src/app/accounts/data-access/account';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 import { BugsService } from 'src/app/core/data-access/bugs.service';
 
@@ -24,7 +24,7 @@ export class AddEditBugComponent implements OnInit {
   severityArray = ["test1", "test2", "test3"];
   assignedtoArray = [1, 2, 3];
 
-  constructor(private fb: FormBuilder, private accountsService: AccountsService, private bugsService: BugsService, private router: Router, private route: ActivatedRoute,) {
+  constructor(private fb: FormBuilder, private accountsService: AccountsService, private bugsService: BugsService, private router: Router, private route: ActivatedRoute) {
     this.addEditBugForm = this.fb.group({
       bugtitle: ['', [Validators.required]],
       assignedto: ['', [Validators.required]],

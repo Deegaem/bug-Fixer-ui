@@ -1,4 +1,4 @@
-import { Account } from "src/app/core/data-access/account";
+import { Account } from "src/app/accounts/data-access/account";
 
 export interface Chat {
     message: string;

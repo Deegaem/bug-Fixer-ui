@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Account } from './account';
+import { Account } from '../../accounts/data-access/account';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 
@@ -23,7 +23,7 @@ export class AccountsService {
     public addAccount(account: Account): Observable<Account> {
         return this.http.post<Account>(`http://localhost:8080/accounts`, account)
             .pipe(map((resp: Account) => { return resp })
-            );
+            ); 
     }
 
     public updateAccount(account: Account): Observable<Account> {

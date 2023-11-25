@@ -40,13 +40,14 @@
             </li>
         </ul>
     </div>
+    <app-comments [comments]="rootComments"></app-comments>
 </div>
 <div class="container bg-light">
     <div>
         <button class="btn btn-outline-primary my-2" data-bs-toggle="collapse" data-bs-target="#demo">Comments</button>
         <div id="demo" class="collapse">
             <app-add-edit-comment (cancelComment)="update($event)"></app-add-edit-comment>
-            <app-comments [comments]="rootComments"></app-comments>
+            
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Comment } from '../../data-access/comment';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
-import { Account } from 'src/app/core/data-access/account';
+import { Account } from 'src/app/accounts/data-access/account';
 
 @Component({
   selector: 'app-comment',

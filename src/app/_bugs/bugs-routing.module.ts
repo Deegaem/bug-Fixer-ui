@@ -9,7 +9,7 @@ import { Bugsresolver } from './data-access/bugsresolver';
 
 const routes: Routes = [
   { path: 'bugs', component: BugsComponent, canActivate: [AuthGuardService], resolve: { bugs: Bugsresolver } },
-  { path: 'details', component: BugdetailsComponent },
+  { path: 'details/:id', component: BugdetailsComponent },
   { path: 'add', component: AddEditBugComponent },
   { path: 'edit/:id', component: AddEditBugComponent },
   { path: 'bug-screen-shot', component: BugScreenShotComponent }

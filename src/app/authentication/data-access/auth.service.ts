@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 //import { Credential } from '../Domain-Models/credential';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Account } from 'src/app/core/data-access/account';
+import { Account } from 'src/app/accounts/data-access/account';
 
 @Injectable({
     providedIn: 'root'

@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AccountsService } from 'src/app/core/data-access/accounts.service';
 import { MustMatch } from './CustomValidators';
-import { Account } from 'src/app/core/data-access/account';
+import { Account } from 'src/app/accounts/data-access/account';
 @Component({
   selector: 'app-add-edit-account',
   templateUrl: './add-edit-account.component.html',
