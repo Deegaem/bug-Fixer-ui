@@ -39,6 +39,7 @@ export class CommentsService {
         });
         console.log("groups from service datei: ", group);
         return group
+        //return resp
       })
       );
 

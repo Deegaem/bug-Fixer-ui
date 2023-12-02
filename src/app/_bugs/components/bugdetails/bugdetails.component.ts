@@ -13,7 +13,7 @@ import { Bug } from '../../data-access/bug';
 export class BugdetailsComponent implements OnInit {
   id!:number;
   bug!: Bug;
-  rootComments: any[] = [];
+  rootComments: any[]=[];
   cancelComment!: boolean;
   constructor(private bugsService: BugsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute) { }
 
@@ -28,10 +28,11 @@ export class BugdetailsComponent implements OnInit {
       });
     }
     //this.rootComments = this.commentsService.filterComments(null);
-    this.commentsService.getComments().subscribe(res => {
+    this.commentsService.getComments().subscribe((res: any[]) => {
       this.rootComments = res;  
+       console.log("res from bugdetails component", this.rootComments)
     });
-    console.log("rootcomments from bugdetails component", this.rootComments);
+   // console.log("rootcomments from bugdetails component", this.rootComments)
   }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);

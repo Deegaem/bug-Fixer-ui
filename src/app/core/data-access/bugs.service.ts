@@ -35,10 +35,4 @@ export class BugsService {
     public removeBug(bug_id: number): Observable<{}> {
         return this.http.delete(`http://localhost:8081/bugs/${bug_id}`);
     }
-    public _getbug(): Bug {
-        return this._bug;
-    }
-    public _setbug(value: Bug) {
-        this._bug = value;
-    }
 }

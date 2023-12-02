@@ -5,49 +5,48 @@
         </div>
         <ul class="list-group">
             <li class="list-group-item">
-                <p><span>bug Title :</span> {{" "+bug.bugtitle}}</p>
+                <p><span>bug Title :</span> {{" "+this.bug.bugtitle}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>AssignTo :</span> {{" "+bug.account_id}}</p>
+                <p><span>AssignTo :</span> {{" "+this.bug.account_id}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Priority :</span>{{" "+bug.priority}}</p>
+                <p><span>Priority :</span>{{" "+this.bug.priority}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Severity :</span>{{" "+bug.severity}}</p>
+                <p><span>Severity :</span>{{" "+this.bug.severity}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Created at :</span>{{" "+bug.created}}</p>
+                <p><span>Created at :</span>{{" "+this.bug.created}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Last Modified at :</span>{{" "+bug.modified}}</p>
+                <p><span>Last Modified at :</span>{{" "+this.bug.modified}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Description :</span>{{" "+bug.description}}</p>
+                <p><span>Description :</span>{{" "+this.bug.description}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Steps To Reproduce :</span>{{" "+bug.stepstoreproduce}}
+                <p><span>Steps To Reproduce :</span>{{" "+this.bug.stepstoreproduce}}
                 </p>
             </li>
             <li class="list-group-item">
-                <p><span>Expected Result :</span>{{" "+bug.expectedresult}}</p>
+                <p><span>Expected Result :</span>{{" "+this.bug.expectedresult}}</p>
             </li>
             <li class="list-group-item">
-                <p><span>Actual Result :</span>{{" "+bug.actualresult}}</p>
+                <p><span>Actual Result :</span>{{" "+this.bug.actualresult}}</p>
             </li>
             <li class="list-group-item">
                 <p><span>Go to Bug Screen Shot :</span> </p>
             </li>
         </ul>
-    </div>
-    <app-comments [comments]="rootComments"></app-comments>
+    </div> 
 </div>
 <div class="container bg-light">
     <div>
         <button class="btn btn-outline-primary my-2" data-bs-toggle="collapse" data-bs-target="#demo">Comments</button>
         <div id="demo" class="collapse">
             <app-add-edit-comment (cancelComment)="update($event)"></app-add-edit-comment>
-            
+            <app-comments [comments]="rootComments"></app-comments>
         </div>
     </div>
 </div>
