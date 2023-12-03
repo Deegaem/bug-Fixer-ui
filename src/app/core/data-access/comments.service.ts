@@ -13,37 +13,31 @@ export class CommentsService {
 
   comments: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-/*   public getComments(bug_id: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`http://localhost:8082/comments/${bug_id}`)
+  public getComments(pid:any): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`http://localhost:8082/comments`)
       .pipe(map((resp: any[]) => {
         var group: any = {};
         resp.forEach(function (comment) {
           group[comment.parent_id] ||= [];
           group[comment.parent_id].push(comment);
         });
-        console.log("groups: ", group);
-        return group
-      })
-      );
-
-  } */
-  public getComments(): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8082/comments`)
-      .pipe(map((resp: any[]) => {
-        var group: any = {};
-        resp.forEach(function (comment) {
-          group[comment.parent_id] ||= [];
-          group[comment.parent_id].push(comment);
-        });
-        console.log("groups from service datei: ", group);
-        return group
-        //return resp
+        if (group[pid] === undefined) {
+          return [];
+        } else { return group[pid]; }
       })
       );
 
   }
+/*   public getComments(): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8082/comments`)
+      .pipe(map((resp: any[]) => {
+        return resp
+      })
+      );
+
+  } */
   public getComment(bug_id: number, comment_id: number): Observable<Comment> {
     return this.http.get<Comment>(`http://localhost:8082/comments/${bug_id}/${comment_id}`)
       .pipe(map((resp: Comment) => { return resp })
@@ -82,15 +76,4 @@ export class CommentsService {
     return this.http.delete(`http://localhost:8082/comments/${bug_id}`)
   }
 
-  filterComments(pid: any): any[] {
-    var group: any = {};
-    this.comments.forEach(function (comment) {
-      group[comment.parent_id] ||= [];
-      group[comment.parent_id].push(comment);
-    });
-    if (group[pid] === undefined) {
-      return [];
-    } else { return group[pid]; }
-
-  }
 }

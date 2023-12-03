@@ -28,8 +28,11 @@ export class CommentComponent implements OnInit {
      } else {
        console.log("parent_id from comment else:", this.comment.parent_id)
      } */
-    this.childComments = this.commentsService.filterComments(this.comment.comment_id);
-
+     this.commentsService.getComments(this.comment.comment_id).subscribe((res: any[]) => {
+      this.childComments = res
+      console.log("childcomments from comment component", this.childComments)
+    }); 
+    
   }
   edit() {
     this.editValue = this.comment;

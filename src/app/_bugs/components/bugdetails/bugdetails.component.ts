@@ -27,12 +27,10 @@ export class BugdetailsComponent implements OnInit {
         console.log("from bugdetails component: ", this.bug);
       });
     }
-    //this.rootComments = this.commentsService.filterComments(null);
-    this.commentsService.getComments().subscribe((res: any[]) => {
-      this.rootComments = res;  
-       console.log("res from bugdetails component", this.rootComments)
-    });
-   // console.log("rootcomments from bugdetails component", this.rootComments)
+    this.commentsService.getComments(null).subscribe((res: any[]) => {
+      this.rootComments = res
+      console.log("rootcomments from bugdetails component", this.rootComments)
+    }); 
   }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);
