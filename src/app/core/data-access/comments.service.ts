@@ -15,17 +15,17 @@ export class CommentsService {
 
   constructor(private http: HttpClient) {}
 
-  public getComments(pid:any): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`http://localhost:8082/comments`)
+  public getCommentsByBugId(bug_id:number, parentId:any): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`http://localhost:8082/comments/by_bug_id/${bug_id}`)
       .pipe(map((resp: any[]) => {
         var group: any = {};
         resp.forEach(function (comment) {
           group[comment.parent_id] ||= [];
           group[comment.parent_id].push(comment);
         });
-        if (group[pid] === undefined) {
+        if (group[parentId] === undefined) {
           return [];
-        } else { return group[pid]; }
+        } else { return group[parentId]; }
       })
       );
 
@@ -45,8 +45,8 @@ export class CommentsService {
 
   }
 
-  public addComment(comment: Comment): Observable<Comment> {
-    return this.http.post<Comment>(`http://localhost:8082/comments/`, comment)
+  public addComment(comment: any): Observable<any> {
+    return this.http.post<any>(`http://localhost:8082/comments/`, comment)
       .pipe(map((resp: Comment) => { return resp })
       );
     /* toDo:
@@ -69,11 +69,11 @@ export class CommentsService {
       );
   }
 
-  public removeComment(bug_id: number, comment_id: number): Observable<{}> {
-    return this.http.delete(`http://localhost:8082/comments/${bug_id}/${comment_id}`)
+  public removeCommentById(comment_id: number): Observable<{}> {
+    return this.http.delete(`http://localhost:8082/comments/${comment_id}`)
   }
- public removeAllComment(bug_id: number): Observable<{}> {
-    return this.http.delete(`http://localhost:8082/comments/${bug_id}`)
+ public removeCommentsByBugId(bug_id: number): Observable<{}> {
+    return this.http.delete(`http://localhost:8082/comments/by_bug_id/${bug_id}`)
   }
 
 }

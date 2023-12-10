@@ -23,6 +23,7 @@ export class BugsService {
     }
 
     public addBug(bug: any): Observable<any> {
+        console.log("bug from bug service", bug)
         return this.http.post<any>(`http://localhost:8081/bugs`, bug).pipe(map((resp: Bug) => { return resp })
         );
     }

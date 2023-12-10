@@ -24,13 +24,14 @@ export class BugdetailsComponent implements OnInit {
     if (this.id) {
       this.bugsService.getBug(this.id).subscribe(res => {
         this.bug = res;  
-        console.log("from bugdetails component: ", this.bug);
+        console.log("bug from bugdetails component: ", this.bug);
       });
-    }
-    this.commentsService.getComments(null).subscribe((res: any[]) => {
-      this.rootComments = res
-      console.log("rootcomments from bugdetails component", this.rootComments)
-    }); 
+      this.commentsService.getCommentsByBugId(this.id,null).subscribe((res: any[]) => {
+        this.rootComments = res
+        console.log("bug_id from bugdetails component", this.id)
+        console.log("rootcomments from bugdetails component", this.rootComments)
+      });
+    } 
   }
   bugScreenShot() {
     this.router.navigate(['bugs-routing/bug-screen-shot']);

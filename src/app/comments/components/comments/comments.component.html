@@ -1,4 +1,4 @@
 <div *ngFor="let comment of comments">
-    <app-comment [comment]="comment" [accountinfo]="accountinfo"
+    <app-comment [bug_id]="bug_id" [comment]="comment" [accountinfo]="accountinfo"
         (removeCommentEvent)="removeCommentfun($event)"></app-comment>
 </div>

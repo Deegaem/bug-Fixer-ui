@@ -10,6 +10,7 @@ import { Account } from 'src/app/accounts/data-access/account';
 })
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
+  @Input() bug_id!: number;
   @Input() accountinfo!: Account;
   @Output() removeCommentEvent = new EventEmitter<Comment>();
   editValue!: Comment;
@@ -20,6 +21,7 @@ export class CommentComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("replyflag:", this.replyflag);
+    console.log("bug id from comment component:", this.bug_id);
 
     /*  if (typeof (this.comment.parent_id) !== 'number') {
        console.log("parent_id from comment:", this.comment.parent_id)
@@ -28,7 +30,7 @@ export class CommentComponent implements OnInit {
      } else {
        console.log("parent_id from comment else:", this.comment.parent_id)
      } */
-     this.commentsService.getComments(this.comment.comment_id).subscribe((res: any[]) => {
+     this.commentsService.getCommentsByBugId(this.bug_id,this.comment.comment_id).subscribe((res: any[]) => {
       this.childComments = res
       console.log("childcomments from comment component", this.childComments)
     }); 

@@ -32,8 +32,9 @@ export class AddEditCommentComponent implements OnInit {
 
     this.addEditCommentForm = this.fb.group({
       comment: ['', [Validators.required]],
-      byaccount: ['', [Validators.required]],
-      forbug: ['', [Validators.required]]
+      account_id: ['', [Validators.required]],
+      bug_id: ['', [Validators.required]],
+      parent_id: ['', [Validators.required]]
     });
 
   }
@@ -49,11 +50,17 @@ export class AddEditCommentComponent implements OnInit {
       }
     }
   }
-  // private addComment() {
-  //   this.commentsService.addComment(this.bug_id, this.addEditCommentForm.value).subscribe(res => {
-  //     this.router.navigate(['comments']);
-  //   });
-  // }
+  private addComment() {
+     this.commentsService.addComment({
+       commenttext: this.addEditCommentForm.value.comment,
+       account_id: 1,
+       bug_id: 3,
+       parent_id: 2,
+       created: undefined
+     }).subscribe(res => {
+       this.router.navigate(['comments']);
+    });
+  }
   // private updateComment() {
   //   this.commentsService.updateComment(this.bug_id, this.comment_id, this.addEditCommentForm.value).subscribe(res => {
   //     this.router.navigate(['comments']);

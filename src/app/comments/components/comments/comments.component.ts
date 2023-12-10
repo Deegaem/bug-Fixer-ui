@@ -13,7 +13,7 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
 export class CommentsComponent implements OnInit {
   @Input() comments: any[] = [];
   accountinfo!: Account;
-  bug_id!: number;
+  @Input() bug_id!: number;
   constructor(private accountsService: AccountsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
@@ -35,8 +35,8 @@ export class CommentsComponent implements OnInit {
     this.router.navigate(['comments/comment-form', comment.comment_id]);
   }
 
-  removeComment(bug_id: number, comment_id: number) {
-    this.commentsService.removeComment(bug_id, comment_id).subscribe(() => {
+  removeComment(comment_id: number) {
+    this.commentsService.removeCommentById(comment_id).subscribe(() => {
     });
   }
 
