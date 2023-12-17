@@ -1,52 +1,59 @@
 <div class="container bg-light">
-    <div class="w-lg-80">
-        <div class="p-1">
-            <h2>bugTitle Details</h2>
-        </div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <p><span>bug Title :</span> {{" "+bug.bugtitle}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>AssignTo :</span> {{" "+bug.account_id}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Priority :</span>{{" "+bug.priority}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Severity :</span>{{" "+bug.severity}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Created at :</span>{{" "+bug.created}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Last Modified at :</span>{{" "+bug.modified}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Description :</span>{{" "+bug.description}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Steps To Reproduce :</span>{{" "+bug.stepstoreproduce}}
-                </p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Expected Result :</span>{{" "+bug.expectedresult}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Actual Result :</span>{{" "+bug.actualresult}}</p>
-            </li>
-            <li class="list-group-item">
-                <p><span>Go to Bug Screen Shot :</span> </p>
-            </li>
-        </ul>
-    </div> 
+  <div class="w-lg-80">
+    <div class="p-1">
+      <h2>bugTitle Details</h2>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <p><span>bug Title :</span> {{ " " + bug.bugtitle }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>AssignTo :</span> {{ " " + bug.account_id }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Priority :</span>{{ " " + bug.priority }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Severity :</span>{{ " " + bug.severity }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Created at :</span>{{ " " + bug.created }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Last Modified at :</span>{{ " " + bug.modified }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Description :</span>{{ " " + bug.description }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Steps To Reproduce :</span>{{ " " + bug.stepstoreproduce }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Expected Result :</span>{{ " " + bug.expectedresult }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Actual Result :</span>{{ " " + bug.actualresult }}</p>
+      </li>
+      <li class="list-group-item">
+        <p><span>Go to Bug Screen Shot :</span></p>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="container bg-light">
-    <div>
-        <button class="btn btn-outline-primary my-2" data-bs-toggle="collapse" data-bs-target="#demo">Comments</button>
-        <div id="demo" class="collapse">
-            <app-add-edit-comment (cancelComment)="update($event)"></app-add-edit-comment>
-            <app-comments [bug_id]="id" [comments]="rootComments"></app-comments>
-        </div>
+  <div>
+    <button
+      class="btn btn-outline-primary my-2"
+      data-bs-toggle="collapse"
+      data-bs-target="#demo"
+    >
+      Comments
+    </button>
+    <div id="demo" class="collapse">
+      <app-add-edit-comment
+        (cancelComment)="update($event)"
+      ></app-add-edit-comment>
+      <app-comments [bug_id]="id" [comments]="rootComments"></app-comments>
     </div>
+  </div>
 </div>

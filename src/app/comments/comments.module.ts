@@ -4,15 +4,14 @@ import { CommentComponent } from './components/comment/comment.component';
 import { AddEditCommentComponent } from './components/add-edit-comment/add-edit-comment.component';
 import { SharedModule } from '../shared/shared.module';
 
-
-
 @NgModule({
-  declarations: [
+  declarations: [AddEditCommentComponent, CommentComponent, CommentsComponent],
+  imports: [SharedModule],
+  exports: [
+    SharedModule,
     AddEditCommentComponent,
     CommentComponent,
-    CommentsComponent
+    CommentsComponent,
   ],
-  imports: [SharedModule]
-  , exports: [SharedModule, AddEditCommentComponent, CommentComponent, CommentsComponent]
 })
-export class CommentsModule { }
+export class CommentsModule {}

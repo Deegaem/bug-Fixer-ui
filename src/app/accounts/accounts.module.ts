@@ -5,16 +5,9 @@ import { AccountsRoutingModule } from './accounts-routing.module';
 import { CommonModule } from '@angular/common';
 import { Accountsresolver } from './data-access/accountsresolver';
 
-
-
 @NgModule({
-  declarations: [
-    AccountComponent,
-    AccountListComponent
-  ],
-  imports: [
-    CommonModule,
-    AccountsRoutingModule
-  ], providers: [Accountsresolver]
+  declarations: [AccountComponent, AccountListComponent],
+  imports: [CommonModule, AccountsRoutingModule],
+  providers: [Accountsresolver],
 })
-export class AccountsModule { }
+export class AccountsModule {}

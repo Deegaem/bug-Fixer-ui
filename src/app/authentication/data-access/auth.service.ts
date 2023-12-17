@@ -6,24 +6,24 @@ import { Router } from '@angular/router';
 import { Account } from 'src/app/accounts/data-access/account';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-    //private BASE_URL = 'http://localhost:8080/ims-users/resources';
-    //private user: Account;
-    //private jwtHelper: JwtHelperService,
-    constructor(private http: HttpClient, private router: Router) { }
+  //private BASE_URL = 'http://localhost:8080/ims-users/resources';
+  //private user: Account;
+  //private jwtHelper: JwtHelperService,
+  constructor(private http: HttpClient, private router: Router) {}
 
-    public get authenticated(): boolean {
-        /* const token = this.jwtHelper.tokenGetter();
+  public get authenticated(): boolean {
+    /* const token = this.jwtHelper.tokenGetter();
         if (token) {
             return !this.jwtHelper.isTokenExpired(token);
         } */
-        return true;
-    }
+    return true;
+  }
 
-    public login() {
-        /*  let url: string = `${this.BASE_URL}/users/authenticate`;
+  public login() {
+    /*  let url: string = `${this.BASE_URL}/users/authenticate`;
          return this.http.post(url, userCreds,
              { responseType: 'text' }
          ).subscribe(
@@ -41,17 +41,17 @@ export class AuthService {
              error => {
                  console.log('login failed', error);
              }); */
-        this.router.navigate(['bugs-routing/bugs']);
-    }
-    public logout() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('id');
-        localStorage.removeItem('username');
+    this.router.navigate(['bugs-routing/bugs']);
+  }
+  public logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('username');
 
-        this.router.navigate(['']);
-    }
+    this.router.navigate(['']);
+  }
 
-    /*     public get currentUser(): User {
+  /*     public get currentUser(): User {
             if (this.user && this.user.id) {
                 return this.user;
             }
@@ -62,5 +62,4 @@ export class AuthService {
     
             return this.user;
         } */
-
 }

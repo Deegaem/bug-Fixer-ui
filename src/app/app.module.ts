@@ -10,20 +10,16 @@ import { CoreModule } from './core/core.module';
 //import { MyErrorHandler } from './services/MyErrorHandler.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [AppComponent],
+  imports: [BrowserModule, CoreModule, AppRoutingModule],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttperrorInterceptor,
+      multi: true,
+    },
   ],
-  imports: [
-    BrowserModule,
-    CoreModule,
-    AppRoutingModule
-  ],
-  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttperrorInterceptor,
-    multi: true
-  },
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

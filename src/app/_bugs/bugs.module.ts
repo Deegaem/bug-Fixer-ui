@@ -10,21 +10,16 @@ import { AuthService } from '../authentication/data-access/auth.service';
 import { AuthGuardService } from '../authentication/data-access/auth.guard.service';
 import { Bugsresolver } from './data-access/bugsresolver';
 
-
-
 @NgModule({
   declarations: [
     BugsComponent,
     BugComponent,
     AddEditBugComponent,
     BugdetailsComponent,
-    BugScreenShotComponent
+    BugScreenShotComponent,
   ],
-  imports: [
-    BugsRoutingModule,
-    CommentsModule
-  ],
+  imports: [BugsRoutingModule, CommentsModule],
   providers: [AuthService, AuthGuardService, Bugsresolver],
-  exports: []
+  exports: [],
 })
-export class BugsModule { }
+export class BugsModule {}

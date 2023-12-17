@@ -4,9 +4,8 @@ import * as alertifyjs from 'alertifyjs';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-
   handleError(error: any) {
-    console.log("globalErrorhandler error: ", error);
+    console.log('globalErrorhandler error: ', error);
     let errorMessage = '';
     if (error instanceof HttpErrorResponse) {
       if (error.error instanceof ErrorEvent) {
@@ -18,12 +17,10 @@ export class GlobalErrorHandler implements ErrorHandler {
         errorMessage = `An error has occurred Status: ${error.status}\nMessage: ${error.message}`;
         alertifyjs.error(errorMessage);
       }
-
     } else {
       // errorMessage = `An Unexpected error has occurred: ${error}`;
       errorMessage = `An Unexpected error has occurred `;
       alertifyjs.error(errorMessage);
     }
-
   }
 }

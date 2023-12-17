@@ -4,7 +4,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { catchError, Observable, throwError, retry } from 'rxjs';
 
@@ -12,23 +12,21 @@ import { catchError, Observable, throwError, retry } from 'rxjs';
   providedIn: 'root',
 })
 export class HttperrorInterceptor implements HttpInterceptor {
-
-  constructor() { }
+  constructor() {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req)
-      .pipe(
-        retry(1),
-        catchError((error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            //client-side error
-          }
-          console.log("Interceptor error: ", error);
-          return throwError(() => error);
-        })
-      )
+    return next.handle(req).pipe(
+      retry(1),
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          //client-side error
+        }
+        console.log('Interceptor error: ', error);
+        return throwError(() => error);
+      })
+    );
   }
 }

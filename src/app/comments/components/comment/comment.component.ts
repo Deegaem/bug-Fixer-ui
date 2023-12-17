@@ -6,7 +6,7 @@ import { Account } from 'src/app/accounts/data-access/account';
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
   @Input() comment!: Comment;
@@ -17,11 +17,10 @@ export class CommentComponent implements OnInit {
   childComments: Comment[] = [];
   replyflag: boolean = false;
   editflag: boolean = false;
-  constructor(private commentsService: CommentsService) { }
+  constructor(private commentsService: CommentsService) {}
 
   ngOnInit(): void {
-    console.log("replyflag:", this.replyflag);
-    console.log("bug id from comment component:", this.bug_id);
+    // console.log("replyflag:", this.replyflag);
 
     /*  if (typeof (this.comment.parent_id) !== 'number') {
        console.log("parent_id from comment:", this.comment.parent_id)
@@ -30,11 +29,14 @@ export class CommentComponent implements OnInit {
      } else {
        console.log("parent_id from comment else:", this.comment.parent_id)
      } */
-     this.commentsService.getCommentsByBugId(this.bug_id,this.comment.comment_id).subscribe((res: any[]) => {
-      this.childComments = res
-      console.log("childcomments from comment component", this.childComments)
-    }); 
-    
+    this.commentsService
+      .getCommentsByBugId(this.bug_id, this.comment.comment_id)
+      .subscribe((res: any[]) => {
+        this.childComments = res;
+        console.log('bug ID from child component:', this.bug_id);
+        console.log('parent ID from child component:', this.comment.comment_id);
+        console.log('childcomments from child component', this.childComments);
+      });
   }
   edit() {
     this.editValue = this.comment;
@@ -50,10 +52,10 @@ export class CommentComponent implements OnInit {
   }
   public cancelreplyCommentfun(flag: any) {
     this.replyflag = flag;
-    console.log("flag from comment component: ", flag);
+    console.log('flag from comment component: ', flag);
   }
   public canceleditCommentfun(flag: any) {
     this.editflag = flag;
-    console.log("flag from comment component: ", flag);
+    console.log('flag from comment component: ', flag);
   }
 }

@@ -6,16 +6,16 @@ import { Bug } from '../../data-access/bug';
 @Component({
   selector: 'app-bug',
   templateUrl: './bug.component.html',
-  styleUrls: ['./bug.component.scss']
+  styleUrls: ['./bug.component.scss'],
 })
 export class BugComponent implements OnInit {
   @Input() bug!: any;
   @Output() removeBugEvent = new EventEmitter<Bug>();
 
-  constructor(private bugsService: BugsService, private router: Router) { }
+  constructor(private bugsService: BugsService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log("from ngoninit bugcomponent", this.bug);
+    console.log('from ngoninit bugcomponent', this.bug);
   }
 
   editBug() {
@@ -25,12 +25,11 @@ export class BugComponent implements OnInit {
   removeBug() {
     this.bugsService.removeBug(this.bug.bug_id).subscribe(() => {
       this.removeBugEvent.emit(this.bug);
-      console.log("from removebug subscribe");
+      console.log('from removebug subscribe');
     });
   }
 
   bugDetails() {
-    this.router.navigate(['bugs-routing/details',this.bug.bug_id]);
+    this.router.navigate(['bugs-routing/details', this.bug.bug_id]);
   }
-
 }

@@ -6,25 +6,26 @@ import { Credential } from '../../../Domain-Models/credential';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   public loginForm!: FormGroup;
   public submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
-
   }
-  get username() { return this.loginForm.get('username'); }
-  get password() { return this.loginForm.get('password'); }
-
+  get username() {
+    return this.loginForm.get('username');
+  }
+  get password() {
+    return this.loginForm.get('password');
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -34,19 +35,18 @@ export class LoginComponent implements OnInit {
       //ToDo have to check why Credential couldn't be an interface
       // );
     }
-    alert("Success");
+    alert('Success');
     this.loginForm.reset();
   }
   back() {
     this.router.navigate(['']);
   }
-   myFunction() {
-  /*   var x = document.getElementById("myInput");
+  myFunction() {
+    /*   var x = document.getElementById("myInput");
     if (x.type === "password") {
       x.type = "text";
     } else {
       x.type = "password";
     } */
   }
-
 }

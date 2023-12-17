@@ -2,35 +2,39 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Comment } from '../../comments/data-access/comment';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommentsService {
-
   comments: any[] = [];
 
   constructor(private http: HttpClient) {}
 
-  public getCommentsByBugId(bug_id:number, parentId:any): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`http://localhost:8082/comments/by_bug_id/${bug_id}`)
-      .pipe(map((resp: any[]) => {
-        var group: any = {};
-        resp.forEach(function (comment) {
-          group[comment.parent_id] ||= [];
-          group[comment.parent_id].push(comment);
-        });
-        if (group[parentId] === undefined) {
-          return [];
-        } else { return group[parentId]; }
-      })
+  public getCommentsByBugId(
+    bug_id: number,
+    parentId: any
+  ): Observable<Comment[]> {
+    return this.http
+      .get<Comment[]>(`http://localhost:8082/comments/by_bug_id/${bug_id}`)
+      .pipe(
+        map((resp: any[]) => {
+          var group: any = {};
+          resp.forEach(function (comment) {
+            group[comment.parent_id] ||= [];
+            group[comment.parent_id].push(comment);
+          });
+          if (group[parentId] === undefined) {
+            return [];
+          } else {
+            return group[parentId];
+          }
+        })
       );
-
   }
-/*   public getComments(): Observable<any[]> {
+  /*   public getComments(): Observable<any[]> {
     return this.http.get<any[]>(`http://localhost:8082/comments`)
       .pipe(map((resp: any[]) => {
         return resp
@@ -39,16 +43,21 @@ export class CommentsService {
 
   } */
   public getComment(bug_id: number, comment_id: number): Observable<Comment> {
-    return this.http.get<Comment>(`http://localhost:8082/comments/${bug_id}/${comment_id}`)
-      .pipe(map((resp: Comment) => { return resp })
+    return this.http
+      .get<Comment>(`http://localhost:8082/comments/${bug_id}/${comment_id}`)
+      .pipe(
+        map((resp: Comment) => {
+          return resp;
+        })
       );
-
   }
 
   public addComment(comment: any): Observable<any> {
-    return this.http.post<any>(`http://localhost:8082/comments/`, comment)
-      .pipe(map((resp: Comment) => { return resp })
-      );
+    return this.http.post<any>(`http://localhost:8082/comments/`, comment).pipe(
+      map((resp: Comment) => {
+        return resp;
+      })
+    );
     /* toDo:
     creating comment: 
     - perentID is allways null
@@ -63,17 +72,29 @@ export class CommentsService {
     use the spread operator to add the created comment to the bug comments Array in a createdlocalcomment function which will be invoked in the response */
   }
 
-  public updateComment(bug_id: number, comment_id: number, comment: Comment): Observable<Comment> {
-    return this.http.put<Comment>(`http://localhost:8082/comments/${bug_id}/${comment_id}`, comment)
-      .pipe(map((resp: Comment) => { return resp })
+  public updateComment(
+    bug_id: number,
+    comment_id: number,
+    comment: Comment
+  ): Observable<Comment> {
+    return this.http
+      .put<Comment>(
+        `http://localhost:8082/comments/${bug_id}/${comment_id}`,
+        comment
+      )
+      .pipe(
+        map((resp: Comment) => {
+          return resp;
+        })
       );
   }
 
   public removeCommentById(comment_id: number): Observable<{}> {
-    return this.http.delete(`http://localhost:8082/comments/${comment_id}`)
+    return this.http.delete(`http://localhost:8082/comments/${comment_id}`);
   }
- public removeCommentsByBugId(bug_id: number): Observable<{}> {
-    return this.http.delete(`http://localhost:8082/comments/by_bug_id/${bug_id}`)
+  public removeCommentsByBugId(bug_id: number): Observable<{}> {
+    return this.http.delete(
+      `http://localhost:8082/comments/by_bug_id/${bug_id}`
+    );
   }
-
 }

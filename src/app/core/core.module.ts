@@ -5,15 +5,13 @@ import { BugsService } from './data-access/bugs.service';
 import { CommentsService } from './data-access/comments.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [HomeComponent, FooterComponent,
-    HeaderComponent],
-  imports: [
-    RouterModule,
-  ], providers: [BugsService, AccountsService, CommentsService],
-  exports: [HttpClientModule]
+  declarations: [HomeComponent, FooterComponent, HeaderComponent],
+  imports: [RouterModule],
+  providers: [BugsService, AccountsService, CommentsService],
+  exports: [HttpClientModule],
 })
-export class CoreModule { }
+export class CoreModule {}

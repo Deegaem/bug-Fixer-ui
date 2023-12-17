@@ -7,9 +7,7 @@ import { AccountsService } from '../core/data-access/accounts.service';
 
 @NgModule({
   declarations: [LoginComponent, AddEditAccountComponent],
-  imports: [
-    SharedModule,
-    AuthenticationRoutingModule
-  ], providers: [AccountsService],
+  imports: [SharedModule, AuthenticationRoutingModule],
+  providers: [AccountsService],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

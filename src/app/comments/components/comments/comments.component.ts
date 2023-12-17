@@ -8,13 +8,18 @@ import { CommentsService } from 'src/app/core/data-access/comments.service';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent implements OnInit {
   @Input() comments: any[] = [];
   accountinfo!: Account;
   @Input() bug_id!: number;
-  constructor(private accountsService: AccountsService, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute,) { }
+  constructor(
+    private accountsService: AccountsService,
+    private commentsService: CommentsService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     // todo join observables
@@ -25,7 +30,7 @@ export class CommentsComponent implements OnInit {
          console.log("comments: ", comments)
        });
      }); */
-     console.log("comments from commentscomponent: ", this.comments)
+    console.log('Rootcomments From comments component: ', this.comments);
   }
   createComment() {
     this.router.navigate(['comments/comment-form']);
@@ -36,18 +41,19 @@ export class CommentsComponent implements OnInit {
   }
 
   removeComment(comment_id: number) {
-    this.commentsService.removeCommentById(comment_id).subscribe(() => {
-    });
+    this.commentsService.removeCommentById(comment_id).subscribe(() => {});
   }
 
   removeCommentfun(comment: any) {
-    console.log("comment from comments component: ", comment);
+    console.log('comment from comments component: ', comment);
   }
   showAccountInfo(account_id: number) {
     // todo take it from the localstorge
-    this.accountsService.getAccount(account_id).subscribe((account: Account) => {
-      this.accountinfo = account;
-      console.log("Account: ", account)
-    });
+    this.accountsService
+      .getAccount(account_id)
+      .subscribe((account: Account) => {
+        this.accountinfo = account;
+        console.log('Account: ', account);
+      });
   }
 }

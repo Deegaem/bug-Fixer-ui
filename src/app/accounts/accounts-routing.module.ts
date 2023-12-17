@@ -5,13 +5,14 @@ import { Accountsresolver } from './data-access/accountsresolver';
 
 const routes: Routes = [
   {
-    path: 'account-list', component: AccountListComponent,
-    resolve: { stuff: Accountsresolver }
+    path: 'account-list',
+    component: AccountListComponent,
+    resolve: { stuff: Accountsresolver },
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AccountsRoutingModule { }
+export class AccountsRoutingModule {}

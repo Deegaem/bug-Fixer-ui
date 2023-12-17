@@ -3,10 +3,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "firefox",
+      "name": "Launch Chrome",
       "request": "launch",
-      "reAttach": true,
-      "name": "Launch localhost",
+      "type": "chrome",
+      "preLaunchTask": "npm: start",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     }

@@ -8,14 +8,19 @@ import { AuthGuardService } from '../authentication/data-access/auth.guard.servi
 import { Bugsresolver } from './data-access/bugsresolver';
 
 const routes: Routes = [
-  { path: 'bugs', component: BugsComponent, canActivate: [AuthGuardService], resolve: { bugs: Bugsresolver } },
+  {
+    path: 'bugs',
+    component: BugsComponent,
+    canActivate: [AuthGuardService],
+    resolve: { bugs: Bugsresolver },
+  },
   { path: 'details/:id', component: BugdetailsComponent },
   { path: 'add', component: AddEditBugComponent },
   { path: 'edit/:id', component: AddEditBugComponent },
-  { path: 'bug-screen-shot', component: BugScreenShotComponent }
-]
+  { path: 'bug-screen-shot', component: BugScreenShotComponent },
+];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class BugsRoutingModule { }
+export class BugsRoutingModule {}

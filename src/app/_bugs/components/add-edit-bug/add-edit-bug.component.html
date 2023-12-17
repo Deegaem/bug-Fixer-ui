@@ -1,136 +1,252 @@
-<div class="container-md d-flex justify-content-center align-items-center bg-light">
-    <div class="w-md-80">
-        <div class="text-center p-5">
-            <h1 *ngIf="isAddMode">Add Bug Form</h1>
-            <h1 *ngIf="!isAddMode">Edit Bug Form</h1>
-        </div>
-        <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-            <form class="row g-3 needs-validation" [formGroup]="addEditBugForm" novalidate (ngSubmit)="onSubmit()">
-                <div class="is-valid">
-                    <label for="bugtitle" class="form-label" [ngClass]="{
-              'text-success':submitted && bugtitle?.valid,
-              'text-danger':submitted && bugtitle?.invalid
-              }">Bug Title</label>
-                    <input type="text" class="form-control" id="bugtitle" [ngClass]="{
-                'is-valid':submitted && bugtitle?.valid,
-                'is-invalid':submitted && bugtitle?.invalid
-                }" formControlName="bugtitle">
-                    <div class="invalid-feedback" *ngIf="submitted && bugtitle?.invalid">
-                        <div *ngIf="bugtitle?.getError('required')">Bug Title is required</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Assign to</label>
-                    <select id="inputState" class="form-select" formControlName="account_id">
-                        <option selected>Choose...</option>
-                        <!--  <option *ngFor="let account of accounts" [value]="account.account_id">{{account.username}}
-                        </option> -->
-                        <option *ngFor="let item of assignedtoArray" [value]="item">
-                            {{item}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Status</label>
-                    <select id="inputState" class="form-select" formControlName="status">
-                        <option selected>Choose...</option>
-                        <option *ngFor="let item of statusArray" [value]="item">
-                            {{item}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Priority</label>
-                    <select id="inputState" class="form-select" formControlName="priority">
-                        <option selected>Choose...</option>
-                        <option *ngFor="let item of priorityArray" [value]="item">
-                            {{item}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputState" class="form-label">Severity</label>
-                    <select id="inputState" class="form-select" formControlName="severity">
-                        <option selected>Choose...</option>
-                        <option *ngFor="let item of severityArray" [value]="item">
-                            {{item}}
-                        </option>
-                    </select>
-                </div>
-                <div class="is-valid">
-                    <label for="description" class="form-label" [ngClass]="{
-                        'text-success':submitted && description?.valid,
-                        'text-danger':submitted && description?.invalid
-                        }">Description</label>
-                    <textarea class="form-control" id="description" rows="3" [ngClass]="{
-                        'is-valid':submitted && description?.valid,
-                        'is-invalid':submitted && description?.invalid
-                        }" formControlName="description"></textarea>
-                    <div class="invalid-feedback" *ngIf="submitted && description?.invalid">
-                        <div *ngIf="description?.getError('required')">Description is required</div>
-                    </div>
-                </div>
-                <div class="is-valid">
-                    <label for="stepstoreproduce" class="form-label" [ngClass]="{
-                        'text-success':submitted && stepstoreproduce?.valid,
-                        'text-danger':submitted && stepstoreproduce?.invalid
-                        }">Steps To Reproduce</label>
-                    <textarea class="form-control" id="stepstoreproduce" rows="3" [ngClass]="{
-                        'is-valid':submitted && stepstoreproduce?.valid,
-                        'is-invalid':submitted && stepstoreproduce?.invalid
-                        }" formControlName="stepstoreproduce">></textarea>
-                    <div class="invalid-feedback" *ngIf="submitted && stepstoreproduce?.invalid">
-                        <div *ngIf="stepstoreproduce?.getError('required')">Steps To Reproduce is required</div>
-                    </div>
-                </div>
-                <div class="is-valid">
-                    <label for="expectedresult" class="form-label" [ngClass]="{
-                        'text-success':submitted && expectedresult?.valid,
-                        'text-danger':submitted && expectedresult?.invalid
-                        }">Expected Result</label>
-                    <textarea class="form-control" id="expectedresult" rows="3" [ngClass]="{
-                        'is-valid':submitted && expectedresult?.valid,
-                        'is-invalid':submitted && expectedresult?.invalid
-                        }" formControlName="expectedresult">></textarea>
-                    <div class="invalid-feedback" *ngIf="submitted && expectedresult?.invalid">
-                        <div *ngIf="expectedresult?.getError('required')">Expected Result is
-                            required
-                        </div>
-                    </div>
-                </div>
-                <div class="is-valid">
-                    <label for="actualresult" class="form-label" [ngClass]="{
-                        'text-success':submitted && actualresult?.valid,
-                        'text-danger':submitted && actualresult?.invalid
-                        }">Actual Result</label>
-                    <textarea class="form-control" id="actualresult" rows="3" [ngClass]="{
-                        'is-valid':submitted && actualresult?.valid,
-                        'is-invalid':submitted && actualresult?.invalid
-                        }" formControlName="actualresult"></textarea>
-                    <div class="invalid-feedback" *ngIf="submitted && actualresult?.invalid">
-                        <div *ngIf="actualresult?.getError('required')">Actual Result is
-                            required
-                        </div>
-                    </div>
-                </div>
-                <div class="is-valid">
-                    <label for="screenshoturl" class="form-label" [ngClass]="{
-              'text-success':submitted && screenshoturl?.valid,
-              'text-danger':submitted && screenshoturl?.invalid
-              }">Screen Shot Url</label>
-                    <input type="text" class="form-control" id="screenshoturl" [ngClass]="{
-                'is-valid':submitted && screenshoturl?.valid,
-                'is-invalid':submitted && screenshoturl?.invalid
-                }" formControlName="screenshoturl">
-                    <div class="invalid-feedback" *ngIf="submitted && screenshoturl?.invalid">
-                        <div *ngIf="screenshoturl?.getError('required')">Screen Shot Url is required</div>
-                    </div>
-                </div>
-                <div class="d-flex flex-row-reverse">
-                    <button class="btn btn-sm btn-primary ms-1" (click)="back()">Cancel</button>
-                    <button class="btn btn-sm btn-primary" type="submit">Submit form</button>
-                </div>
-            </form>
-        </div>
+<div
+  class="container-md d-flex justify-content-center align-items-center bg-light"
+>
+  <div class="w-md-80">
+    <div class="text-center p-5">
+      <h1 *ngIf="isAddMode">Add Bug Form</h1>
+      <h1 *ngIf="!isAddMode">Edit Bug Form</h1>
     </div>
+    <div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+      <form
+        class="row g-3 needs-validation"
+        [formGroup]="addEditBugForm"
+        novalidate
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="is-valid">
+          <label
+            for="bugtitle"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && bugtitle?.valid,
+              'text-danger': submitted && bugtitle?.invalid
+            }"
+            >Bug Title</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="bugtitle"
+            [ngClass]="{
+              'is-valid': submitted && bugtitle?.valid,
+              'is-invalid': submitted && bugtitle?.invalid
+            }"
+            formControlName="bugtitle"
+          />
+          <div class="invalid-feedback" *ngIf="submitted && bugtitle?.invalid">
+            <div *ngIf="bugtitle?.getError('required')">
+              Bug Title is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Assign to</label>
+          <select
+            id="inputState"
+            class="form-select"
+            formControlName="account_id"
+          >
+            <option selected>Choose...</option>
+            <!--  <option *ngFor="let account of accounts" [value]="account.account_id">{{account.username}}
+                        </option> -->
+            <option *ngFor="let item of assignedtoArray" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Status</label>
+          <select id="inputState" class="form-select" formControlName="status">
+            <option selected>Choose...</option>
+            <option *ngFor="let item of statusArray" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Priority</label>
+          <select
+            id="inputState"
+            class="form-select"
+            formControlName="priority"
+          >
+            <option selected>Choose...</option>
+            <option *ngFor="let item of priorityArray" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Severity</label>
+          <select
+            id="inputState"
+            class="form-select"
+            formControlName="severity"
+          >
+            <option selected>Choose...</option>
+            <option *ngFor="let item of severityArray" [value]="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div class="is-valid">
+          <label
+            for="description"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && description?.valid,
+              'text-danger': submitted && description?.invalid
+            }"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            id="description"
+            rows="3"
+            [ngClass]="{
+              'is-valid': submitted && description?.valid,
+              'is-invalid': submitted && description?.invalid
+            }"
+            formControlName="description"
+          ></textarea>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && description?.invalid"
+          >
+            <div *ngIf="description?.getError('required')">
+              Description is required
+            </div>
+          </div>
+        </div>
+        <div class="is-valid">
+          <label
+            for="stepstoreproduce"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && stepstoreproduce?.valid,
+              'text-danger': submitted && stepstoreproduce?.invalid
+            }"
+            >Steps To Reproduce</label
+          >
+          <textarea
+            class="form-control"
+            id="stepstoreproduce"
+            rows="3"
+            [ngClass]="{
+              'is-valid': submitted && stepstoreproduce?.valid,
+              'is-invalid': submitted && stepstoreproduce?.invalid
+            }"
+            formControlName="stepstoreproduce"
+          >
+></textarea
+          >
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && stepstoreproduce?.invalid"
+          >
+            <div *ngIf="stepstoreproduce?.getError('required')">
+              Steps To Reproduce is required
+            </div>
+          </div>
+        </div>
+        <div class="is-valid">
+          <label
+            for="expectedresult"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && expectedresult?.valid,
+              'text-danger': submitted && expectedresult?.invalid
+            }"
+            >Expected Result</label
+          >
+          <textarea
+            class="form-control"
+            id="expectedresult"
+            rows="3"
+            [ngClass]="{
+              'is-valid': submitted && expectedresult?.valid,
+              'is-invalid': submitted && expectedresult?.invalid
+            }"
+            formControlName="expectedresult"
+          >
+></textarea
+          >
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && expectedresult?.invalid"
+          >
+            <div *ngIf="expectedresult?.getError('required')">
+              Expected Result is required
+            </div>
+          </div>
+        </div>
+        <div class="is-valid">
+          <label
+            for="actualresult"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && actualresult?.valid,
+              'text-danger': submitted && actualresult?.invalid
+            }"
+            >Actual Result</label
+          >
+          <textarea
+            class="form-control"
+            id="actualresult"
+            rows="3"
+            [ngClass]="{
+              'is-valid': submitted && actualresult?.valid,
+              'is-invalid': submitted && actualresult?.invalid
+            }"
+            formControlName="actualresult"
+          ></textarea>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && actualresult?.invalid"
+          >
+            <div *ngIf="actualresult?.getError('required')">
+              Actual Result is required
+            </div>
+          </div>
+        </div>
+        <div class="is-valid">
+          <label
+            for="screenshoturl"
+            class="form-label"
+            [ngClass]="{
+              'text-success': submitted && screenshoturl?.valid,
+              'text-danger': submitted && screenshoturl?.invalid
+            }"
+            >Screen Shot Url</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="screenshoturl"
+            [ngClass]="{
+              'is-valid': submitted && screenshoturl?.valid,
+              'is-invalid': submitted && screenshoturl?.invalid
+            }"
+            formControlName="screenshoturl"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && screenshoturl?.invalid"
+          >
+            <div *ngIf="screenshoturl?.getError('required')">
+              Screen Shot Url is required
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+          <button class="btn btn-sm btn-primary ms-1" (click)="back()">
+            Cancel
+          </button>
+          <button class="btn btn-sm btn-primary" type="submit">
+            Submit form
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

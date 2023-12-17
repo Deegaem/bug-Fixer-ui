@@ -7,12 +7,16 @@ import { Bug } from '../../data-access/bug';
 @Component({
   selector: 'app-bugs',
   templateUrl: './bugs.component.html',
-  styleUrls: ['./bugs.component.scss']
+  styleUrls: ['./bugs.component.scss'],
 })
 export class BugsComponent implements OnInit {
   bugs: Bug[] = [];
   account!: Account;
-  constructor(private route: ActivatedRoute, private accountsService: AccountsService, private router: Router,) { }
+  constructor(
+    private route: ActivatedRoute,
+    private accountsService: AccountsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.bugs = this.route.snapshot.data['bugs'];
@@ -22,14 +26,17 @@ export class BugsComponent implements OnInit {
   }
 
   showAccountInfo(account_id: number) {
-    this.accountsService.getAccount(account_id).subscribe((account: Account) => {
-      this.account = account;
-    });
+    this.accountsService
+      .getAccount(account_id)
+      .subscribe((account: Account) => {
+        this.account = account;
+      });
   }
 
   public removeBugfun(_bug: any) {
-    console.log("from removebugfun on bugs component");
-    this.bugs = this.bugs.filter((bug) => { return bug.bug_id != _bug.bug_id });
+    console.log('from removebugfun on bugs component');
+    this.bugs = this.bugs.filter((bug) => {
+      return bug.bug_id != _bug.bug_id;
+    });
   }
-
 }

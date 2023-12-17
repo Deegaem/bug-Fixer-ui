@@ -6,16 +6,18 @@ import { AccountsService } from 'src/app/core/data-access/accounts.service';
 @Component({
   selector: 'app-account-list',
   templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.scss']
+  styleUrls: ['./account-list.component.scss'],
 })
 export class AccountListComponent implements OnInit {
-
   accounts: Account[] = [];
 
-  constructor(private route: ActivatedRoute, private accountsService: AccountsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private accountsService: AccountsService
+  ) {}
 
   ngOnInit(): void {
-    this.accounts = this.route.snapshot.data['stuff']
+    this.accounts = this.route.snapshot.data['stuff'];
   }
 
   removeAccountfun(_account: Account) {
@@ -24,9 +26,8 @@ export class AccountListComponent implements OnInit {
     });
   }
   private getAccounts() {
-    this.accountsService.getAccounts().subscribe(res => {
+    this.accountsService.getAccounts().subscribe((res) => {
       this.accounts = res;
     });
   }
-
 }
