@@ -13,14 +13,14 @@
         placeholder="Leave a comment here"
         id="floatingTextarea"
         [ngClass]="{
-          'is-valid': submitted && comment?.valid,
-          'is-invalid': submitted && comment?.invalid
+          'is-valid': submitted && commenttext?.valid,
+          'is-invalid': submitted && commenttext?.invalid
         }"
-        formControlName="comment"
+        formControlName="commenttext"
       ></textarea>
-      <label for="floatingTextarea">Leave a comment here</label>
-      <div class="invalid-feedback" *ngIf="submitted && comment?.invalid">
-        <div *ngIf="comment?.getError('required')">Comment is required</div>
+      <label for="floatingTextarea">Leave a commenttext here</label>
+      <div class="invalid-feedback" *ngIf="submitted && commenttext?.invalid">
+        <div *ngIf="commenttext?.getError('required')">Comment is required</div>
       </div>
     </div>
     <div class="d-flex flex-row-reverse mt-2">

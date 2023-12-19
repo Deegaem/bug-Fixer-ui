@@ -14,12 +14,19 @@ export class CommentsComponent implements OnInit {
   @Input() comments: any[] = [];
   accountinfo!: Account;
   @Input() bug_id!: number;
+  commentcomponentinstance: number = 0;
   constructor(
     private accountsService: AccountsService,
     private commentsService: CommentsService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.commentcomponentinstance++;
+    console.log(
+      'instance root comment component instance:',
+      this.commentcomponentinstance++
+    );
+  }
 
   ngOnInit(): void {
     // todo join observables

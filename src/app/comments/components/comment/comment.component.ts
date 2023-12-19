@@ -17,7 +17,14 @@ export class CommentComponent implements OnInit {
   childComments: Comment[] = [];
   replyflag: boolean = false;
   editflag: boolean = false;
-  constructor(private commentsService: CommentsService) {}
+  commentcomponentinstance: number = 0;
+  constructor(private commentsService: CommentsService) {
+    this.commentcomponentinstance++;
+    console.log(
+      'instance child comment component:',
+      this.commentcomponentinstance
+    );
+  }
 
   ngOnInit(): void {
     // console.log("replyflag:", this.replyflag);

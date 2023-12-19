@@ -53,7 +53,7 @@ export class CommentsService {
   }
 
   public addComment(comment: any): Observable<any> {
-    return this.http.post<any>(`http://localhost:8082/comments/`, comment).pipe(
+    return this.http.post<any>(`http://localhost:8082/comments`, comment).pipe(
       map((resp: Comment) => {
         return resp;
       })

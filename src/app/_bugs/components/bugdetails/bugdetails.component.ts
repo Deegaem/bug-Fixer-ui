@@ -35,7 +35,7 @@ export class BugdetailsComponent implements OnInit {
       .getCommentsByBugId(this.id, null)
       .subscribe((res: any[]) => {
         this.rootComments = res;
-        console.log('bug_id from comments component', this.id);
+        console.log('bug_id from bugdetails component', this.id);
         console.log(
           'Rootcomments from Bugdetailscomponent: ',
           this.rootComments

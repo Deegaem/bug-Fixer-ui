@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CommentsService } from 'src/app/core/data-access/comments.service';
 import { Comment } from '../../data-access/comment';
+import { r3JitTypeSourceSpan } from '@angular/compiler';
 
 @Component({
   selector: 'app-add-edit-comment',
@@ -11,10 +12,11 @@ import { Comment } from '../../data-access/comment';
 })
 export class AddEditCommentComponent implements OnInit {
   @Input() editValue!: Comment;
+  //@Input() parent_id!: number;
+  @Input() bug_id!: number;
   @Output() cancelCommentEvent = new EventEmitter<boolean>();
   cancelComment = true;
   addEditCommentForm!: FormGroup;
-  bug_id!: number;
   comment_id!: number;
   isAddMode!: boolean;
   submitted = false;
@@ -29,6 +31,7 @@ export class AddEditCommentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.bug_id = 1;
     // this.route.params.subscribe((params: Params) => {
     //   this.bug_id = + params['bug_id'];
     //   this.comment_id = + params['comment_id'];
@@ -36,17 +39,15 @@ export class AddEditCommentComponent implements OnInit {
     // this.isAddMode = !this.comment_id;
 
     this.addEditCommentForm = this.fb.group({
-      comment: ['', [Validators.required]],
-      account_id: ['', [Validators.required]],
-      bug_id: ['', [Validators.required]],
-      parent_id: ['', [Validators.required]],
+      commenttext: ['', [Validators.required]],
     });
   }
-  //get comment() { return this.addEditCommentForm.get('comment'); }
+  //get commenttext() { return this.addEditCommentForm.get('commenttext'); }
 
   onSubmit() {
     this.submitted = true;
     if (!this.addEditCommentForm.invalid) {
+      this.addComment();
       if (this.isAddMode) {
         //this.addComment();
       } else {
@@ -57,14 +58,19 @@ export class AddEditCommentComponent implements OnInit {
   private addComment() {
     this.commentsService
       .addComment({
-        commenttext: this.addEditCommentForm.value.comment,
+        commenttext: this.addEditCommentForm.value.commenttext,
         account_id: 1,
-        bug_id: 3,
-        parent_id: 2,
-        created: undefined,
+        bug_id: this.bug_id,
+        parent_id: null,
       })
       .subscribe((res) => {
-        this.router.navigate(['comments']);
+        this.addEditCommentForm.reset();
+        this.router.navigate(['bugs-routing/details', this.bug_id]);
+        console.log(
+          'bug_id from subscribe add-edit-comment-component',
+          this.bug_id
+        );
+        console.log('res from subscribe add-edit-comment-component', res);
       });
   }
   // private updateComment() {
@@ -72,19 +78,19 @@ export class AddEditCommentComponent implements OnInit {
   //     this.router.navigate(['comments']);
   //   });
   // }
-  get comment() {
-    return this.addEditCommentForm.get('comment');
+  get commenttext() {
+    return this.addEditCommentForm.get('commenttext');
   }
   public cancelCommentfun() {
     this.addEditCommentForm.reset();
-    this.addEditCommentForm.get('comment')?.pristine == true;
+    this.addEditCommentForm.get('commenttext')?.pristine == true;
     this.cancelComment = !this.cancelComment;
     this.cancelCommentEvent.emit(this.cancelComment);
     console.log('flag from add-edit-component: ', this.cancelComment);
   }
   updateForm() {
     this.addEditCommentForm.patchValue({
-      comment: this.editValue.commenttext,
+      commenttext: this.editValue.commenttext,
       byaccount: this.editValue.account_id,
       forbug: this.editValue.bug_id,
     });

@@ -51,6 +51,7 @@
     </button>
     <div id="demo" class="collapse">
       <app-add-edit-comment
+        [bug_id]="id"
         (cancelComment)="update($event)"
       ></app-add-edit-comment>
       <app-comments [bug_id]="id" [comments]="rootComments"></app-comments>
