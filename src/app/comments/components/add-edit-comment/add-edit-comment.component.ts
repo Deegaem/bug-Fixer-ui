@@ -11,14 +11,14 @@ import { r3JitTypeSourceSpan } from '@angular/compiler';
   styleUrls: ['./add-edit-comment.component.scss'],
 })
 export class AddEditCommentComponent implements OnInit {
-  @Input() editValue!: Comment;
+  @Input() isAddMode!: boolean;
+  @Input() isreplyFlag!: boolean;
+  @Input() comment!: Comment;
   //@Input() parent_id!: number;
   @Input() bug_id!: number;
   @Output() cancelCommentEvent = new EventEmitter<boolean>();
   cancelComment = true;
   addEditCommentForm!: FormGroup;
-  comment_id!: number;
-  isAddMode!: boolean;
   submitted = false;
 
   constructor(
@@ -26,73 +26,98 @@ export class AddEditCommentComponent implements OnInit {
     private commentsService: CommentsService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    //private fb: FormBuilder, private commentsService: CommentsService, private router: Router, private route: ActivatedRoute
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.bug_id = 1;
+    this.addEditCommentForm = this.fb.group({
+      commenttext: ['', [Validators.required]],
+    });
+    if (!this.isAddMode) {
+      this.updateForm();
+    }
+    console.log('from add-edit-component comment:', this.comment);
+    console.log('from add-edit-component isAddMode:', this.isAddMode);
+    console.log('from add-edit-component isreplyFlag:', this.isreplyFlag);
+    console.log('from add-edit-component bug_id:', this.bug_id);
+    // this.bug_id = 1;
     // this.route.params.subscribe((params: Params) => {
     //   this.bug_id = + params['bug_id'];
     //   this.comment_id = + params['comment_id'];
     // });
     // this.isAddMode = !this.comment_id;
-
-    this.addEditCommentForm = this.fb.group({
-      commenttext: ['', [Validators.required]],
-    });
+    //this.isreplyFlag = false;
   }
   //get commenttext() { return this.addEditCommentForm.get('commenttext'); }
 
   onSubmit() {
     this.submitted = true;
     if (!this.addEditCommentForm.invalid) {
-      this.addComment();
       if (this.isAddMode) {
-        //this.addComment();
+        this.addComment();
       } else {
-        //this.updateComment();
+        this.updateComment();
       }
+      // this.addEditCommentForm.reset();
     }
   }
   private addComment() {
+    if (this.isreplyFlag) {
+      this.commentsService
+        .addComment({
+          commenttext: this.addEditCommentForm.value.commenttext,
+          account_id: 1, //login ID
+          bug_id: this.comment.bug_id,
+          parent_id: this.comment.comment_id,
+        })
+        .subscribe((res) => {
+          //Todo res is null
+          // add res to comments array
+          console.log('from add-edit-component add reply: res ');
+          this.cancelCommentfun();
+        });
+    } else {
+      this.commentsService
+        .addComment({
+          commenttext: this.addEditCommentForm.value.commenttext,
+          account_id: 1, //loging ID
+          bug_id: this.bug_id,
+          parent_id: null,
+        })
+        .subscribe((res) => {
+          //Todo res is null
+          // add res to comments array
+
+          //this.addEditCommentForm.pristine;
+          console.log('reset from add-edit-component: ');
+        });
+    }
+  }
+  private updateComment() {
     this.commentsService
-      .addComment({
+      .updateComment({
+        comment_id: this.comment.comment_id,
         commenttext: this.addEditCommentForm.value.commenttext,
-        account_id: 1,
-        bug_id: this.bug_id,
-        parent_id: null,
+        account_id: this.comment.account_id,
+        bug_id: this.comment.bug_id,
+        parent_id: this.comment.parent_id,
       })
       .subscribe((res) => {
-        this.addEditCommentForm.reset();
-        this.router.navigate(['bugs-routing/details', this.bug_id]);
-        console.log(
-          'bug_id from subscribe add-edit-comment-component',
-          this.bug_id
-        );
-        console.log('res from subscribe add-edit-comment-component', res);
+        this.cancelCommentfun();
+        //this.router.navigate(['comments']);
       });
   }
-  // private updateComment() {
-  //   this.commentsService.updateComment(this.bug_id, this.comment_id, this.addEditCommentForm.value).subscribe(res => {
-  //     this.router.navigate(['comments']);
-  //   });
-  // }
   get commenttext() {
     return this.addEditCommentForm.get('commenttext');
   }
   public cancelCommentfun() {
     this.addEditCommentForm.reset();
-    this.addEditCommentForm.get('commenttext')?.pristine == true;
+    //this.addEditCommentForm.get('commenttext')?.pristine == true;
     this.cancelComment = !this.cancelComment;
     this.cancelCommentEvent.emit(this.cancelComment);
-    console.log('flag from add-edit-component: ', this.cancelComment);
   }
   updateForm() {
     this.addEditCommentForm.patchValue({
-      commenttext: this.editValue.commenttext,
-      byaccount: this.editValue.account_id,
-      forbug: this.editValue.bug_id,
+      commenttext: this.comment.commenttext,
     });
   }
 }

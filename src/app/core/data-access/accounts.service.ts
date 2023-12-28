@@ -9,10 +9,17 @@ import { map } from 'rxjs/operators';
 })
 export class AccountsService {
   constructor(private http: HttpClient) {}
-  public getAccounts(): Observable<Account[]> {
-    return this.http.get<Account[]>(`http://localhost:8080/accounts`).pipe(
-      map((resp: Account[]) => {
-        return resp;
+  public getAccounts(): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/accounts`).pipe(
+      map((resp: any) => {
+        var accounts: Array<any> = [];
+        resp.map((account: any) => {
+          accounts.push({
+            account_id: account.account_id,
+            fname: account.fname,
+          });
+        });
+        return accounts;
       })
     );
   }

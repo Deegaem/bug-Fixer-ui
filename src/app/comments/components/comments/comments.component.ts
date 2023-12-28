@@ -39,13 +39,6 @@ export class CommentsComponent implements OnInit {
      }); */
     console.log('Rootcomments From comments component: ', this.comments);
   }
-  createComment() {
-    this.router.navigate(['comments/comment-form']);
-  }
-
-  editComment(comment: Comment) {
-    this.router.navigate(['comments/comment-form', comment.comment_id]);
-  }
 
   removeComment(comment_id: number) {
     this.commentsService.removeCommentById(comment_id).subscribe(() => {});

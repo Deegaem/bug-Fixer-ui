@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [HomeComponent, FooterComponent, HeaderComponent],
   imports: [RouterModule],
-  providers: [BugsService, AccountsService, CommentsService],
   exports: [HttpClientModule],
 })
 export class CoreModule {}

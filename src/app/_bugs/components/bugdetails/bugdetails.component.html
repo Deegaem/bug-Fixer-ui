@@ -52,6 +52,8 @@
     <div id="demo" class="collapse">
       <app-add-edit-comment
         [bug_id]="id"
+        [isAddMode]="isAddMode"
+        [isreplyFlag]="isreplyFlag"
         (cancelComment)="update($event)"
       ></app-add-edit-comment>
       <app-comments [bug_id]="id" [comments]="rootComments"></app-comments>

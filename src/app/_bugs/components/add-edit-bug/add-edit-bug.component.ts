@@ -13,7 +13,7 @@ import { BugsService } from 'src/app/core/data-access/bugs.service';
 export class AddEditBugComponent implements OnInit {
   addEditBugForm!: FormGroup;
   // Todo by Editing a Bug modified is null.
-  accounts: Account[] = [];
+  accounts: any[] = []; //Todo twoway binding
   id!: number;
   isAddMode = true;
   submitted = false;
@@ -64,7 +64,7 @@ export class AddEditBugComponent implements OnInit {
       });
       this.isAddMode = false;
     }
-    //this.getAccounts();
+    this.getAccounts();
   }
 
   onSubmit() {
@@ -109,6 +109,7 @@ export class AddEditBugComponent implements OnInit {
   private getAccounts() {
     this.accountsService.getAccounts().subscribe((res) => {
       this.accounts = res;
+      console.log('Accounts from add-edit-bug component:', this.accounts);
     });
   }
 

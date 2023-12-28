@@ -13,8 +13,10 @@ export class CommentComponent implements OnInit {
   @Input() bug_id!: number;
   @Input() accountinfo!: Account;
   @Output() removeCommentEvent = new EventEmitter<Comment>();
-  editValue!: Comment;
+  //editValue!: Comment;
   childComments: Comment[] = [];
+  isAddMode!: boolean;
+  isreplyFlag!: boolean;
   replyflag: boolean = false;
   editflag: boolean = false;
   commentcomponentinstance: number = 0;
@@ -43,19 +45,48 @@ export class CommentComponent implements OnInit {
         console.log('bug ID from child component:', this.bug_id);
         console.log('parent ID from child component:', this.comment.comment_id);
         console.log('childcomments from child component', this.childComments);
+        console.log('comment from comment component:', this.comment);
       });
   }
   edit() {
-    this.editValue = this.comment;
     this.editflag = true;
+    this.isAddMode = false;
   }
 
-  remove() {
-    this.removeCommentEvent.emit(this.comment);
+  removeComment() {
+    if (this.childComments.length) {
+      if (
+        confirm(
+          'Are you sure to delete this comment? you will delete also all it related Replys '
+        )
+      ) {
+        this.commentsService
+          .removeCommentsByParentId(this.comment.comment_id)
+          .subscribe((res: any) => {
+            this.removeCommentEvent.emit(this.comment);
+            console.log(
+              'from comment component removecommentsbyparentid:',
+              this.comment.comment_id
+            );
+          });
+      }
+    } else if (confirm('Are you sure to delete this comment?')) {
+      this.commentsService
+        .removeCommentById(this.comment.comment_id)
+        .subscribe((res: any) => {
+          this.removeCommentEvent.emit(this.comment);
+          console.log(
+            'from comment component removecomment:',
+            this.comment.comment_id
+          );
+        });
+    }
   }
 
   reply() {
     this.replyflag = !this.replyflag;
+    this.isAddMode = true;
+    this.isreplyFlag = true;
   }
   public cancelreplyCommentfun(flag: any) {
     this.replyflag = flag;

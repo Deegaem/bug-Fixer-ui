@@ -41,16 +41,23 @@
         </div>
         <div class="col-md-6">
           <label for="inputState" class="form-label">Assign to</label>
+          <!--  <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select> -->
           <select
             id="inputState"
             class="form-select"
             formControlName="account_id"
           >
-            <option selected>Choose...</option>
-            <!--  <option *ngFor="let account of accounts" [value]="account.account_id">{{account.username}}
-                        </option> -->
-            <option *ngFor="let item of assignedtoArray" [value]="item">
-              {{ item }}
+            <option selected>Open this select menu</option>
+            <option
+              *ngFor="let account of accounts"
+              [value]="account.account_id"
+            >
+              {{ account.fname }}
             </option>
           </select>
         </div>

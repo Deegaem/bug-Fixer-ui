@@ -1,6 +1,7 @@
 <div *ngIf="editflag; else elseBlock">
   <app-add-edit-comment
-    [editValue]="editValue"
+    [comment]="comment"
+    [isAddMode]="isAddMode"
     (cancelCommentEvent)="canceleditCommentfun($event)"
   ></app-add-edit-comment>
 </div>
@@ -34,7 +35,7 @@
               <button
                 type="button"
                 class="btn btn-outline-danger"
-                (click)="remove()"
+                (click)="removeComment()"
               >
                 <i class="bi bi-trash"></i>
               </button>
@@ -47,6 +48,9 @@
 </ng-template>
 <div class="mt-3" *ngIf="replyflag">
   <app-add-edit-comment
+    [comment]="comment"
+    [isAddMode]="isAddMode"
+    [isreplyFlag]="isreplyFlag"
     (cancelCommentEvent)="cancelreplyCommentfun($event)"
   ></app-add-edit-comment>
 </div>

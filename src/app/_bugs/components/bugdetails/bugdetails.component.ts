@@ -12,6 +12,8 @@ import { Bug } from '../../data-access/bug';
 export class BugdetailsComponent implements OnInit {
   id!: number;
   bug!: Bug;
+  isAddMode: boolean = true;
+  isreplyFlag: boolean = false;
   rootComments: any[] = [];
   cancelComment!: boolean;
   constructor(
