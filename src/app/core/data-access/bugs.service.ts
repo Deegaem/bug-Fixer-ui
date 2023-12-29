@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { Bug } from 'src/app/_bugs/data-access/bug';
 
 @Injectable({
@@ -45,6 +45,12 @@ export class BugsService {
   }
 
   public removeBug(bug_id: number): Observable<{}> {
-    return this.http.delete(`http://localhost:8081/bugs/${bug_id}`);
+    return this.http.delete(`http://localhost:8081/bugs/${bug_id}`).pipe(
+      concatMap((id) => {
+        return this.http.delete(
+          `http://localhost:8082/comments/delete_all_by_bug_id/${id}`
+        );
+      })
+    );
   }
 }

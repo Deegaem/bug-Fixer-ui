@@ -102,9 +102,4 @@ export class CommentsService {
         })
       );
   }
-  public removeCommentsByBugId(bug_id: number): Observable<{}> {
-    return this.http.delete(
-      `http://localhost:8082/comments/delete_all_by_bug_id/${bug_id}`
-    );
-  }
 }
