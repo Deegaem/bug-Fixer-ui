@@ -5,7 +5,9 @@ export interface Bug {
   status: string;
   priority: string;
   severity: string;
-  assignedto: String;
+  assignedto: number;
+  assigntofname: string;
+  assigntolname: string;
   description: string;
   expectedresult: string;
   actualresult: string;

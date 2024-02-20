@@ -5,10 +5,13 @@
     </div>
     <ul class="list-group">
       <li class="list-group-item">
-        <p><span>bug Title :</span> {{ " " + bug.bugtitle }}</p>
+        <p><span>Bug Title :</span> {{ " " + bug.bugtitle }}</p>
       </li>
       <li class="list-group-item">
-        <p><span>AssignTo :</span> {{ " " + bug.account_id }}</p>
+        <p>
+          <span>AssignTo :</span>
+          {{ " " + bug.assigntofname + " " + bug.assigntolname }}
+        </p>
       </li>
       <li class="list-group-item">
         <p><span>Priority :</span>{{ " " + bug.priority }}</p>

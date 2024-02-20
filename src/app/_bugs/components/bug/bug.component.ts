@@ -36,6 +36,6 @@ export class BugComponent implements OnInit {
   }
 
   bugDetails() {
-    this.router.navigate(['bugs-routing/details', this.bug.bug_id]);
+    this.router.navigate(['bugs-routing/details/', this.bug.bug_id]);
   }
 }

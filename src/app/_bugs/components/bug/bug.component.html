@@ -1,16 +1,16 @@
 <div class="card border-0 shadow-sm bg-body-tertiary rounded">
   <div class="card-body">
-    <h5 class="card-title text-muted">
+    <h6 class="card-title text-muted">
       <i>Bug Title: </i>{{ " " + bug.bugtitle }}
-    </h5>
+    </h6>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <i>AssignTo:</i>{{ " " + bug.assigntofname + " " + bug.assigntolname }}
+    </h6>
     <h6 class="card-subtitle mb-2 text-muted">
       <i>Priority:</i>{{ " " + bug.priority }}
     </h6>
     <h6 class="card-subtitle mb-2 text-muted">
       <i>Status:</i>{{ " " + bug.status }}
-    </h6>
-    <h6 class="card-subtitle mb-2 text-muted">
-      <i>AssignTo:</i>{{ " " + bug.account_id }}
     </h6>
     <p class="card-text">
       <i class="text-muted">Description: </i>{{ " " + bug.description }}
